@@ -3,10 +3,10 @@ const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
 //Defines 'Comment' as a model
-class Comment extends Model {}
+class Reaction extends Model {}
 
 //Creates a new model for a Comment
-Comment.init(
+Reaction.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -14,13 +14,16 @@ Comment.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    type: {
+        // ???????
+    },
     post_id: {
         type: DataTypes.INTEGER,
         references: {
           model: "post",
           key: "id",
         },
-      },  
+      },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
@@ -39,8 +42,8 @@ Comment.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "comment",
+    modelName: "reaction",
   }
 );
 
-module.exports = Comment;
+module.exports = Reaction;
