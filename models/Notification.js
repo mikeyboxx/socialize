@@ -3,10 +3,10 @@ const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
 //Defines 'Comment' as a model
-class Comment extends Model {}
+class Notification extends Model {}
 
 //Creates a new model for a Comment
-Comment.init(
+Notification.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -14,17 +14,6 @@ Comment.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    contents: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-    },
-    post_id: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: "post",
-          key: "id",
-        },
-      },  
     user_id: {
       type: DataTypes.INTEGER,
       references: {
@@ -32,14 +21,30 @@ Comment.init(
         key: "id",
       },
     },
+    type:{ 
+        // ????
+    }, 
+    type_id:{
+        // ????
+    },
+    post_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "post",
+        key: "id",
+      },
+    },
+    read_flag: {
+
+    },
   },
   {
     sequelize,
     timestamps: true,
     freezeTableName: true,
     underscored: true,
-    modelName: "comment",
+    modelName: "notification",
   }
 );
 
-module.exports = Comment;
+module.exports = Notification;
