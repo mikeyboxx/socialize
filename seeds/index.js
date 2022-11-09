@@ -2,7 +2,8 @@ const sequelize = require("../config/connection");
 const User = require("../models/User");
 const userSeeds = require("./user-seeds.json");
 
-const seedUsers = async() => {
+const seedDatabase = async() => {
+  try {
     await sequelize.sync({force: true})
 
     await User.bulkCreate(userSeeds, {
@@ -10,9 +11,16 @@ const seedUsers = async() => {
         returning: true
     }); 
 
+
+    
+
     process.exit(0);
+  } catch (err) {
+    console.log(err);
+    process.exit(1);
+  }
 };
 
 
 
-seedUsers();
+seedDatabase();
