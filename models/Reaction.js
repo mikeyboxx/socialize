@@ -14,8 +14,9 @@ Reaction.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    //type (like/dislike) - ??? 
     type: {
-        // ???????
+      type: DataTypes.STRING
     },
     post_id: {
         type: DataTypes.INTEGER,
