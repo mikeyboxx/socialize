@@ -1,9 +1,11 @@
+//Import sequelize library/package
 const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
+//Defines 'User' as a model
 class User extends Model {
-    //matching the password 
+    //This instance method uses a conditional statement to check the password
     checkPassword(loginPw) {
         return bcrypt.compareSync(loginPw, this.password);
       }
@@ -21,6 +23,14 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    email: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true,
+        validate: {
+            isEmail: true
+        }
+    },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -28,6 +38,11 @@ User.init(
         len: [6],
       },
     },
+    date_created: {
+        type: DataTypes.DATE,
+        allowNull: false,
+        defaultValue: DataTypes.NOW, 
+    },  
   },
   {
     hooks: {
@@ -48,4 +63,5 @@ User.init(
   }
 );
 
+//Export this model as 'User'
 module.exports = User;
