@@ -51,6 +51,23 @@ Reaction.belongsTo(User, {
   });
 
 
+// how could you connect commnet and reaction to notification 
+Notification.belongsTo(Comment, {
+    foreignKey: "Comment_id",
+    onDelete: "CASCADE",
+  });
+
+
+Notification.belongsTo(Reaction, {
+    foreignKey: "Reaction_id",
+    onDelete: "CASCADE",
+  });
+
+
+Notification.belongsTo(User, {
+    foreignKey: "user_id",
+    onDelete: "CASCADE",
+  });
 
 module.exports = {
   User,
