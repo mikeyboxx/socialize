@@ -2,6 +2,7 @@ const router = require('express').Router();
 const {User, Post} = require('../models');
 
 router.get('/', async (req, res) => {
+  console.log(req.session)
   try {
     const posts = await Post.findAll({
       include: [{ 
@@ -26,13 +27,13 @@ router.get('/', async (req, res) => {
       } 
       item.api_object = JSON.parse(item.api_json);
       return item;
+    
     });
-
-
     res.render('homepage', {
       loggedIn: true,
       notificationCount: 4,
       posts: postArr 
+      
       // loggedIn: req.session.loggedIn
     });
 
