@@ -1,0 +1,45 @@
+    {{> navbar}}
+
+
+
+
+
+<div id="feed" class="mx-6">
+  {{#each posts as |post|}}
+  <div class="card">
+      <div class="card-content">
+          {{#if post.human_post }}
+             {{> human-post item=post}}
+          {{/if}}
+
+           {{#if post.api_cocktail }}
+             {{> cocktail-post item=post.api_object}}
+          {{/if}}
+     
+           {{#if post.api_horoscope }}
+             {{> horoscope-post item=post.api_object}}
+          {{/if}}
+
+      </div>
+      <footer class="card-footer">
+          <a href="#" class="card-footer-item js-modal-trigger" data-target="static-modal">Comment</a>
+          <a href="#" class="card-footer-item">Like</a>
+          <a href="#" class="card-footer-item">Dislike</a>
+      </footer>
+  </div>
+  {{/each}}
+</div>
+
+
+{{!-- <div class="content">
+              <span class="icon">
+                  <img src="../public/Logo-filler.png" class="image is-32x32">
+              </span>
+              <p>{{post.contents}}</p>
+              <p>{{post.user.username}}</p>
+              <br>
+          </div> --}}
+
+{{!-- <div id="feed" class="mx-6">
+    {{> post-page}}
+</div> --}}

@@ -1,0 +1,17 @@
+ <nav class="navbar has-background-primary is-flex is-justify-content-space-evenly" role="navigation" aria-label="main navigation">
+        <div class="">
+            <img src="images/Logo-filler.png" class="image is-64x64">
+        </div>
+        <div class="navbar-item is-hoverable mt-1">
+            <a class="">Home</a>
+            <a class="">Dashboard</a>
+            <a class="">Notifications ({{notificationCount}})</a>
+            <a class="">New Post</a>
+            {{#if loggedIn}}
+            <a class="js-modal-trigger" data-target="sign-in">Logout</a>
+            {{else}}
+            <a class="js-modal-trigger" data-target="sign-in">Login</a>
+            {{/if}}
+            </div>
+        </div>
+    </nav>
