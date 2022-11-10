@@ -16,7 +16,7 @@ router.post("/", async (req, res) => {
     last_name = newUser.last_name;
 
     const usernameExists = await User.countDocuments({
-      username: newUser.username,
+      username: newUser.username.toLowerCase(),
     });
     if (usernameExists === 1) {
       errors.push({
