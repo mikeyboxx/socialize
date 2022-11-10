@@ -10,9 +10,9 @@ const loginRoute = require('./login-route.js');
 
 router.use('/api', apiRoute);
 
-router.use('/', homePageRoute);
+// router.use('/', homePageRoute);
 
-router.use('/login', loginRoute);
+router.use('/', loginRoute);
 
 // router.use('/signup', signupRoute);
 
