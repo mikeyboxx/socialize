@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
     res.redirect('/');
     return;
   }
-
+res.json
   // Otherwise, render the 'login' template
   res.render('signup', {
     loggedIn: req.session.loggedIn, 
