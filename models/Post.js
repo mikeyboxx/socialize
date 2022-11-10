@@ -22,7 +22,7 @@ Post.init(
     api_json: {
       type: DataTypes.TEXT,
     },
-   api_id: {
+    api_id: {
       type: DataTypes.INTEGER,
     },
     user_id: {

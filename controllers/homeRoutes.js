@@ -1,4 +1,14 @@
 const router = require('express').Router();
+
+router.get('/', async (req, res) => {
+  res.render('homepage', {
+      loggedIn: false,
+      notificationCount: 4 
+      // loggedIn: req.session.loggedIn  
+  });
+})
+
+
 // const {User, Post} = require('../models');
 
 
