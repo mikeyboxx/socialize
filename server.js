@@ -49,7 +49,7 @@ app.use(routes);
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, ()=>{
     apiDaemon();
-    apiCleanupDaemon();
+    // apiCleanupDaemon();
     console.log(`Server has started... Listening on http://localhost:${PORT}/`);
     console.log('Time:', Intl.DateTimeFormat('en-US',{dateStyle: 'long', timeStyle: 'long'}).format(new Date()));
   })
