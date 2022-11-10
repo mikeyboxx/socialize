@@ -1,14 +1,16 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
+// Login
+
 router.post('/login', async (req, res) => {
   try {
-    const userData = await User.findOne({ where: { email: req.body.email } });
+    const userData = await User.findOne({ where: { username: req.body.username } });
 
     if (!userData) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
+        .json({ message: 'Incorrect username, please try again' });
       return;
     }
 
@@ -24,7 +26,7 @@ router.post('/login', async (req, res) => {
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
-      
+
       res.json({ user: userData, message: 'You are now logged in!' });
     });
 
@@ -44,24 +46,3 @@ router.post('/logout', (req, res) => {
 });
 
 module.exports = router;
-
-
-router.post('/signup', (req, res) => {
-  if (req.session.logged.in){
-    req.session.destroy(() => {
-      res.status(204).end();
-    });
-  } else {
-    res.status(404).end();
-  }
-});
-
-router.post('/create a post', (req, res) => {
-  if (req.session.logged.in){
-    req.session.save(() => {
-      res.status(204).end();
-    });
-  } else {
-    res.status(404).end();
-  }
-});
