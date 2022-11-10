@@ -75,3 +75,11 @@ router.post("/logout", (req, res) => {
 });
 
 module.exports = router;
+
+//Create new post
+
+
+//Like a post
+
+
+//Dislike a post
