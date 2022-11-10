@@ -1,9 +1,43 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
+// Sign up
+
+// router.post('/signup', async (req, res) => {
+//   // expects {email: 'lernantino@gmail.com', password: 'password1234'}
+//   var newUser = new User({
+//       username: req.body.username,
+//       email: req.body.email,
+//       password: req.body.password
+//   });
+
+//   await User.findOne({
+//       where: {
+//           username: req.body.username,
+//           email: req.body.email
+//       }
+//   }).then(async profile => {
+//       if (!profile) {
+//           await newUser.save()
+//               .then(() => {
+//                   res.status(200).send(newUser);
+//               })
+//               .catch(err => {
+//                   console.log("Error is ", err.message);
+//               });
+//       } else {
+//           res.send("User already exists...");
+//       }
+//   }).catch(err => {
+//       console.log("Error is", err.message);
+//   });
+// });
+
+// Login
+
 router.post('/login', async (req, res) => {
   try {
-    const userData = await User.findOne({ where: { username: req.body.username } });
+    const userData = await User.findOne({ where: { username: req.body.username.toLowerCase() } });
 
     if (!userData) {
       res
@@ -33,6 +67,8 @@ router.post('/login', async (req, res) => {
   }
 });
 
+// Logout
+
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
@@ -44,24 +80,3 @@ router.post('/logout', (req, res) => {
 });
 
 module.exports = router;
-
-
-router.post('/signup', (req, res) => {
-  if (req.session.logged.in){
-    req.session.destroy(() => {
-      res.status(204).end();
-    });
-  } else {
-    res.status(404).end();
-  }
-});
-
-router.post('/create a post', (req, res) => {
-  if (req.session.logged.in){
-    req.session.save(() => {
-      res.status(204).end();
-    });
-  } else {
-    res.status(404).end();
-  }
-});
