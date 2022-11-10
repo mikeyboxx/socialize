@@ -1,7 +1,7 @@
 const axios = require('axios');
 const getHoroscopeApiData = () => {
   return new Promise(async (resolve, reject)=> {
-    const horoscopeArr = ['aries', 'taurus', 'gemini', 'cancer', 'leo', 'virgo', 'libra', 'scorpio', 'sagitarius', 'capricorn', 'aquarius', 'pisces'];
+    const horoscopeArr = ['aries', 'taurus', 'gemini', 'cancer', 'leo', 'virgo', 'libra', 'scorpio', 'sagittarius', 'capricorn', 'aquarius', 'pisces'];
 
     const sign = horoscopeArr[Math.floor(Math.random() * horoscopeArr.length)];
 
@@ -21,6 +21,8 @@ const getHoroscopeApiData = () => {
         reject({status: status, message: statusText});
         return;
       };
+
+      console.log(data);
 
       return resolve(data);
     } catch(err) {
