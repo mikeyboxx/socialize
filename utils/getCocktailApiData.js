@@ -11,7 +11,6 @@ const getCocktailApiData = () => {
       };
 
       data = data.drinks[0]; // always contains one element in the array
-      console.log(data);
             
       // deconstruct only the necessary data
       const {
