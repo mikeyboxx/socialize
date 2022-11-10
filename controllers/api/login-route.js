@@ -8,11 +8,9 @@ router.get('/', (req, res) => {
     return;
   }
 
-  
-
-  //Otherwise, render the 'login' template
+  // Otherwise, render the 'login' template
   res.render('login', {
-    loggedIn: req.session.loggedIn  
+    loggedIn: req.session.loggedIn,
   });
 });
 
