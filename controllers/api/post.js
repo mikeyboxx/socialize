@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { Post } = require("../../models");
 const withAuth = require("../../middleware/auth");
 
-//route to add a reaction
+//route to add a post
 router.post("/", withAuth, async (req, res) => {
   try {
     const dbPostData = await Post.create({
