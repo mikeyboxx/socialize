@@ -6,7 +6,7 @@ const withAuth = require("../../middleware/auth");
 router.post("/", withAuth, async (req, res) => {
   try {
     const dbCommentData = await Comment.create({
-      content: req.body.content,
+      contents: req.body.contents,
       post_id: req.body.post_id,
       user_id: req.session.user_id,
     });
