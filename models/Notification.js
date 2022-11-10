@@ -22,10 +22,12 @@ Notification.init(
       },
     },
     type:{ 
-        // ????
+      type: DataTypes.STRING,
+      allowNull: false,
     }, 
     type_id:{
-        // ????
+      type: DataTypes.INTEGER,
+      allowNull: false,
     },
     post_id: {
       type: DataTypes.INTEGER,
@@ -35,7 +37,9 @@ Notification.init(
       },
     },
     read_flag: {
-
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false
     },
   },
   {
