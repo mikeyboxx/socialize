@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
 
     res.render('homepage', {
       loggedIn: req.session.loggedIn,  
-      title: 'The Tech Blog',
+      title: 'Socialize',
       posts: posts.map(post => post.get(({ plain: true })))
     });
 
