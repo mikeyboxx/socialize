@@ -5,7 +5,7 @@ router.get('/', async (req, res) => {
   console.log(req.session)
   try {
     const posts = await Post.findAll({
-      include: [{ 
+      include: [{
         model: User,
         attributes: ['id', 'first_name', 'last_name', 'username']
       }],
@@ -24,21 +24,26 @@ router.get('/', async (req, res) => {
           break;
         default: item.human_post = true;
           break;
-      } 
+      }
       item.api_object = JSON.parse(item.api_json);
       return item;
     
     });
     res.render('homepage', {
-      loggedIn: true,
+      // loggedIn: true,
       notificationCount: 4,
+<<<<<<< HEAD
       posts: postArr 
       
       // loggedIn: req.session.loggedIn
+=======
+      posts: postArr,
+      loggedIn: req.session.loggedIn
+>>>>>>> 7077013c812be7edab5b78889ffffa9c330aa892
     });
 
     // res.render('homepage', {
-    //   loggedIn: req.session.loggedIn,  
+    //   loggedIn: req.session.loggedIn,
     //   title: 'Socialize',
     //   posts: posts.map(post => post.get(({ plain: true })))
     // });
@@ -50,14 +55,14 @@ router.get('/', async (req, res) => {
 
 
 
- 
+
 // })
 
 
 // router.get('/', async (req, res) => {
 //   try {
 //     const posts = await Post.findAll({
-//       include: [{ 
+//       include: [{
 //         model: User,Comment,Notification,
 //         attributes: ['username']
 //       }],
@@ -68,7 +73,7 @@ router.get('/', async (req, res) => {
 //     // res.json(posts);
 
 //     res.render('homepage', {
-//       loggedIn: req.session.loggedIn,  
+//       loggedIn: req.session.loggedIn,
 //       title: 'Socialize',
 //       posts: posts.map(post => post.get(({ plain: true })))
 //     });
