@@ -45,8 +45,8 @@
                         </div>
 
                         <div class="is-flex">
-                            <a href="#" class="card-footer-item">Like</a>
-                            <a href="#" class="card-footer-item">Dislike</a>
+                            <a href="#" class="card-footer-item">{{user.reactions.total_likes}} 👍</a>
+                            <a href="#" class="card-footer-item">{{user.reactions.total_dislikes}} 👎</a>
                         </div>
                     </div>
                     {{#each comments}}
