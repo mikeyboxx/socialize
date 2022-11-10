@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
   // Otherwise, render the 'login' template
   res.render('signup', {
     loggedIn: req.session.loggedIn, 
-    title: 'The Tech Blog',
+    title: 'Socialize',
   });
 });
 
