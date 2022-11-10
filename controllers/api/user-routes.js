@@ -55,3 +55,13 @@ router.post('/signup', (req, res) => {
     res.status(404).end();
   }
 });
+
+router.post('/create a post', (req, res) => {
+  if (req.session.logged.in){
+    req.session.save(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+  }
+});
