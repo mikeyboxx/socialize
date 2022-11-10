@@ -5,7 +5,6 @@ const { User, Post } = require('../models');
 
 
 router.get('/:id', async (req, res) => {
-    console.log("uihwehiuefhwef!!!!!")
     try {
         const posts = await Post.findAll({
             where: {
@@ -21,14 +20,13 @@ router.get('/:id', async (req, res) => {
             // attributes: ['id', 'content', 'createdAt']
         });
 
-        // res.json(posts);
-        console.log(posts)
-        res.render('dashboard', {
-            loggedIn: req.session.logged_in,
-            title: 'Your Dashboard',
-            posts: posts
-            // .map(post => post.get(({ plain: true })))
-        });
+        res.json(posts);
+        // res.render('dashboard', {
+        //     loggedIn: req.session.logged_in,
+        //     title: 'Your Dashboard',
+        //     posts: posts
+        //     .map(post => post.get(({ plain: true })))
+        // });
 
     } catch (err) {
         console.log(err)
