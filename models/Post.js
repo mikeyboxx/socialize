@@ -14,7 +14,7 @@ Post.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    content: {
+    contents: {
       type: DataTypes.TEXT,
       allowNull: false,
       defaultValue: ""
