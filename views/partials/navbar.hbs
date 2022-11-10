@@ -8,9 +8,9 @@
             <a class="">Notifications ({{notificationCount}})</a>
             <a class="">New Post</a>
             {{#if loggedIn}}
-            <a class="js-modal-trigger" data-target="sign-in">Logout</a>
+            <a class="js-modal-trigger" data-target="sign-in" href="/logout">Logout</a>
             {{else}}
-            <a class="js-modal-trigger" data-target="sign-in">Login</a>
+            <a class="js-modal-trigger" data-target="sign-in" href="/login">Login</a>
             {{/if}}
             </div>
         </div>

@@ -30,7 +30,7 @@ router.get('/', async (req, res) => {
 
 
     res.render('homepage', {
-      loggedIn: true,
+      loggedIn: false,
       notificationCount: 4,
       posts: postArr 
       // loggedIn: req.session.loggedIn
