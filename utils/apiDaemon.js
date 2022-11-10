@@ -1,7 +1,8 @@
-const axios = require('axios');
+
 const Sequelize = require('sequelize');
 const moment = require('moment');
 const {Post} = require("../models");
+const getCocktailApiData = require("../utils/getCocktailApiData");
 
 const op = Sequelize.Op;
 const fgCyan = '\x1b[36m';
@@ -39,15 +40,8 @@ const apiCleanupDaemon = () => {
 const apiDaemon = () => {
   const timer = setInterval(async ()=>{
     try {
-      const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/random.php`);
-      const {status, statusText, data} = response;
-                  
-      if (statusText !== 'OK') {
-        console.log({status: status, message: 'Could not retrieve data'});
-        clearInterval(timer);
-        return;
-      };
-      const datajson = JSON.stringify(data);
+      const response = await getCocktailApiData();
+      const datajson = JSON.stringify(response);
 
       const dbPostData = await Post.create({
         api_json: datajson,
@@ -57,10 +51,37 @@ const apiDaemon = () => {
       console.log(`${fgCyan}created Post id = `,dbPostData.get(({ plain: true })).id);
 
     } catch(err) {
+      console.log(err);
       clearInterval(timer);
       return;
     };
   },3000);
+
+// const apiDaemon = () => {
+//   const timer = setInterval(async ()=>{
+//     try {
+//       const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/random.php`);
+//       const {status, statusText, data} = response;
+                  
+//       if (statusText !== 'OK') {
+//         console.log({status: status, message: 'Could not retrieve data'});
+//         clearInterval(timer);
+//         return;
+//       };
+//       const datajson = JSON.stringify(data);
+
+//       const dbPostData = await Post.create({
+//         api_json: datajson,
+//         user_id: 1
+//       });
+
+//       console.log(`${fgCyan}created Post id = `,dbPostData.get(({ plain: true })).id);
+
+//     } catch(err) {
+//       clearInterval(timer);
+//       return;
+//     };
+//   },3000);
 
 }
 
