@@ -21,7 +21,7 @@ const loginFormHandler = async event => {
         }
       }
       catch (err){
-        console.log(rr);
+        console.log(err);
       }
     }
   };

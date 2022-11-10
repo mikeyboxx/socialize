@@ -11,7 +11,6 @@ router.get('/', (req, res) => {
   // Otherwise, render the 'login' template
   res.render('login', {
     loggedIn: req.session.loggedIn,
-    title: 'Socialize',
   });
 });
 
