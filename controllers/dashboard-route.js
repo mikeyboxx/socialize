@@ -10,6 +10,8 @@ router.use((req, res, next) => {
 router.get('/', (req, res) => {
   res.send('Dashboard home page')
 })
-
+res.json(null)
+res.json({ user: 'tobi' })
+res.status(500).json({ error: 'message' })
 
 module.exports = router
