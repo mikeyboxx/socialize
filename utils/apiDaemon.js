@@ -3,6 +3,7 @@ const Sequelize = require('sequelize');
 const moment = require('moment');
 const {Post} = require("../models");
 const getCocktailApiData = require("../utils/getCocktailApiData");
+const getHoroscopeApiData = require("../utils/getHoroscopeApiData");
 
 const op = Sequelize.Op;
 const fgCyan = '\x1b[36m';
@@ -40,15 +41,28 @@ const apiCleanupDaemon = () => {
 const apiDaemon = () => {
   const timer = setInterval(async ()=>{
     try {
-      const response = await getCocktailApiData();
+      const api_idArr = [1, 2];
+      
+      const api_id = api_idArr[Math.floor(Math.random() * api_idArr.length)];
+      let response = {};
+
+      switch (api_id){
+        case 1:  response = await getCocktailApiData();
+          break;
+        case 2:  response = await getHoroscopeApiData();
+          break;
+      }
+      
       const datajson = JSON.stringify(response);
 
       const dbPostData = await Post.create({
         api_json: datajson,
+        api_id,
         user_id: 1
       });
 
       console.log(`${fgCyan}created Post id = `,dbPostData.get(({ plain: true })).id);
+      console.log(`${fgCyan}api id = `,api_id);
 
     } catch(err) {
       console.log(err);
@@ -56,33 +70,6 @@ const apiDaemon = () => {
       return;
     };
   },3000);
-
-// const apiDaemon = () => {
-//   const timer = setInterval(async ()=>{
-//     try {
-//       const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/random.php`);
-//       const {status, statusText, data} = response;
-                  
-//       if (statusText !== 'OK') {
-//         console.log({status: status, message: 'Could not retrieve data'});
-//         clearInterval(timer);
-//         return;
-//       };
-//       const datajson = JSON.stringify(data);
-
-//       const dbPostData = await Post.create({
-//         api_json: datajson,
-//         user_id: 1
-//       });
-
-//       console.log(`${fgCyan}created Post id = `,dbPostData.get(({ plain: true })).id);
-
-//     } catch(err) {
-//       clearInterval(timer);
-//       return;
-//     };
-//   },3000);
-
 }
 
 module.exports = {apiDaemon, apiCleanupDaemon};
