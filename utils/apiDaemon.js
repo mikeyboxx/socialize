@@ -4,21 +4,16 @@ const moment = require('moment');
 const {Post} = require("../models");
 
 const op = Sequelize.Op;
-
-
+const fgCyan = '\x1b[36m';
 
 const apiCleanupDaemon = () => {
-  console.log('here');
   const timer = setInterval(async ()=>{
     try {
-      console.log('here again');
-   
       
-      const START_DATE = moment('1/1/0001').utc();
-      const END_DATE = moment().subtract(1, 'hours').utc();
-      // const END_DATE =  moment().utc();
+      const START_DATE = moment('00010101', 'YYYYMMDD').utc();
+      const END_DATE = moment().subtract(15, 'seconds').utc();
       
-      const posts = await Post.findAll({
+      const posts = await Post.destroy({
         where: {
           created_at: {
             [op.between]: [
@@ -31,22 +26,19 @@ const apiCleanupDaemon = () => {
           }
         }
       });
-
-      console.log(posts.map(post => post.get(({ plain: true }))));
+      console.log(`${fgCyan}number of Post recs deleted = `, posts);
 
     } catch(err) {
       clearInterval(timer);
       return;
     };
-  },3000);
+  },5000);
 
 }
 
 const apiDaemon = () => {
-  console.log('here');
   const timer = setInterval(async ()=>{
     try {
-      console.log('here again');
       const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/random.php`);
       const {status, statusText, data} = response;
                   
@@ -62,7 +54,7 @@ const apiDaemon = () => {
         user_id: 1
       });
 
-      console.log(dbPostData.get(({ plain: true })));
+      console.log(`${fgCyan}created Post id = `,dbPostData.get(({ plain: true })).id);
 
     } catch(err) {
       clearInterval(timer);
