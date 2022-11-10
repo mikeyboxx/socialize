@@ -14,14 +14,16 @@ Post.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    content: {
+    contents: {
       type: DataTypes.TEXT,
       allowNull: false,
       defaultValue: ""
     },
     api_json: {
       type: DataTypes.TEXT,
-      defaultValue: ""
+    },
+    api_id: {
+      type: DataTypes.INTEGER,
     },
     user_id: {
       type: DataTypes.INTEGER,

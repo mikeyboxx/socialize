@@ -2,60 +2,16 @@
         <div class="">
             <img src="images/Logo-filler.png" class="image is-64x64">
         </div>
-        <div class="navbar-item has-dropdown is-hoverable mt-1">
-            <a class="navbar-link">
-              Notifications
-            </a>
-    
-            <div class="navbar-dropdown">
-                {{#each notification as |notification|}}
-              <a class="navbar-item">
-                {{notification}}
-              </a>
-                {{/each}}
-            </div>
-            <div>
-                <button class="button">Dashboard</button>
-                <button class="button">Home</button>
-                {{#if loggedIn}}
-                <button class="button js-modal-trigger" data-target="sign-in">Log-out</button>
-                {{#else}}
-                <button class="button js-modal-trigger" data-target="sign-in">Sign-in</button>
-                {{/if}}
+        <div class="navbar-item is-hoverable mt-1">
+            <a class="">Home</a>
+            <a class="">Dashboard</a>
+            <a class="">Notifications ({{notificationCount}})</a>
+            <a class="">New Post</a>
+            {{#if loggedIn}}
+            <a class="js-modal-trigger" data-target="sign-in">Logout</a>
+            {{else}}
+            <a class="js-modal-trigger" data-target="sign-in">Login</a>
+            {{/if}}
             </div>
         </div>
     </nav>
-    <div id="sign-in" class="modal">
-        <div class="modal-background"></div>
-        <div class="modal-card">
-          <header class="modal-card-head">
-            <p class="modal-card-title"></p>
-            <button class="delete" aria-label="close"></button>
-          </header>
-          <section class="modal-card-body">
-            <div class="field">
-                <p class="control has-icons-left has-icons-right">
-                  <input class="input" type="email" placeholder="Email">
-                  <span class="icon is-small is-left">
-                    <i class="fas fa-envelope"></i>
-                  </span>
-                  <span class="icon is-small is-right">
-                    <i class="fas fa-check"></i>
-                  </span>
-                </p>
-              </div>
-              <div class="field">
-                <p class="control has-icons-left">
-                  <input class="input" type="password" placeholder="Password">
-                  <span class="icon is-small is-left">
-                    <i class="fas fa-lock"></i>
-                  </span>
-                </p>
-              </div>
-          </section>
-          <footer class="modal-card-foot">
-            <button class="button is-success">submit</button>
-            <button class="button">sign-up</button>
-          </footer>
-        </div>
-      </div>
