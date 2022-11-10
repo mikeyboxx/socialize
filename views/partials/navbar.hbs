@@ -17,7 +17,11 @@
             <div>
                 <button class="button">Dashboard</button>
                 <button class="button">Home</button>
+                {{#if loggedIn}}
+                <button class="button js-modal-trigger" data-target="sign-in">Log-out</button>
+                {{#else}}
                 <button class="button js-modal-trigger" data-target="sign-in">Sign-in</button>
+                {{/if}}
             </div>
         </div>
     </nav>
