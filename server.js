@@ -7,6 +7,7 @@ const { strict } = require('assert');
 
 const sequelize = require('./config/connection');  // contains the DB connection setup
 const clog = require('./middleware/clog'); // logs every HTTP request with a timestamp to console
+const {apiDaemon, apiCleanupDaemon} = require('./utils/apiDaemon'); // logs every HTTP request with a timestamp to console
 const routes = require('./controllers');  // all routes get intercepted there
 
 const app = express();
@@ -47,6 +48,8 @@ app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, ()=>{
+    // apiDaemon();
+    // apiCleanupDaemon();
     console.log(`Server has started... Listening on http://localhost:${PORT}/`);
     console.log('Time:', Intl.DateTimeFormat('en-US',{dateStyle: 'long', timeStyle: 'long'}).format(new Date()));
   })
