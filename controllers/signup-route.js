@@ -1,8 +1,8 @@
 const router = require('express').Router();
 
-// Login route
+// Signup route
 router.get('/', (req, res) => {
-  // If the user is already logged in, redirect to the homepage
+  // If the user has already signed up, redirect to the homepage
   if (req.session.loggedIn) {
     res.redirect('/');
     return;
