@@ -8,13 +8,12 @@ router.get('/', (req, res) => {
     return;
   }
 
-  res.json('hey hey hey');
+  
 
-  // Otherwise, render the 'login' template
-  // res.render('login', {
-  //   loggedIn: req.session.loggedIn,  
-  //   title: 'The Tech Blog',
-  // });
+  //Otherwise, render the 'login' template
+  res.render('login', {
+    loggedIn: req.session.loggedIn  
+  });
 });
 
 module.exports = router;

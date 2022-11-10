@@ -6,15 +6,15 @@ const apiRoute = require('./api');
 // const postPageRoute = require('./postpage-route.js');
 const loginRoute = require('./login-route.js');
 // const logoutRoute = require('./logout-route.js');
-// const signupRoute = require('./signup-route.js');
+const signupRoute = require('./signup-route.js');
 
 router.use('/api', apiRoute);
 
-// router.use('/', homePageRoute);
+router.use('/', homePageRoute);
 
-router.use('/', loginRoute);
+router.use('/login', loginRoute);
 
-// router.use('/signup', signupRoute);
+router.use('/signup', signupRoute);
 
 // router.use('/logout', logoutRoute);
 
