@@ -3,12 +3,14 @@ const {
     User,  
     Post,  
     Comment,  
-    Reaction,  
+    Reaction,
+    Notification  
 } = require("../models");
 const userSeeds = require("./user-seeds.json");
 const postSeeds = require("./post-seeds.json");
 const commentSeeds = require("./comment-seeds.json");
 const reactionSeeds = require("./reaction-seeds.json");
+const notificationSeeds = require("./notification-seeds.json");
 
 const seedDatabase = async() => {
   try {
@@ -34,13 +36,16 @@ const seedDatabase = async() => {
         returning: true
     }); 
 
+    await Notification.bulkCreate(notificationSeeds, {
+        individualHooks: true, 
+        returning: true
+    }); 
+
     process.exit(0);
   } catch (err) {
     console.log(err);
     process.exit(1);
   }
 };
-
-
 
 seedDatabase();
