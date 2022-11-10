@@ -1,0 +1,62 @@
+[
+  {
+    "type": "dislike",
+    "user_id": 1,
+    "post_id": 2
+  },
+  {
+    "type": "like",
+    "user_id": 1,
+    "post_id": 3
+  },
+  {
+    "type": "dislike",
+    "user_id": 1,
+    "post_id": 4
+  },
+  {
+    "type": "like",
+    "user_id": 2,
+    "post_id": 1
+  },
+  {
+    "type": "like",
+    "user_id": 2,
+    "post_id": 3
+  },
+  {
+    "type": "dislike",
+    "user_id": 2,
+    "post_id": 1
+  },
+  {
+    "type": "dislike",
+    "user_id": 2,
+    "post_id": 1
+  },
+  {
+    "type": "dislike",
+    "user_id": 7,
+    "post_id": 1
+  },
+  {
+    "type": "like",
+    "user_id": 8,
+    "post_id": 1
+  },
+  {
+    "type": "dislike",
+    "user_id": 2,
+    "post_id": 5
+  },
+  {
+    "type": "dislike",
+    "user_id": 8,
+    "post_id": 5
+  },
+  {
+    "type": "dislike",
+    "user_id": 3,
+    "post_id": 4
+  }
+]
