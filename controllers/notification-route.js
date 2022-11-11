@@ -29,7 +29,7 @@ router.get('/', async (req, res) => {
 
     res.json(notificationsArr);
 
-    // res.render('notifications', {
+    // res.render('notification', {
     //   notificationCount,
     //   notifications: notificationsArr,
     //   loggedIn: req.session.loggedIn
