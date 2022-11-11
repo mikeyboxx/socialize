@@ -5,7 +5,13 @@
 <img src="{{drinkImageUrl}}"></img>
 <p>{{instruction}}</p>
 {{!-- each  --}}
-<p>{{ingredient}}</p>
+{{#each cocktail.ingredients as |ingredients|}}
+   <li class = "ingredients">
+    <p>ingredient: '{{ingredient}}' </p>
+    <p>measure: '{{measure}}' </p>
+   </li>
+
+{{/each}}
 
 </div>
 
