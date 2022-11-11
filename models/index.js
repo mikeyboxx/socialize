@@ -45,34 +45,34 @@ Notification.belongsTo(User, {
 });
 
 // Post to Comment - one to many
-// Post.hasMany(Comment, {
-//   foreignKey: "post_id",
-//   onDelete: "CASCADE",
-// });
-// Comment.belongsTo(Post, {
-//   foreignKey: "post_id",
-//   onDelete: "CASCADE",
-// });
+Post.hasMany(Comment, {
+  foreignKey: "post_id",
+  onDelete: "CASCADE",
+});
+Comment.belongsTo(Post, {
+  foreignKey: "post_id",
+  onDelete: "CASCADE",
+});
 
-// // Post to Reaction - one to many
-// Post.hasMany(Reaction, {
-//   foreignKey: "post_id",
-//   onDelete: "CASCADE",
-// });
-// Reaction.belongsTo(Post, {
-//   foreignKey: "post_id",
-//   onDelete: "CASCADE",
-// });
+// Post to Reaction - one to many
+Post.hasMany(Reaction, {
+  foreignKey: "post_id",
+  onDelete: "CASCADE",
+});
+Reaction.belongsTo(Post, {
+  foreignKey: "post_id",
+  onDelete: "CASCADE",
+});
 
-// // Post to Notification - one to many
-// Post.hasMany(Notification, {
-//   foreignKey: "post_id",
-//   onDelete: "CASCADE",
-// });
-// Notification.belongsTo(Post, {
-//   foreignKey: "post_id",
-//   onDelete: "CASCADE",
-// });
+// Post to Notification - one to many
+Post.hasMany(Notification, {
+  foreignKey: "post_id",
+  onDelete: "CASCADE",
+});
+Notification.belongsTo(Post, {
+  foreignKey: "post_id",
+  onDelete: "CASCADE",
+});
 
 
 // // how could you connect commnet and reaction to notification 
