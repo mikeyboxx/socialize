@@ -1,8 +1,9 @@
 const router = require("express").Router();
 const sequelize = require("sequelize");
 const {User, Post, Comment} = require("../../models");
+const withAuth = require("../../middleware/auth");
 
-router.get('/:id', async (req, res) => {
+router.get('/:id', withAuth, async (req, res) => {
   try {
     const post = await Post.findByPk(req.params.id, {
       include: [
