@@ -1,9 +1,8 @@
 const router = require("express").Router();
 const sequelize = require("sequelize");
 const {User, Post, Comment} = require("../../models");
-const withAuth = require("../../middleware/auth");
 
-router.get('/:id', withAuth, async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
     const post = await Post.findByPk(req.params.id, {
       include: [
@@ -27,11 +26,11 @@ router.get('/:id', withAuth, async (req, res) => {
             'totalDislikes'
           ],
           [
-            sequelize.literal(`(SELECT COUNT(*) FROM reaction WHERE reaction.post_id = post.id AND reaction.type = 'like' AND reaction.user_id = ${req.session.userId})`), 
+            sequelize.literal(`(SELECT COUNT(*) FROM reaction WHERE reaction.post_id = post.id AND reaction.type = 'like' AND reaction.user_id = ${!req.session.userId ? null : req.session.userId})`), 
             'totalAlreadyLiked'
           ],
           [
-            sequelize.literal(`(SELECT COUNT(*) FROM reaction WHERE reaction.post_id = post.id AND reaction.type = 'dislike' AND reaction.user_id = ${req.session.userId})`), 
+            sequelize.literal(`(SELECT COUNT(*) FROM reaction WHERE reaction.post_id = post.id AND reaction.type = 'dislike' AND reaction.user_id = ${!req.session.userId ? null : req.session.userId})`), 
             'totalAlreadyDisliked'
           ],
         ]
@@ -51,7 +50,7 @@ router.post("/", async (req, res) => {
   try {
     const dbPostData = await Post.create({
       contents: req.body.contents,
-      user_id: req.session.user_id,
+      user_id: req.session.userId,
     });
     res.status(200).json(dbPostData);
   } catch (err) {

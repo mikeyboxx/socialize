@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { User } = require('../../models');
-const bcrypt = require('bcrypt');
+// const bcrypt = require('bcrypt');
 
 // Sign up
 
@@ -39,7 +39,8 @@ router.post('/login', async (req, res) => {
       return;
     }
 
-    const validPassword = await bcrypt.compareSync(req.body.password, dbUserData.password);
+    // const validPassword = await bcrypt.compareSync(req.body.password, dbUserData.password);
+    const validPassword = await dbUserData.checkPassword(req.body.password);
 
     if (!validPassword) {
       res
@@ -51,9 +52,7 @@ router.post('/login', async (req, res) => {
     req.session.save(() => {
       req.session.loggedIn = true;
       req.session.userId = dbUserData.id;
-      res
-        .status(200)
-        .json({ user: dbUserData, message: 'You are now logged in!' });
+      res.status(200).json({ user: dbUserData, message: 'You are now logged in!' });
     });
   } catch (err) {
     console.log(err);
