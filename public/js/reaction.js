@@ -51,7 +51,6 @@ const likeHandler = async (event) => {
         if (response.ok) {
           document.location.replace('/');
         } else {
-          // response = await response.json();
           alert(`Failed to log in. ${response.message}`);
         }
       }
