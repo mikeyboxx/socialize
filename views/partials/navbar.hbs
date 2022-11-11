@@ -6,8 +6,8 @@
             <a class="">Home</a>
             <a class="">Dashboard</a>
             <a class="">Notifications ({{notificationCount}})</a>
-            <a class="">New Post</a>
             {{#if loggedIn}}
+                        <a class="js-modal-trigger" data-target="new-post" id="create-post">New Post</a>
             <a class="js-modal-trigger" data-target="sign-in" href="/logout">Logout</a>
             {{else}}
             <a class="js-modal-trigger" data-target="sign-in" id="loginLink">Login</a>
@@ -15,6 +15,19 @@
             </div>
         </div>
     </nav>
+        <div id="new-post" class="modal">
+          <div class="modal-background"></div>
+          <div class="modal-card">
+            <header class="modal-card-head">
+              <p class="modal-card-title"></p>
+              <button class="delete" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+              <textarea class="textarea" placeholder="10 lines of textarea" rows="10" id="newpost-text"></textarea>
+              <button class="button is-success" id="newpost-submit">submit</button>
+            </section>
+          </div>
+        </div>
 
     <div id="sign-in" class="modal">
         <div class="modal-background"></div>
@@ -110,7 +123,6 @@
           </section>
           <footer class="modal-card-foot">
             <button class="button is-success" id="signup-submit">submit</button>
-            <button class="button">sign-up</button>
           </footer>
         </div>
       </div>

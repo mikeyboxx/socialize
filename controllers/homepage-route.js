@@ -8,9 +8,6 @@ router.get('/', async (req, res) => {
       include: [{
         model: User,
         attributes: ['id', 'first_name', 'last_name', 'username']},
-        // {model: Comment, 
-        //   attributes: ['contents','post_id'],
-        // },
       ],
       order: [['createdAt', 'DESC']],
       attributes: ['id', 'contents', 'api_id', 'api_json', 'createdAt']
@@ -36,7 +33,7 @@ router.get('/', async (req, res) => {
       // loggedIn: true,
       notificationCount: 4,
       posts: postArr,
-      loggedIn: req.session.loggedIn
+      loggedIn: true
     });
 
     // res.render('homepage', {
