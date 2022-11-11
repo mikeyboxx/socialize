@@ -5,7 +5,12 @@
         <div class="navbar-item is-hoverable mt-1">
             <a class="">Home</a>
             <a class="" href="/dashboard">Dashboard</a>
-            <a class="">Notifications ({{notificationCount}})</a>
+            <a class="" href="/notifications">Notifications 
+            {{#if notificationCount}}
+              ({{notificationCount}})
+            {{/if}}
+            </a>
+            <a class="">New Post</a>
             {{#if loggedIn}}
             <a class="js-modal-trigger" data-target="new-post" id="create-post">New Post</a>
             <a class="js-modal-trigger" data-target="sign-in" href="/logout">Logout</a>
