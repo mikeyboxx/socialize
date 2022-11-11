@@ -25,8 +25,5 @@ const loginFormHandler = async event => {
       }
     }
   };
-//   const el = document.getElementById('login-submit');
-// if(el){
-//   el.addEventListener('click', loginFormHandler);
-// }
+
   document.querySelector('#login-submit').addEventListener('click', loginFormHandler);
