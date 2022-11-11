@@ -20,8 +20,8 @@
       </div>
       <footer class="card-footer">
           <a href="#" class="card-footer-item js-modal-trigger" data-target="post-modal">Comment</a>
-          <a href="#" class="card-footer-item" id="like-button">Like</a>
-          <a href="#" class="card-footer-item" id="dislike-button">Dislike</a>
+          <a class="card-footer-item" id="like-button">{{totalLikes}} <span style="visibility:hidden"> -</span><i class="fa-regular fa-thumbs-up" id="thumb-up"></i></a>
+          <a href="#" class="card-footer-item" id="dislike-button">{{totalDislikes}} <span style="visibility:hidden"> -</span><i class="fa-regular fa-thumbs-down" id="thumb-down"></i></a>
       </footer>
       {{!-- {{> comment}} --}}
 
