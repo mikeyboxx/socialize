@@ -32,14 +32,8 @@ router.get('/', async (req, res) => {
     res.render('homepage', {
       // loggedIn: true,
       notificationCount: 4,
-<<<<<<< HEAD
-      posts: postArr 
-      
-      // loggedIn: req.session.loggedIn
-=======
       posts: postArr,
       loggedIn: req.session.loggedIn
->>>>>>> 7077013c812be7edab5b78889ffffa9c330aa892
     });
 
     // res.render('homepage', {

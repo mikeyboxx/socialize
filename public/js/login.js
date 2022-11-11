@@ -3,13 +3,13 @@ const loginFormHandler = async event => {
 
     const email = document.querySelector('#username-login').value.trim();
     const password = document.querySelector('#password-login').value.trim();
-    console.log(username, password);
+    console.log(email, password);
 
-    if (username && password) {
+    if (email && password) {
       try{
         let response = await fetch('/api/users/login', {
           method: 'POST',
-          body: JSON.stringify({ username, password }),
+          body: JSON.stringify({ email, password }),
           headers: { 'Content-Type': 'application/json' },
         });
 
@@ -25,5 +25,8 @@ const loginFormHandler = async event => {
       }
     }
   };
-
-  document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
+//   const el = document.getElementById('login-submit');
+// if(el){
+//   el.addEventListener('click', loginFormHandler);
+// }
+  document.querySelector('#login-submit').addEventListener('click', loginFormHandler);
