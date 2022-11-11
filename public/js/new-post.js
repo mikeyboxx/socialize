@@ -1,4 +1,4 @@
-const loginFormHandler = async event => {
+const newPostFormHandler = async event => {
     event.preventDefault();
 
     const contents = document.querySelector('#newpost-text').value.trim();
@@ -6,7 +6,7 @@ const loginFormHandler = async event => {
 
     if (contents) {
       try{
-        let response = await fetch('/api/users/login', {
+        let response = await fetch('/api/posts', {
           method: 'POST',
           body: JSON.stringify({contents}),
           headers: { 'Content-Type': 'application/json' },
@@ -25,4 +25,4 @@ const loginFormHandler = async event => {
     }
   };
 
-  document.querySelector('#newpost-submit').addEventListener('click', loginFormHandler);
+  document.querySelector('#newpost-submit').addEventListener('click', newPostFormHandler);

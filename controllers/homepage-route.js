@@ -33,7 +33,7 @@ router.get('/', async (req, res) => {
       // loggedIn: true,
       notificationCount: 4,
       posts: postArr,
-      loggedIn: true
+      loggedIn: false
     });
 
     // res.render('homepage', {
