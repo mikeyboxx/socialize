@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {User, Post} = require('../models');
+const {User, Post, Comment} = require('../models');
 
 router.get('/', async (req, res) => {
   console.log(req.session)
@@ -7,8 +7,11 @@ router.get('/', async (req, res) => {
     const posts = await Post.findAll({
       include: [{
         model: User,
-        attributes: ['id', 'first_name', 'last_name', 'username']
-      }],
+        attributes: ['id', 'first_name', 'last_name', 'username']},
+        // {model: Comment, 
+        //   attributes: ['contents','post_id'],
+        // },
+      ],
       order: [['createdAt', 'DESC']],
       attributes: ['id', 'contents', 'api_id', 'api_json', 'createdAt']
     });
