@@ -32,7 +32,7 @@ app.use(session(sess));
 
 // Sets up handlebars.js and registers view engine
 app.engine('hbs', exphbs(      // give the handlebars engine a name
-  { 
+  {
     defaultLayout: 'main',     // set the default layout ot be main.hbs
     extname: '.hbs',           // set the extensions to end in hbs instead of handlebars
   }
