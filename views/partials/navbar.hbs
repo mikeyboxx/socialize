@@ -26,7 +26,7 @@
           <section class="modal-card-body">
             <div class="field">
                 <p class="control has-icons-left has-icons-right">
-                  <input class="input" type="email" placeholder="Email">
+                  <input class="input" type="email" placeholder="Email" id="username-login">
                   <span class="icon is-small is-left">
                     <i class="fas fa-envelope"></i>
                   </span>
@@ -37,7 +37,7 @@
               </div>
               <div class="field">
                 <p class="control has-icons-left">
-                  <input class="input" type="password" placeholder="Password">
+                  <input class="input" type="password" placeholder="Password" id="password-login">
                   <span class="icon is-small is-left">
                     <i class="fas fa-lock"></i>
                   </span>
@@ -45,7 +45,71 @@
               </div>
           </section>
           <footer class="modal-card-foot">
-            <button class="button is-success">submit</button>
+            <button class="button is-success" id="login-submit">submit</button>
+            <button class="button js-modal-trigger" data-target="sign-up" id="signupLink">sign-up</button>
+          </footer>
+        </div>
+      </div>
+      <div id="sign-up" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+          <header class="modal-card-head">
+            <p class="modal-card-title"></p>
+            <button class="delete" aria-label="close"></button>
+          </header>
+          <section class="modal-card-body">
+            <div class="field">
+                <p class="control has-icons-left has-icons-right">
+                  <input class="input" type="name" placeholder="first name" id="first-name-signup">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-envelope"></i>
+                  </span>
+                  <span class="icon is-small is-right">
+                    <i class="fas fa-check"></i>
+                  </span>
+                </p>
+              </div>
+                          <div class="field">
+                <p class="control has-icons-left has-icons-right">
+                  <input class="input" type="name" placeholder="last name" id="last-name-signup">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-envelope"></i>
+                  </span>
+                  <span class="icon is-small is-right">
+                    <i class="fas fa-check"></i>
+                  </span>
+                </p>
+              </div>
+                          <div class="field">
+                <p class="control has-icons-left has-icons-right">
+                  <input class="input" type="name" placeholder="username" id="username-signup">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-envelope"></i>
+                  </span>
+                  <span class="icon is-small is-right">
+                    <i class="fas fa-check"></i>
+                  </span>
+                </p>
+              </div>
+              <div class="field">
+                <p class="control has-icons-left">
+                  <input class="input" type="email" placeholder="email" id="email-signup">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-lock"></i>
+                  </span>
+                </p>
+              </div>
+              <div class="field">
+                <p class="control has-icons-left">
+                  <input class="input" type="password" placeholder="Password" id="password-signup">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-lock"></i>
+                  </span>
+                </p>
+              </div>
+          </section>
+          <footer class="modal-card-foot">
+            <button class="button is-success" id="signup-submit">submit</button>
             <button class="button">sign-up</button>
           </footer>
         </div>
