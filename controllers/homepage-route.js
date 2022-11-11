@@ -50,13 +50,13 @@ router.get('/', withAuth, async (req, res) => {
       return item;
     });
 
-    res.json(postArr);
+    // res.json(postArr);
 
-    // res.render('homepage', {
-    //   notificationCount: 4,
-    //   posts: postArr,
-    //   loggedIn: req.session.loggedIn
-    // });
+    res.render('homepage', {
+      notificationCount: 4,
+      posts: postArr,
+      loggedIn: req.session.loggedIn
+    });
 
   } catch (err) {
     console.log(err);
