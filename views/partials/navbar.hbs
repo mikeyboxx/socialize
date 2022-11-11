@@ -4,7 +4,7 @@
         </div>
         <div class="navbar-item is-hoverable mt-1">
             <a class="">Home</a>
-            <a class="">Dashboard</a>
+            <a class="" href="/dashboard">Dashboard</a>
             <a class="">Notifications ({{notificationCount}})</a>
             {{#if loggedIn}}
             <a class="js-modal-trigger" data-target="new-post" id="create-post">New Post</a>
@@ -41,7 +41,7 @@
           <section class="modal-card-body">
             <div class="field">
                 <p class="control has-icons-left has-icons-right">
-                  <input class="input" type="email" placeholder="Email" id="username-login">
+                  <input class="input" type="email" placeholder="Username" id="username-login">
                   <span class="icon is-small is-left">
                     <i class="fas fa-envelope"></i>
                   </span>

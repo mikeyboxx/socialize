@@ -1,48 +1,91 @@
 const router = require('express').Router();
+const sequelize = require("sequelize");
 const withAuth = require('../middleware/auth');
 const {User,Post,Comment } = require('../models');
 
 
-
-router.get('/', withAuth, (req, res) => {
-    Post.findAll({
-            where: {
-                user_id: req.session.user_id
-            },
-            attributes: [
-                'id',
-                'title',
-                'content',
-                'created_at'
-            ],
-            include: [{
-                model: Comment,
-                attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-                include: {
-                    model: User,
-                    attributes: ['username']
-                }
-            },
-            {
-                model: User,
-                attributes: ['username']
-            }
+router.get('/', withAuth, async (req, res) => {
+  try {
+    console.log(req.session.userId);
+    const posts = await Post.findAll({
+      include: [{model: User}],
+      order: [['createdAt', 'DESC']],
+      where: {
+        user_id: req.session.userId
+      },
+      attributes: {
+        include: [
+          [ 
+            sequelize.literal('(SELECT COUNT(*) FROM comment WHERE comment.post_id = post.id)'), 
+            'totalComments'
+          ],
+          [
+            sequelize.literal(`(SELECT COUNT(*) FROM reaction WHERE reaction.post_id = post.id AND reaction.type = 'like')`), 
+            'totalLikes'
+          ],
+          [
+            sequelize.literal(`(SELECT COUNT(*) FROM reaction WHERE reaction.post_id = post.id AND reaction.type = 'dislike')`), 
+            'totalDislikes'
+          ],
         ]
-    })
-    .then(dbPostData => {
-        const posts = dbPostData.map(post => post.get({
-            plain: true
-        }));
-        res.render('dashboard', {
-            posts,
-            loggedIn: true
-        });
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
+      }
     });
+
+    const postArr = posts.map(post => post.get(({ plain: true })));
+
+    res.json(postArr);
+
+    // res.render('dashboard', {
+    //   notificationCount: 4,
+    //   posts: postArr,
+    //   loggedIn: req.session.loggedIn
+    // });
+
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
 });
+
+// router.get('/', withAuth, (req, res) => {
+//     Post.findAll({
+//             where: {
+//                 user_id: req.session.user_id
+//             },
+//             attributes: [
+//                 'id',
+//                 'title',
+//                 'content',
+//                 'created_at'
+//             ],
+//             include: [{
+//                 model: Comment,
+//                 attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+//                 include: {
+//                     model: User,
+//                     attributes: ['username']
+//                 }
+//             },
+//             {
+//                 model: User,
+//                 attributes: ['username']
+//             }
+//         ]
+//     })
+//     .then(dbPostData => {
+//         const posts = dbPostData.map(post => post.get({
+//             plain: true
+//         }));
+//         res.render('dashboard', {
+//             posts,
+//             loggedIn: true
+//         });
+//     })
+//     .catch(err => {
+//         console.log(err);
+//         res.status(500).json(err);
+//     });
+// });
 
 router.get('/edit/:id', withAuth, (req, res) => {
 Post.findOne({
