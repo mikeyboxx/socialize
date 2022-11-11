@@ -1,24 +1,3 @@
-{{> navbar}}
-{{#with user}}
-<div class="align-items-center">
-    <div class="card-content">
-        <div class="content">
-            <h1 class="has-text-centered">{{user.username}}</h1>
-        </div>
-    </div>
-</div>
-<div id="feed" class="mx-6">
-    {{#each posts}}
-    <div class="card">
-        <div class="card-content">
-            <div class="content">
-                <span class="icon">
-                    <img src="../public/Logo-filler.png" class="image is-32x32">
-                </span>
-                <p>{{post.contents}}</p>
-                <p>{{posts.user.username}}</p>
-                <br>
-            </div>
 <section class="new-post-section">
     <button type="submit" class="btn" id="create-new-post">+ Create new post</button>
 </section>
@@ -37,48 +16,5 @@
     </ul>
 </section>
 {{/if}}
-        </div>
-        <footer class="card-footer">
-            <a href="#" class="card-footer-item js-modal-trigger" data-target="post-modal">Comment</a>
-            <a href="#" class="card-footer-item">Like</a>
-            <a href="#" class="card-footer-item">Dislike</a>
-        </footer>
-    </div>
-    {{#if loggedIn}}
-    <div id="post-modal" class="modal">
-        <div class="modal-background"></div>
-        <div class="modal-card">
-            <section class="modal-card-body">
-                <div class="content">
-                    <div class="card">
-                        <div class="card-content">
-                            <div class="content">
-                                <span class="icon">
-                                    <img src="../public/Logo-filler.png" class="image is-32x32">
-                                </span>
-                                <p>{{user.post.contents}}</p>
-                                <p>{{user.post.user.username}}</p>.
-                                <br>
-                            </div>
-                        </div>
 
-                        <div class="is-flex">
-                            <a href="#" class="card-footer-item">{{user.reactions.total_likes}} 👍</a>
-                            <a href="#" class="card-footer-item">{{user.reactions.total_dislikes}} 👎</a>
-                        </div>
-                    </div>
-                    {{#each comments}}
-                    <div>
-                        <p class="pl-2 ">{{user.post.comment.content}}</p>
-                    </div>
-                    {{/each}}
-            </section>
-            <footer class="modal-card-foot">
-            </footer>
-        </div>
 <script src="/javascript/create-post.js"></script>
-    </div>
-    {{/if}}
-    {{/each}}
-</div>
-{{/with}}
