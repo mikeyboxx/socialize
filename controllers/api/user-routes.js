@@ -5,11 +5,12 @@ const bcrypt = require('bcrypt');
 // Sign up
 
 router.post('/signup', async (req, res) => {
+  console.log(req.body);
   try {
     const dbUserData = await User.create(
       req.body
     );
-    
+    console.log(dbUserData);
     req.session.save(() => {
         req.session.loggedIn = true;
         req.session.userId = dbUserData.id;
@@ -59,6 +60,18 @@ router.post('/login', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+router.post('/logout', (req, res) => {
+  if (req.session.logged_in) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+  }
+});
+
+module.exports = router;
 
 // router.post('/signup', async (req, res) => {
 //   // expects {email: 'lernantino@gmail.com', password: 'password1234'}
@@ -126,14 +139,3 @@ router.post('/login', async (req, res) => {
 
 // Logout
 
-router.post('/logout', (req, res) => {
-  if (req.session.logged_in) {
-    req.session.destroy(() => {
-      res.status(204).end();
-    });
-  } else {
-    res.status(404).end();
-  }
-});
-
-module.exports = router;
