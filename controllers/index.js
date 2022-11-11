@@ -1,8 +1,8 @@
 const router = require('express').Router();
-const withAuth = require("../middleware/auth");
-const homePageRoute = require('./homepage-route.js');
 const apiRoute = require('./api');
+const homePageRoute = require('./homepage-route.js');
 const dashboardRoute = require('./dashboard-route.js');
+const notificationsRoute = require('./notification-route.js');
 const logoutRoute = require('./logout-route.js');
 
 // const postPageRoute = require('./postpage-route.js');
@@ -14,6 +14,8 @@ router.use('/', homePageRoute);
 router.use('/logout',  logoutRoute);
 
 router.use('/dashboard',  dashboardRoute);
+
+router.use('/notifications',  notificationsRoute);
 
 // router.use('/post', postPageRoute);
 

@@ -74,27 +74,25 @@ Notification.belongsTo(Post, {
   onDelete: "CASCADE",
 });
 
+// Comment to Notification - one to many
+Comment.hasMany(Notification, {
+  foreignKey: "comment_id",
+  onDelete: "CASCADE",
+});
+Notification.belongsTo(Comment, {
+    foreignKey: "comment_id",
+    onDelete: "CASCADE",
+  });
 
-// // how could you connect commnet and reaction to notification 
-
-// Comment.hasMany(Notification, {
-//   foreignKey: "user_id",
-//   onDelete: "CASCADE",
-// });
-
-// Notification.belongsTo(Comment, {
-//     foreignKey: "Comment_id",
-//     onDelete: "CASCADE",
-//   });
-
-
-// Notification.belongsTo(Reaction, {
-//     foreignKey: "Reaction_id",
-//     onDelete: "CASCADE",
-//   });
-
-
-
+// Reaction to Notification - one to many  
+Reaction.hasMany(Notification, {
+    foreignKey: "reaction_id",
+    onDelete: "CASCADE",
+});
+Notification.belongsTo(Reaction, {
+    foreignKey: "reaction_id",
+    onDelete: "CASCADE",
+  });
 
 module.exports = {
   User,
