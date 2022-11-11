@@ -1,16 +1,17 @@
 const router = require('express').Router();
 const sequelize = require("sequelize");
 const withAuth = require('../middleware/auth');
-const {User,Post,Comment } = require('../models');
+const {User, Post, Comment, Notification } = require('../models');
 
 
 router.get('/', withAuth,  async (req, res) => {
   try {
+    console.log(`req.session.userId = ${!req.session.userId ? null : req.session.userId}`);
     const posts = await Post.findAll({
       include: [{model: User}],
       order: [['createdAt', 'DESC']],
       where: {
-        user_id: !req.session.userId 
+        user_id: !req.session.userId ? null : req.session.userId 
       },
       attributes: {
         include: [
@@ -40,10 +41,17 @@ router.get('/', withAuth,  async (req, res) => {
 
     const postArr = posts.map(post => post.get(({ plain: true })));
 
+    const notificationCount = await Notification.count({
+      where: {
+        user_id: !req.session.userId ? null : req.session.userId,
+        read_flag: false 
+      },
+    });
+
     // res.json(postArr);
 
     res.render('dashboard', {
-      notificationCount: 4,
+      notificationCount,
       posts: postArr,
       loggedIn: req.session.loggedIn
     });
