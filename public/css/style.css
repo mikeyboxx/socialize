@@ -44,3 +44,75 @@ body {
 }
 
 
+#trapezoid a, .subnavbtn {
+    -webkit-transform: rotateX(180deg);
+    transform: rotateX(180deg);
+}
+
+.sub-home {
+    display: none;
+    position: absolute;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    transform: perspective(-10px);
+}
+
+#trapezoid:hover .sub-home {
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.navbar {
+    background: #ff00cc;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #333399, #ff00cc);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #333399, #ff00cc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    position: sticky;
+    top: 0;
+    display:flex;
+    overflow:hidden;
+    justify-content: center;
+    height: 100px;
+}
+
+.navbar a {
+    float: left;
+    font-size: 12px;
+    color: white;
+    text-align: center;
+    padding: 14px 25px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    transition: all 0.5s ease;
+}
+
+.subnav {
+    float: left;
+    overflow: hidden;
+}
+
+.subnav .subnavbtn {
+    font-size: 12px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 25px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    transition: all 0.5s ease;
+}
+
+.navbar a:hover, .subnav:hover .subnavbtn {
+    background:#7979e7;
+    color: black;
+    border-radius:5px;
+}
+
+.subnav:hover {
+    display: flex;
+    justify-content: center;
+}
