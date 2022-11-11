@@ -16,6 +16,17 @@ const seedDatabase = async() => {
   try {
     await sequelize.sync({force: true})
 
+    await User.create({
+      first_name: "bot",
+      last_name: "bot",
+      username: "bot",
+      email: "bot@bot.com",
+      password: "botbotbot"
+    },{
+      individualHooks: true, 
+      returning: true
+    });
+
     await User.bulkCreate(userSeeds, {
         individualHooks: true, 
         returning: true
