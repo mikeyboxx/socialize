@@ -1,5 +1,5 @@
- <nav class="navbar has-background-primary is-flex is-justify-content-space-evenly" role="navigation" aria-label="main navigation">
-        <div class="">
+    <nav class="navbar has-background-primary is-flex is-justify-content-space-evenly" role="navigation" aria-label="main navigation">
+        <div>
             <img src="images/Logo-filler.png" class="image is-64x64">
         </div>
         <div class="navbar-item is-hoverable mt-1">
@@ -10,8 +10,8 @@
               ({{notificationCount}})
             {{/if}}
             </a>
-            <a class="">New Post</a>
             {{#if loggedIn}}
+            <a class="js-modal-trigger" data-target="new-post" id="create-post">New Post</a>
             <a class="js-modal-trigger" data-target="sign-in" href="/logout">Logout</a>
             {{else}}
             <a class="js-modal-trigger" data-target="sign-in" id="loginLink">Login</a>
@@ -19,6 +19,21 @@
             </div>
         </div>
     </nav>
+        <div id="new-post" class="modal">
+          <div class="modal-background"></div>
+          <div class="modal-card">
+            <header class="modal-card-head">
+              <p class="modal-card-title"></p>
+              <button class="delete" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+              <textarea class="textarea" placeholder="10 lines of textarea" rows="10" id="newpost-text"></textarea>
+            </section>
+            <footer class="modal-card-foot">
+              <button class="button is-success" id="newpost-submit">submit</button>
+            </footer>
+          </div>
+        </div>
 
     <div id="sign-in" class="modal">
         <div class="modal-background"></div>
@@ -113,8 +128,7 @@
               </div>
           </section>
           <footer class="modal-card-foot">
-            <button class="button is-success" id="signup-submit">submit</button>
-            <button class="button">sign-up</button>
+            <a class="button is-success" id="signup-submit">submit</a>
           </footer>
         </div>
       </div>
