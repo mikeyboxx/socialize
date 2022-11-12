@@ -1,8 +1,16 @@
 {{> navbar}}
  {{#if loggedIn}}
  {{#with user}}
-<div id="feed" class="mx-6">
+
+
+ <div class="notification">
+  <button class="delete"></button>
     {{#each notification}}
+</div>
+
+
+
+<div id="feed" class="mx-6">
         {{user.post.reaction.type}}
         
         {{read_flag}}
