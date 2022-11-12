@@ -1,54 +1,36 @@
 {{> navbar}}
 
+<div class="menu">
+  <header class="card-header">
+    <p class="card-header-title">
+     {{#each notifications as |notification|}}
+    </p>
+    <button class="card-header-icon" aria-label="more options">
+      <span class="icon">
+        <i class="fas fa-angle-down" aria-hidden="true"></i>
+      </span>
+    </button>
+  </header>
 
-<div class="card">
-  <div class="notification">
-    <p class="title"></p>
-      
-    {{#each notifications as |notification|}}
+  <div class="card-content" style="color:aliceblue" >
     <div class="content">
-    
-     <p>{{notification.comment.contents}}</p> <br>
-      <p> {{notification.reaction.type}} </p>
-     <p>{{notification.comment.user.first_name}}, {{notification.comment.user.last_name}} </p>
-       <p>{{notification.comment.user.username}}</p>
+ 
+      {{#if notification.comment }}
+       <p>{{notification.comment.user.username}} commented: "{{notification.comment.contents}}"</p>
+    {{/if}}
+
+        {{#if notification.reaction }}
+      <p>{{notification.reaction.user.username}}  {{notification.reaction.type}} your post</p>
+        {{/if}}
+      
     </div>
+  </div>
+
 
   </div>
-  <footer class="card-footer">
-     <a  class="">{{totalComments}}
-            <span style="visibility:hidden"> -</span>
-            <i class="fa-regular fa-comment comment{{@index}}"></i>
-          </a>
-
-          {{#if totalAlreadyLiked}}
-            <a class="">{{totalLikes}}
-              <span style="visibility:hidden"> -</span>
-              <i class="fa-solid fa-thumbs-up thumbs-up{{@index}}"></i>
-            </a>
-          {{else}}
-            <a class="">{{totalLikes}}
-              <span style="visibility:hidden"> -</span>
-              <i class="fa-regular fa-thumbs-up thumbs-up{{@index}}"></i>
-            </a>
-          {{/if}}
-
-          {{#if totalAlreadyDisliked}}
-            <a class="">{{totalDislikes}}
-              <span style="visibility:hidden"> -</span>
-              <i class="fa-solid fa-thumbs-down thumbs-down{{@index}}"></i>
-            </a>
-          {{else}}
-            <a class="">{{totalDislikes}}
-              <span style="visibility:hidden"> -</span>
-              <i class="fa-regular fa-thumbs-down thumbs-down{{@index}}"></i>
-            </a>
-          {{/if}}
-  </footer>
-   {{/each}}
+  {{/each}}
 
 
-</div>
 
 
 
