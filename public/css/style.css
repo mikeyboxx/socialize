@@ -148,15 +148,66 @@ body {
     background: var(--background-clr);
 }
 
+.card {
+    background-color: var(--background-clr);
+}
 .content {
     margin: 0;
-    border: solid .1rem #7979e7;
+
+    border-radius: 2%;
     background-color: #e4e4f4;
+    align-items: center;
+    display: flex;
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 0;
+    justify-content: center;
+    padding: .75rem;
 }
 
 .card-content {
     padding: 0;
 }
+
+.card-footer-item {
+    border-radius: 5%;
+}
+
+.content h2,
+.horoscope_content h2 {
+    font-size: 1rem;
+    color: #333399;
+}
+
+.instructions-ingredients {
+    padding: 1rem;
+    text-overflow: ellipsis;
+}
+
+.instructions {
+    margin-bottom: 1rem;
+}
+
+.horoscope_content {
+    background-color: #e4e4f4;
+    /* align-items: center;
+    display: flex;
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 0;
+    justify-content: center;
+    /*  */
+    padding: .75rem;
+}
+
+.horoscope_other {
+    display: flex;
+    flex-direction: row;
+}
+/* .card-footer-item{
+    border: #e4e4f4;
+    border-radius: 2%;
+} */
 
 /* Media queries for ipad*/
 @media (min-width: 376px) {
