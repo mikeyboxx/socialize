@@ -1,25 +1,66 @@
 {{> navbar}}
- {{#if loggedIn}}
- {{#with user}}
-
- <div class="notifications">
-  <button class="delete"></button>
-    {{#each notification}}
-   {{user.post.reaction.type}}
-
-{{read_flag}}
 
 
-<div>
-     {{#each comments}}
-     {{user.post.comment}}
-    <p class="pl-2 ">{{user.post.comment.content}}</p>
+<div class="card">
+  <div class="notification">
+    <p class="title"></p>
+      
+    {{#each notifications as |notification|}}
+    <div class="content">
+    
+     <p>{{notification.comment.contents}}</p> <br>
+      <p> {{notification.reaction.type}} </p>
+     <p>{{notification.comment.user.first_name}}, {{notification.comment.user.last_name}} </p>
+       <p>{{notification.comment.user.username}}</p>
+    </div>
+
+  </div>
+  <footer class="card-footer">
+     <a  class="">{{totalComments}}
+            <span style="visibility:hidden"> -</span>
+            <i class="fa-regular fa-comment comment{{@index}}"></i>
+          </a>
+
+          {{#if totalAlreadyLiked}}
+            <a class="">{{totalLikes}}
+              <span style="visibility:hidden"> -</span>
+              <i class="fa-solid fa-thumbs-up thumbs-up{{@index}}"></i>
+            </a>
+          {{else}}
+            <a class="">{{totalLikes}}
+              <span style="visibility:hidden"> -</span>
+              <i class="fa-regular fa-thumbs-up thumbs-up{{@index}}"></i>
+            </a>
+          {{/if}}
+
+          {{#if totalAlreadyDisliked}}
+            <a class="">{{totalDislikes}}
+              <span style="visibility:hidden"> -</span>
+              <i class="fa-solid fa-thumbs-down thumbs-down{{@index}}"></i>
+            </a>
+          {{else}}
+            <a class="">{{totalDislikes}}
+              <span style="visibility:hidden"> -</span>
+              <i class="fa-regular fa-thumbs-down thumbs-down{{@index}}"></i>
+            </a>
+          {{/if}}
+  </footer>
+   {{/each}}
+
+
 </div>
 
-<p>{{user.post.user.username}}</p>.  
-  {{/each}}    
-</div>
 
- {{/each}}
-    {{/with}} 
-     {{/if}}
+
+
+
+
+
+
+
+
+
+
+
+
+
