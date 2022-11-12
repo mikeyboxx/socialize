@@ -2,11 +2,10 @@ const router = require("express").Router();
 const {Notification} = require("../../models");
 
 router.put('/:id', async (req, res) => {
-  console.log(req.params.id,req.body);
   try {
     const notificationData = await Notification.update(req.body, {
       where: {
-        id: parseInt(req.params.id),
+        id: req.params.id,
       },
     });
 

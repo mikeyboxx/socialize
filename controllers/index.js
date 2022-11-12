@@ -6,15 +6,15 @@ const notificationsRoute = require('./notification-route.js');
 const logoutRoute = require('./logout-route.js');
 const withAuth = require('../middleware/auth');
 
-router.use('/api', withAuth, apiRoute);
+router.use('/api', apiRoute);
 
 router.use('/', homePageRoute);
 
 router.use('/logout',  logoutRoute);
 
-router.use('/dashboard',  dashboardRoute);
+router.use('/dashboard', withAuth, dashboardRoute);
 
-router.use('/notifications',  notificationsRoute);
+router.use('/notifications', withAuth, notificationsRoute);
 
 router.get('*',  (req, res) => {
   res.render('404');
