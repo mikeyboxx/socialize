@@ -77,6 +77,15 @@ router.get('/', withAuth,  async (req, res) => {
     // res.json(postArr);
 
     res.render('dashboard', {
+      user: {
+        firstName,
+        lastName,
+        username,
+        totalNbrOfComments,
+        totalNbrOfLikes,
+        totalNbrOfDisLikes
+
+      },
       notificationCount,
       posts: postArr,
       loggedIn: req.session.loggedIn
