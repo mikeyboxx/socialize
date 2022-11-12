@@ -10,32 +10,33 @@
 
 
 
+
+
+
+
 <div id="feed" class="mx-6">
         {{user.post.reaction.type}}
         
         {{read_flag}}
 
-                     <span class="icon">
-                         <img src="../public/Logo-filler.png" class="image is-32x32">
-                     </span>
-                                <p>{{user.post.contents}}</p>
-                                <p>{{user.post.user.username}}</p>.
-                                <br>
-                            </div>
-                        </div>
+<p>{{user.post.contents}}</p>
+<p>{{user.post.user.username}}</p>.
+ <br>
+ </div>
+ </div>
 
-                        <div class="is-flex">
-                            <a href="#" class="card-footer-item">{{user.reactions.total_likes}} 👍</a>
-                            <a href="#" class="card-footer-item">{{user.reactions.total_dislikes}} 👎</a>
-                        </div>
-                    </div>
-                    {{#each comments}}
+ <div class="is-flex">
+  <a href="#" class="card-footer-item">{{user.reactions.total_likes}} 👍</a>
+   <a href="#" class="card-footer-item">{{user.reactions.total_dislikes}} 👎</a>
+        </div>
+ </div>
+  {{#each comments}}
                     <div>
-                        <p class="pl-2 ">{{user.post.comment.content}}</p>
-                    </div>
-                    {{/each}}
-            </section>
-            <footer class="modal-card-foot">
+     <p class="pl-2 ">{{user.post.comment.content}}</p>
+     </div>
+  {{/each}}
+  </section>
+ <footer class="modal-card-foot">
             </footer>
      
 
@@ -43,4 +44,4 @@
     {{/if}}
     {{/each}}
 </div>
-{{/with}}
+{{/with}} 
