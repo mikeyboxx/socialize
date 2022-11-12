@@ -62,7 +62,7 @@ router.get('/', async (req, res) => {
     res.render('homepage', {
       notificationCount,
       posts: postArr,
-      loggedIn: req.session.loggedIn
+      loggedIn: true
     });
 
   } catch (err) {
