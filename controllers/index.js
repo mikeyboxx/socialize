@@ -4,10 +4,11 @@ const homePageRoute = require('./homepage-route.js');
 const dashboardRoute = require('./dashboard-route.js');
 const notificationsRoute = require('./notification-route.js');
 const logoutRoute = require('./logout-route.js');
+const withAuth = require('../middleware/auth');
 
 // const postPageRoute = require('./postpage-route.js');
 
-router.use('/api',  apiRoute);
+router.use('/api', withAuth, apiRoute);
 
 router.use('/', homePageRoute);
 
