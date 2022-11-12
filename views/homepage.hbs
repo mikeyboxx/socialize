@@ -1,6 +1,6 @@
 {{> navbar}}
 
-<div id="feed" class="mx-6">
+<div id="feed" class="mx-6 feed">
   {{#each posts as |post|}}
   <div class="card">
       <div class="card-content">
@@ -11,7 +11,7 @@
            {{#if post.api_cocktail }}
              {{> cocktail-post item=post.api_object}}
           {{/if}}
-     
+
           {{#if post.api_horoscope }}
              {{> horoscope-post item=post.api_object}}
           {{/if}}
@@ -24,24 +24,24 @@
           </a>
 
           {{#if totalAlreadyLiked}}
-            <a class="card-footer-item  mike">{{totalLikes}} 
+            <a class="card-footer-item  mike">{{totalLikes}}
               <span style="visibility:hidden"> -</span>
               <i class="fa-solid fa-thumbs-up thumbs-up{{@index}}"></i>
             </a>
           {{else}}
-            <a class="card-footer-item  mike">{{totalLikes}} 
+            <a class="card-footer-item  mike">{{totalLikes}}
               <span style="visibility:hidden"> -</span>
               <i class="fa-regular fa-thumbs-up thumbs-up{{@index}}"></i>
             </a>
           {{/if}}
 
           {{#if totalAlreadyDisliked}}
-            <a class="card-footer-item  chris">{{totalDislikes}} 
+            <a class="card-footer-item  chris">{{totalDislikes}}
               <span style="visibility:hidden"> -</span>
               <i class="fa-solid fa-thumbs-down thumbs-down{{@index}}"></i>
             </a>
           {{else}}
-            <a class="card-footer-item chris">{{totalDislikes}} 
+            <a class="card-footer-item chris">{{totalDislikes}}
               <span style="visibility:hidden"> -</span>
               <i class="fa-regular fa-thumbs-down thumbs-down{{@index}}"></i>
             </a>

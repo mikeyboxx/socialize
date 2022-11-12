@@ -1,20 +1,21 @@
     <nav class="navbar has-background-primary is-flex is-justify-content-space-evenly" role="navigation" aria-label="main navigation">
         <div>
-            <img src="images/Logo-filler.png" class="image is-64x64">
+            <img src="images/images/sz.jpeg" class="logo image">
         </div>
-        <div class="navbar-item is-hoverable mt-1">
-            <a class="">Home</a>
-            <a class="" href="/dashboard">Dashboard</a>
-            <a class="" href="/notifications">Notifications 
+        <div class="navbar-item is-hoverable mt-1" id="navbar">
+         <div id="trapezoid">
+            <a class="sub-home" href="/main">Home</a>
+            <a class="expandHome" href="/dashboard">Dashboard</a>
+            <a class="subnavbtn" href="/notifications">Notifications
             {{#if notificationCount}}
               ({{notificationCount}})
             {{/if}}
             </a>
             {{#if loggedIn}}
-            <a class="js-modal-trigger" data-target="new-post" id="create-post">New Post</a>
-            <a class="js-modal-trigger" data-target="sign-in" href="/logout">Logout</a>
+            <a class="js-modal-trigger subnavbtn" data-target="new-post" id="create-post">New Post</a>
+            <a class="js-modal-trigger expandHome subnavbtn" data-target="sign-in" href="/logout">Logout</a>
             {{else}}
-            <a class="js-modal-trigger" data-target="sign-in" id="loginLink">Login</a>
+            <a class="js-modal-trigger expandHome subnavbtn" data-target="sign-in" id="loginLink">Login</a>
             {{/if}}
             </div>
         </div>
@@ -132,4 +133,3 @@
           </footer>
         </div>
       </div>
-      
