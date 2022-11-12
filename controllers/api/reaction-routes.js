@@ -5,7 +5,7 @@ const { Reaction, Notification } = require("../../models");
 router.post("/",  async (req, res) => {
   try {
     // validate the type
-    if (!req.body.type === 'like' ||  req.body.type === 'dislike' || req.body.type === 'undo') {
+    if (!(req.body.type === 'like' ||  req.body.type === 'dislike' || req.body.type === 'undo')) {
       res
         .status(399)
         .json({ message: 'Incorrect type. Must be like, dislike, or undo' });
