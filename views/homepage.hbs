@@ -15,6 +15,17 @@
           {{#if post.api_horoscope }}
              {{> horoscope-post item=post.api_object}}
           {{/if}}
+
+          {{#each comments }}
+            <hr>
+            <div>
+              {{contents}}
+            </div>
+            <div>
+              --{{user.username}}, {{createdAt}}
+            </div>
+            <hr>
+          {{/each}}
       </div>
 
       <footer class="card-footer">
