@@ -29,11 +29,11 @@ router.get('/', async (req, res) => {
 
     res.json(notificationsArr);
 
-    // res.render('notification', {
-    //   notificationCount,
-    //   notifications: notificationsArr,
-    //   loggedIn: req.session.loggedIn
-    // });
+    res.render('notifications', {
+      notificationCount,
+      notifications: notificationsArr,
+      loggedIn: req.session.loggedIn
+    });
 
   } catch (err) {
     console.log(err);

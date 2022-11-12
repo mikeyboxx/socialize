@@ -1,9 +1,12 @@
 {{#with item}}
-<h2>{{drink}}</h2>
-<h2>{{glass}}</h2>
-<p>{{instructions}}</p>
-{{#each ingredients}}
-<p><span>{{ingredient}} {{measure}}</span></p>
-{{/each}}
-<img class="cocktail_img" src="{{drinkImageUrl}}"></img>
+<div class= "content">
+    <h2 class="drink_name">{{drink}}</h2>
+    <h2 class="drink_glass">{{glass}}</h2>
+    <p class="instructions">{{instructions}}</p>
+    {{#each ingredients}}
+    <p class="ingredients"><span>{{ingredient}} {{measure}}</span></p>
+    {{/each}}
+    <img class="cocktail_img" src="{{drinkImageUrl}}"></img>
+</div>
+
 {{/with}}
