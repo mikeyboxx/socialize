@@ -15,10 +15,21 @@
           {{#if post.api_horoscope }}
              {{> horoscope-post item=post.api_object}}
           {{/if}}
+
+          {{#each comments }}
+            <hr>
+            <div>
+              {{contents}}
+            </div>
+            <div>
+              --{{user.username}}, {{createdAt}}
+            </div>
+            <hr>
+          {{/each}}
       </div>
 
       <footer class="card-footer">
-          <a  class="card-footer-item ">{{totalComments}}
+          <a  class="card-footer-item">{{totalComments}}
             <span style="visibility:hidden"> -</span>
             <i class="fa-regular fa-comment comment{{@index}}"></i>
           </a>

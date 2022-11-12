@@ -1,12 +1,12 @@
 {{!-- Navigation bar --}}
 <nav class="navbar has-background-primary is-flex is-justify-content-space-evenly" role="navigation" aria-label="main navigation">
     <div>
-        <img src="/images/sz.jpeg" class="logo image">
+        <a href="/"><img src="/images/sz.jpeg" class="logo image"></a>
     </div>
 
     <div class="navbar-item is-hoverable mt-1" id="navbar">
       <div id="trapezoid">
-          <a class="sub-home" href="/main">Home</a>
+          <a class="sub-home" href="/">Home</a>
           <a class="expandHome" href="/dashboard">Dashboard</a>
           <a class="subnavbtn" href="/notifications">Notifications
           {{#if notificationCount}}
