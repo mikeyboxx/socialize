@@ -50,7 +50,6 @@ router.get('/', async (req, res) => {
       return item;
     });
 
-   
     const notificationCount = await Notification.count({
       where: {
         user_id: !req.session.userId ? null : req.session.userId,

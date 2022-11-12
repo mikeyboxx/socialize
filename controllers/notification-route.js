@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
         {model: Comment,
           include: {model: User}},
         {model: Reaction,
-            include: {model: User}},
+          include: {model: User}},
       ],
       where: {
         user_id: !req.session.userId ? null : req.session.userId 
@@ -29,7 +29,7 @@ router.get('/', async (req, res) => {
 
     res.json(notificationsArr);
 
-    // res.render('notifications', {
+    // res.render('notification', {
     //   notificationCount,
     //   notifications: notificationsArr,
     //   loggedIn: req.session.loggedIn
