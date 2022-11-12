@@ -2,46 +2,24 @@
  {{#if loggedIn}}
  {{#with user}}
 
-
- <div class="notification">
+ <div class="notifications">
   <button class="delete"></button>
     {{#each notification}}
+   {{user.post.reaction.type}}
+
+{{read_flag}}
+
+
+<div>
+     {{#each comments}}
+     {{user.post.comment}}
+    <p class="pl-2 ">{{user.post.comment.content}}</p>
 </div>
 
-
-
-
-
-
-
-<div id="feed" class="mx-6">
-        {{user.post.reaction.type}}
-        
-        {{read_flag}}
-
-<p>{{user.post.contents}}</p>
-<p>{{user.post.user.username}}</p>.
- <br>
- </div>
- </div>
-
- <div class="is-flex">
-  <a href="#" class="card-footer-item">{{user.reactions.total_likes}} 👍</a>
-   <a href="#" class="card-footer-item">{{user.reactions.total_dislikes}} 👎</a>
-        </div>
- </div>
-  {{#each comments}}
-                    <div>
-     <p class="pl-2 ">{{user.post.comment.content}}</p>
-     </div>
-  {{/each}}
-  </section>
- <footer class="modal-card-foot">
-            </footer>
-     
-
-    </div>
-    {{/if}}
-    {{/each}}
+<p>{{user.post.user.username}}</p>.  
+  {{/each}}    
 </div>
-{{/with}} 
+
+ {{/each}}
+    {{/with}} 
+     {{/if}}
