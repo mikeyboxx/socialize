@@ -27,7 +27,7 @@
       </div>
 
       <footer class="card-footer">
-          <a class="card-footer-item" loggedIn="{{loggedIn}}">{{totalComments}}
+          <a class="card-footer-item" data-target="new-comment{{@index}}" loggedIn="{{loggedIn}}">{{totalComments}}
             <span style="visibility:hidden"> -</span>
             <i class="fa-regular fa-comment comment{{@index}}" postid="{{post.id}}" ></i>
           </a>
@@ -59,8 +59,25 @@
               <i class="fa-regular fa-thumbs-down thumbs-down{{@index}}" postid="{{post.id}}"></i>
             </a>
           {{/if}}
-        
       </footer>
   </div>
+  <div id="new-comment{{@index}}" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title"></p>
+        <button class="delete" aria-label="close"></button>
+      </header>
+      <section class="modal-card-body">
+        <textarea class="textarea" placeholder="10 lines of textarea" rows="10" id="newcomment-text{{@index}}"></textarea>
+        <p class="comment-id{{@index}}">{{id}}</p>
+      </section>
+      <footer class="modal-card-foot">
+        <button class="button is-success submit" id="newcomment-submit">submit</button>
+      </footer>
+    </div>
+  </div>
+ </div> 
+
   {{/each}}
 </div>
