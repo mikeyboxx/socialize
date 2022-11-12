@@ -1,18 +1,44 @@
 const router = require('express').Router();
+const {Notification, User, Comment, Reaction} = require('../models');
 
 // notification route
-router.get('/notification', (req, res) => {
-  // If null redirect to the homepage
-  if (req.session.loggedIn) {
-    res.redirect('/');
-    return;
-  }
+router.get('/', async (req, res) => {
+  try {
+    console.log(`req.session.userId = ${!req.session.userId ? null : req.session.userId}`);
+    const notifications = await Notification.findAll({
+      include: [
+        {model: Comment,
+          include: {model: User}},
+        {model: Reaction,
+          include: {model: User}},
+      ],
+      where: {
+        user_id: !req.session.userId ? null : req.session.userId 
+      },
+      order: [['createdAt', 'DESC']]
+    });
 
-  // Otherwise, render the 'notification' template
-  res.render('notification', {
-    loggedIn: req.session.loggedIn, 
-    title: 'Socialize',
-  });
+    const notificationsArr = notifications.map(notification => notification.get(({ plain: true })));
+
+    const notificationCount = await Notification.count({
+      where: {
+        user_id: !req.session.userId ? null : req.session.userId,
+        read_flag: false 
+      },
+    });
+
+    res.json(notificationsArr);
+
+    // res.render('notification', {
+    //   notificationCount,
+    //   notifications: notificationsArr,
+    //   loggedIn: req.session.loggedIn
+    // });
+
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
 });
 
 module.exports = router;

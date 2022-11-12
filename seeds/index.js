@@ -16,28 +16,35 @@ const seedDatabase = async() => {
   try {
     await sequelize.sync({force: true})
 
+    await User.create({
+      first_name: "bot",
+      last_name: "bot",
+      username: "bot",
+      email: "bot@bot.com",
+      password: "botbotbot"
+    },{
+      individualHooks: true, 
+      returning: true
+    });
+
     await User.bulkCreate(userSeeds, {
         individualHooks: true, 
         returning: true
     });
 
     await Post.bulkCreate(postSeeds, {
-        individualHooks: true, 
         returning: true
     }); 
 
     await Comment.bulkCreate(commentSeeds, {
-        individualHooks: true, 
         returning: true
     }); 
 
     await Reaction.bulkCreate(reactionSeeds, {
-        individualHooks: true, 
         returning: true
     }); 
 
     await Notification.bulkCreate(notificationSeeds, {
-        individualHooks: true, 
         returning: true
     }); 
 

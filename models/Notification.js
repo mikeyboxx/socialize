@@ -25,9 +25,19 @@ Notification.init(
       type: DataTypes.STRING,
       allowNull: false,
     }, 
-    type_id:{
+    comment_id:{
       type: DataTypes.INTEGER,
-      allowNull: false,
+      references: {
+        model: "comment",
+        key: "id",
+      },
+    },
+    reaction_id:{
+      type: DataTypes.INTEGER,
+      references: {
+        model: "reaction",
+        key: "id",
+      },
     },
     post_id: {
       type: DataTypes.INTEGER,

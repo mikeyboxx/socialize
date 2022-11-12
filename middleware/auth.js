@@ -1,10 +1,15 @@
 const withAuth = (req, res, next) => { 
-  req.session.logged_in = true //delete after testing
-    if (!req.session.logged_in) {
-      res.redirect('/login');
-    } else {
-      next();
-    }
-  };
+  // below code is only in dev.. comment out prior to going live
+  // if (!req.session.loggedIn) {
+  //   req.session.loggedIn = true;
+  //   req.session.userId = 2;
+  // }
 
-  module.exports = withAuth;
+  if (!req.session.loggedIn) {
+    res.redirect('/');
+  } else {
+    next();
+  }
+};
+
+module.exports = withAuth;

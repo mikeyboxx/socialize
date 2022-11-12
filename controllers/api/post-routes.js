@@ -1,12 +1,15 @@
-const router = require('express').Router();
+const router = require("express").Router();
 const sequelize = require("sequelize");
-const {User, Post, Notification} = require('../models');
+const {User, Post, Comment} = require("../../models");
 
-router.get('/', async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
-    console.log(`req.session.userId = ${!req.session.userId ? null : req.session.userId}`);
-    const posts = await Post.findAll({
-      include: [{model: User}],
+    const post = await Post.findByPk(req.params.id, {
+      include: [
+        {model: User}, 
+        {model: Comment,
+          include: {model: User}},
+      ],
       order: [['createdAt', 'DESC']],
       attributes: {
         include: [
@@ -34,36 +37,12 @@ router.get('/', async (req, res) => {
       }
     });
 
-  
-    const postArr = posts.map(post => {
-      const item = post.get(({ plain: true }));
+    if (!post) {
+      res.status(404).json({ message: 'No post with this id!' });
+      return;
+    }
 
-      switch(item.api_id){
-        case 1: item.api_cocktail = true;
-          break;
-        case 2: item.api_horoscope = true;
-          break;
-        default: item.human_post = true;
-          break;
-      }
-      item.api_object = JSON.parse(item.api_json);
-      return item;
-    });
-
-    const notificationCount = await Notification.count({
-      where: {
-        user_id: !req.session.userId ? null : req.session.userId,
-        read_flag: false 
-      },
-    });
-
-    // res.json(postArr);
-
-    res.render('homepage', {
-      notificationCount,
-      posts: postArr,
-      loggedIn: req.session.loggedIn
-    });
+    res.status(200).json(post.get(({ plain: true })));
 
   } catch (err) {
     console.log(err);
@@ -71,5 +50,18 @@ router.get('/', async (req, res) => {
   }
 });
 
+//route to add a post
+router.post("/", async (req, res) => {
+  try {
+    const dbPostData = await Post.create({
+      contents: req.body.contents,
+      user_id: !req.session.userId ? null : req.session.userId,
+    });
+    res.status(200).json(dbPostData);
+  } catch (err) {
+    console.log(err);
+    res.status(400).json(err);
+  }
+});
 
 module.exports = router;
