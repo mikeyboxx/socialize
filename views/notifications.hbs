@@ -1,0 +1,25 @@
+{{> navbar}}
+ {{#if loggedIn}}
+ {{#with user}}
+
+ <div class="notifications">
+  <button class="delete"></button>
+    {{#each notification}}
+   {{user.post.reaction.type}}
+
+{{read_flag}}
+
+
+<div>
+     {{#each comments}}
+     {{user.post.comment}}
+    <p class="pl-2 ">{{user.post.comment.content}}</p>
+</div>
+
+<p>{{user.post.user.username}}</p>.  
+  {{/each}}    
+</div>
+
+ {{/each}}
+    {{/with}} 
+     {{/if}}
