@@ -1,62 +1,36 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Functions to open and close a modal
-    function openModal($el) {
-      $el.classList.add('is-active');
-    }
-  
-    function closeModal($el) {
-      $el.classList.remove('is-active');
-    }
-  
-    function closeAllModals() {
-      (document.querySelectorAll('.modal') || []).forEach(($modal) => {
-        closeModal($modal);
-      });
-    }
-  
-    // Add a click event on buttons to open a specific modal
-    (document.querySelectorAll('.js-modal-trigger') || []).forEach(($trigger) => {
-      const modal = $trigger.dataset.target;
-      const $target = document.getElementById(modal);
-  
-      $trigger.addEventListener('click', () => {
-        openModal($target);
-      });
-    });
-  
-    // Add a click event on various child elements to close the parent modal
-    (document.querySelectorAll('.not-button .modal-close, .modal-card-head .delete, .modal-card-foot .button') || []).forEach(($close) => {
-      const $target = $close.closest('.modal');
-  
-      $close.addEventListener('click', () => {
-        closeModal($target);
-      });
-    });
-  
-    // Add a keyboard event to close all modals
-    document.addEventListener('keydown', (event) => {
-      const e = event || window.event;
-  
-      if (e.keyCode === 27) { // Escape key
-        closeAllModals();
+
+
+
+const newCommentFormHandler = async (idx, event) => {
+    event.stopPropagation(event);
+    console.log("easy Girl!!!")
+
+    const contents = document.querySelector(`#newcomment-text${idx}`).value.trim();
+    const postId = document.querySelector(`.comment-id${idx}`).innerText
+    
+
+    if (contents && postId) {
+      try{
+        let response = await fetch('/api/comments', {
+          method: 'POST',
+          body: JSON.stringify({contents, postId}),
+          headers: { 'Content-Type': 'application/json' },
+        });
+
+        if (response.ok) {
+            document.location.reload();
+        } else {
+          response = await response.json();
+          alert(`Failed to log in. ${response.message}`);
+        }
       }
-    });
-  });
-  
+      catch (err){
+        console.log(err);
+      }
+    }
+  };
 
-
-
-
-
-
-
-// const commentHandler = async event => {
-//     event.preventDefault();
-
-
-
-
-// const thumbupButtons = document.querySelectorAll('#static-modal');
-// thumbupButtons.forEach(function(btn, idx) {
-//   btn.addEventListener('click', commentHandler.bind(this, idx));
-// })};
+    const submitBtn = document.querySelectorAll('.submit');
+    submitBtn.forEach(function(btn, idx) {
+    btn.addEventListener('click', newCommentFormHandler.bind(this, idx));
+});

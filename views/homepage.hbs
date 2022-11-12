@@ -3,95 +3,97 @@
 <div id="feed" class="mx-6 feed">
   {{#each posts as |post|}}
   <div class="card">
-      <div class="card-content">
-          {{#if post.human_post }}
-             {{> human-post item=post}}
-          {{/if}}
+    <div class="card-content">
+      {{#if post.human_post }}
+      {{> human-post item=post}}
+      {{/if}}
 
-           {{#if post.api_cocktail }}
-             {{> cocktail-post item=post.api_object}}
-          {{/if}}
+      {{#if post.api_cocktail }}
+      {{> cocktail-post item=post.api_object}}
+      {{/if}}
 
-          {{#if post.api_horoscope }}
-             {{> horoscope-post item=post.api_object}}
-          {{/if}}
+      {{#if post.api_horoscope }}
+      {{> horoscope-post item=post.api_object}}
+      {{/if}}
 
-          {{#each comments }}
-            <hr>
-            <div>
-              {{contents}}
-            </div>
-            <div>
-              --{{user.username}}, {{createdAt}}
-            </div>
-            <hr>
-          {{/each}}
+      {{#each comments }}
+      <hr>
+      <div class="comment">
+        {{contents}}
       </div>
+      <div>
+        --{{user.username}}, {{createdAt}}
+      </div>
+      <hr>
+      {{/each}}
+    </div>
 
-      <footer class="card-footer">
-          <a  class="card-footer-item">{{totalComments}}
-            <span style="visibility:hidden"> -</span>
-            <i class="fa-regular fa-comment comment{{@index}}"></i>
-          </a>
+    <footer class="card-footer">
+      <a class="card-footer-item js-modal-trigger" data-target="new-comment{{@index}}">{{totalComments}}
+        <span style="visibility:hidden"> -</span>
+        <i class="fa-regular fa-comment comment{{@index}}" post_id="{{id}}"></i>
+      </a>
 
-          {{#if totalAlreadyLiked}}
-            <a class="card-footer-item  mike">{{totalLikes}}
-              <span style="visibility:hidden"> -</span>
-              <i class="fa-solid fa-thumbs-up thumbs-up{{@index}}"></i>
-            </a>
-          {{else}}
-            <a class="card-footer-item  mike">{{totalLikes}}
-              <span style="visibility:hidden"> -</span>
-              <i class="fa-regular fa-thumbs-up thumbs-up{{@index}}"></i>
-            </a>
-          {{/if}}
+      {{#if totalAlreadyLiked}}
+      <a class="card-footer-item  mike">{{totalLikes}}
+        <span style="visibility:hidden"> -</span>
+        <i class="fa-solid fa-thumbs-up thumbs-up{{@index}}"></i>
+      </a>
+      {{else}}
+      <a class="card-footer-item  mike">{{totalLikes}}
+        <span style="visibility:hidden"> -</span>
+        <i class="fa-regular fa-thumbs-up thumbs-up{{@index}}"></i>
+      </a>
+      {{/if}}
 
-          {{#if totalAlreadyDisliked}}
-            <a class="card-footer-item  chris">{{totalDislikes}}
-              <span style="visibility:hidden"> -</span>
-              <i class="fa-solid fa-thumbs-down thumbs-down{{@index}}"></i>
-            </a>
-          {{else}}
-            <a class="card-footer-item chris">{{totalDislikes}}
-              <span style="visibility:hidden"> -</span>
-              <i class="fa-regular fa-thumbs-down thumbs-down{{@index}}"></i>
-            </a>
-          {{/if}}
-      </footer>
+      {{#if totalAlreadyDisliked}}
+      <a class="card-footer-item  chris">{{totalDislikes}}
+        <span style="visibility:hidden"> -</span>
+        <i class="fa-solid fa-thumbs-down thumbs-down{{@index}}"></i>
+      </a>
+      {{else}}
+      <a class="card-footer-item chris">{{totalDislikes}}
+        <span style="visibility:hidden"> -</span>
+        <i class="fa-regular fa-thumbs-down thumbs-down{{@index}}"></i>
+      </a>
+      {{/if}}
+    </footer>
   </div>
-  {{!-- <div id="static-modal" class="modal">
+  <div id="new-comment{{@index}}" class="modal">
   <div class="modal-background"></div>
   <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title"></p>
+      <button class="delete" aria-label="close"></button>
+    </header>
     <section class="modal-card-body">
-      <div class="content">
-        <div class="card">
-          <div class="card-content">
-            <div class="content">
-              <span class="icon">
-                <img src="../public/Logo-filler.png" class="image is-32x32">
-              </span>
-              <p>{{contents}}</p>
-              <p>{{user.username}}</p>
-              <br>
-            </div>
-          </div>
-          <div class="is-flex">
-            <a href="#" class="card-footer-item">Like</a>
-            <a href="#" class="card-footer-item">Dislike</a>
-          </div>
-        </div>
-        <div>
-          <p class="pl-2 ">comment</p>
-        </div>
+      <textarea class="textarea" placeholder="10 lines of textarea" rows="10" id="newcomment-text{{@index}}"></textarea> 
+        <p class="comment-id{{@index}}">{{id}}</p>  
     </section>
     <footer class="modal-card-foot">
+      <button class="button is-success submit" id="newcomment-submit">submit</button>
     </footer>
-  </div> --}}
+  </div>
 </div>
-  {{/each}}
+{{/each}}
 </div>
 
 
+{{!-- <div id="new-comment" class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title"></p>
+      <button class="delete" aria-label="close"></button>
+    </header>
+    <section class="modal-card-body">
+      <textarea class="textarea" placeholder="10 lines of textarea" rows="10" id="newcomment-text"></textarea>
+    </section>
+    <footer class="modal-card-foot">
+      <button class="button is-success" id="newcomment-submit">submit</button>
+    </footer>
+  </div>
+</div> --}}
 {{!-- <div class="content">
               <span class="icon">
                   <img src="../public/Logo-filler.png" class="image is-32x32">
