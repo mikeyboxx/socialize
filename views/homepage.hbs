@@ -11,14 +11,8 @@
            {{#if post.api_cocktail }}
              {{> cocktail-post item=post.api_object}}
           {{/if}}
-<<<<<<< HEAD
 
-
-           {{#if post.api_horoscope }}
-=======
-     
           {{#if post.api_horoscope }}
->>>>>>> 9aae37ef10ffbba36269adf434848366bb46ade3
              {{> horoscope-post item=post.api_object}}
           {{/if}}
       </div>
@@ -30,24 +24,24 @@
           </a>
 
           {{#if totalAlreadyLiked}}
-            <a class="card-footer-item  mike">{{totalLikes}} 
+            <a class="card-footer-item  mike">{{totalLikes}}
               <span style="visibility:hidden"> -</span>
               <i class="fa-solid fa-thumbs-up thumbs-up{{@index}}"></i>
             </a>
           {{else}}
-            <a class="card-footer-item  mike">{{totalLikes}} 
+            <a class="card-footer-item  mike">{{totalLikes}}
               <span style="visibility:hidden"> -</span>
               <i class="fa-regular fa-thumbs-up thumbs-up{{@index}}"></i>
             </a>
           {{/if}}
 
           {{#if totalAlreadyDisliked}}
-            <a class="card-footer-item  chris">{{totalDislikes}} 
+            <a class="card-footer-item  chris">{{totalDislikes}}
               <span style="visibility:hidden"> -</span>
               <i class="fa-solid fa-thumbs-down thumbs-down{{@index}}"></i>
             </a>
           {{else}}
-            <a class="card-footer-item chris">{{totalDislikes}} 
+            <a class="card-footer-item chris">{{totalDislikes}}
               <span style="visibility:hidden"> -</span>
               <i class="fa-regular fa-thumbs-down thumbs-down{{@index}}"></i>
             </a>
