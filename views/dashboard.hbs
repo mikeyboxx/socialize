@@ -7,6 +7,16 @@
           {{#if post.human_post }}
              {{> human-post item=post}}
           {{/if}}
+          {{#each comments }}
+            <hr>
+            <div>
+              {{contents}}
+            </div>
+            <div>
+              --{{user.username}}, {{createdAt}}
+            </div>
+            <hr>
+          {{/each}}
       </div>
 
       <footer class="card-footer">
