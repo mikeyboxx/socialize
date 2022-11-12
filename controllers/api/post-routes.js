@@ -55,7 +55,7 @@ router.post("/", async (req, res) => {
   try {
     const dbPostData = await Post.create({
       contents: req.body.contents,
-      user_id: req.session.userId,
+      user_id: !req.session.userId ? null : req.session.userId,
     });
     res.status(200).json(dbPostData);
   } catch (err) {
