@@ -3,7 +3,7 @@
 <div id="feed" class="mx-6 feed">
   {{#each posts as |post|}}
   <div class="card">
-      <div class="card-content">
+      <div class="card-content post">
           {{#if post.human_post }}
              {{> human-post item=post}}
           {{/if}}
@@ -15,37 +15,53 @@
           {{#if post.api_horoscope }}
              {{> horoscope-post item=post.api_object}}
           {{/if}}
+
+          {{#each comments }}
+            <hr>
+            <div>
+              {{contents}}
+            </div>
+            <div>
+              --{{user.username}}, {{createdAt}}
+            </div>
+            <hr>
+          {{/each}}
       </div>
 
       <footer class="card-footer">
-          <a  class="card-footer-item">{{totalComments}}
+          <a class="card-footer-item" loggedIn="{{loggedIn}}">{{totalComments}}
             <span style="visibility:hidden"> -</span>
-            <i class="fa-regular fa-comment comment{{@index}}"></i>
+            <i class="fa-regular fa-comment comment{{@index}}" postid="{{post.id}}" ></i>
           </a>
 
           {{#if totalAlreadyLiked}}
-            <a class="card-footer-item  mike">{{totalLikes}}
+            <a class="card-footer-item  mike" loggedIn="{{../loggedIn}}">
+              <span class="like{{@index}}">{{totalLikes}}</span>
               <span style="visibility:hidden"> -</span>
-              <i class="fa-solid fa-thumbs-up thumbs-up{{@index}}"></i>
+              <i class="fa-solid fa-thumbs-up thumbs-up{{@index}}" postid="{{post.id}}"></i>
             </a>
           {{else}}
-            <a class="card-footer-item  mike">{{totalLikes}}
+            <a class="card-footer-item  mike" loggedIn="{{../loggedIn}}">
+              <span class="like{{@index}}">{{totalLikes}}</span>
               <span style="visibility:hidden"> -</span>
-              <i class="fa-regular fa-thumbs-up thumbs-up{{@index}}"></i>
+              <i class="fa-regular fa-thumbs-up thumbs-up{{@index}}"  postid="{{post.id}}"></i>
             </a>
           {{/if}}
 
           {{#if totalAlreadyDisliked}}
-            <a class="card-footer-item  chris">{{totalDislikes}}
+            <a class="card-footer-item  chris" loggedIn="{{../loggedIn}}">
+              <span class="dislike{{@index}}">{{totalDislikes}}</span>
               <span style="visibility:hidden"> -</span>
-              <i class="fa-solid fa-thumbs-down thumbs-down{{@index}}"></i>
+              <i class="fa-solid fa-thumbs-down thumbs-down{{@index}}" postid="{{post.id}}"></i>
             </a>
           {{else}}
-            <a class="card-footer-item chris">{{totalDislikes}}
+            <a class="card-footer-item chris" loggedIn="{{../loggedIn}}">
+              <span class="dislike{{@index}}">{{totalDislikes}}</span>
               <span style="visibility:hidden"> -</span>
-              <i class="fa-regular fa-thumbs-down thumbs-down{{@index}}"></i>
+              <i class="fa-regular fa-thumbs-down thumbs-down{{@index}}" postid="{{post.id}}"></i>
             </a>
           {{/if}}
+        
       </footer>
   </div>
   {{/each}}

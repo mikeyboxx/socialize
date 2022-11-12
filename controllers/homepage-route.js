@@ -1,12 +1,16 @@
 const router = require('express').Router();
 const sequelize = require("sequelize");
-const {User, Post, Notification} = require('../models');
+const {User, Post, Notification, Comment} = require('../models');
 
 router.get('/', async (req, res) => {
   try {
     console.log(`req.session.userId = ${!req.session.userId ? null : req.session.userId}`);
     const posts = await Post.findAll({
-      include: [{model: User}],
+      include: [
+        {model: User},
+        {model: Comment,
+          include: {model: User}},
+      ],
       order: [['createdAt', 'DESC']],
       attributes: {
         include: [

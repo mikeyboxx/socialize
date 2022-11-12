@@ -1,11 +1,12 @@
 {{#with item}}
-<div class="content">
+<div class="content post-id{{id}}">
   <span class="icon">
       <img src="../public/Logo-filler.png" class="image is-32x32">
   </span>
+  <span style="font-weight:bold">{{user.first_name}} {{user.last_name}}</span> 
+  <span> {{user.username}} - On {{createdAt}}</span>
   <p>{{contents}}</p>
-  <p>{{user.username}}</p>
-  <p id="post-id" style="display: none;">{{id}}</p>
+  {{!-- <p class="post-id{{id}}" style="display: none;"></p> --}}
   <br>
 </div>
 {{/with}}
