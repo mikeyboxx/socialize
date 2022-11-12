@@ -1,34 +1,53 @@
 {{> navbar}}
 
-<div class="menu">
+<div class=" nidhi">
   <header class="card-header">
-    <p class="card-header-title">
+    <p class="card-header-title ">
      {{#each notifications as |notification|}}
     </p>
-    <button class="card-header-icon" aria-label="more options">
-      <span class="icon">
-        <i class="fas fa-angle-down" aria-hidden="true"></i>
-      </span>
-    </button>
   </header>
 
   <div class="card-content" style="color:aliceblue" >
-    <div class="content">
+    {{!-- <div class=" notification-content {{@index}}"> --}}
  
-      {{#if notification.comment }}
-       <p>{{notification.comment.user.username}} commented: "{{notification.comment.contents}}"</p>
+      {{!-- {{#if notification.comment }}
+       <p>"</p>
     {{/if}}
 
         {{#if notification.reaction }}
       <p>{{notification.reaction.user.username}}  {{notification.reaction.type}} your post</p>
-        {{/if}}
+        {{/if}} --}}
       
-    </div>
+
+          {{#if notification.comment}}
+            <a class="card-footer-item  nidhi" loggedIn="{{../loggedIn}}">
+              <span class="read{{@index}}"> {{notification.comment.user.username}} commented: "{{notification.comment.contents}}</span>
+              <span style="visibility:hidden"> -</span>
+              <i class="fa-solid fa-read-flag notification-content{{@index}}" postid="{{post.id}}" notificationid="{{notification.id}}"  ></i>
+            </a>
+          {{else}}
+            <a class="card-footer-item  nidhi" loggedIn="{{../loggedIn}}">
+              <span class="unread{{@index}}">{{notification.reaction.user.username}}  {{notification.reaction.type}} your post</span>
+              <span style="visibility:hidden"> -</span>
+              <i class="fa-regular fa-read-flag notification-content{{@index}}"  postid="{{post.id}}" notificationid="{{notification.id}}" ></i>
+            </a>
+          {{/if}}
+
+
+
+
+
+
+    {{!-- </div> --}}
   </div>
 
 
   </div>
   {{/each}}
+
+
+
+
 
 
 
