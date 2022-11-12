@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
         {model: Comment,
           include: {model: User}},
         {model: Reaction,
-            include: {model: User}},
+          include: {model: User}},
       ],
       where: {
         user_id: !req.session.userId ? null : req.session.userId 

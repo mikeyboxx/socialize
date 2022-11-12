@@ -2,7 +2,7 @@ const router = require("express").Router();
 const {Notification} = require("../../models");
 
 router.put('/:id', async (req, res) => {
-  console.log(req.params.id);
+  console.log(req.params.id,req.body);
   try {
     const notificationData = await Notification.update(req.body, {
       where: {
@@ -10,8 +10,6 @@ router.put('/:id', async (req, res) => {
       },
     });
 
-    console.log(notificationData);
-    
     if (!notificationData[0]) {
       res.status(404).json({ message: 'No notification with this id!' });
       return;
