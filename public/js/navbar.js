@@ -11,7 +11,7 @@ $('.expandHome').mouseover(function() {
 
   $('#trapezoid').mouseleave(function() {
     $('#trapezoid').css({
-          'margin-top': '-75px'
+          'margin-top': '-100px'
       });
       $('.sub-home').css({
           'display': 'none'
