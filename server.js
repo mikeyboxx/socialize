@@ -9,6 +9,7 @@ const sequelize = require('./config/connection');  // contains the DB connection
 const clog = require('./middleware/clog'); // logs every HTTP request with a timestamp to console
 const {apiDaemon, apiCleanupDaemon} = require('./utils/apiDaemon'); // logs every HTTP request with a timestamp to console
 const routes = require('./controllers');  // all routes get intercepted there
+const {formatDate} = require('./utils/helpers');  // all routes get intercepted there
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -35,6 +36,9 @@ app.engine('hbs', exphbs(      // give the handlebars engine a name
   {
     defaultLayout: 'main',     // set the default layout ot be main.hbs
     extname: '.hbs',           // set the extensions to end in hbs instead of handlebars
+    helpers: {
+      formatDate
+    }
   }
 ));
 app.set('view engine', 'hbs'); // set the view engine to be hbs

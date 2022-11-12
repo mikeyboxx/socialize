@@ -27,7 +27,7 @@ router.get('/', async (req, res) => {
       },
     });
 
-    // res.json(notificationsArr);
+    res.json(notificationsArr);
 
     res.render('notifications', {
       notificationCount,
