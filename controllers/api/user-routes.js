@@ -1,9 +1,7 @@
 const router = require('express').Router();
 const { User } = require('../../models');
-// const bcrypt = require('bcrypt');
 
 // Sign up
-
 router.post('/signup', async (req, res) => {
   console.log(req.body);
   try {
@@ -39,7 +37,6 @@ router.post('/login', async (req, res) => {
       return;
     }
 
-    // const validPassword = await bcrypt.compareSync(req.body.password, dbUserData.password);
     const validPassword = await dbUserData.checkPassword(req.body.password);
 
     if (!validPassword) {
