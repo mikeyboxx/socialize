@@ -131,11 +131,6 @@ body {
     margin-top: 30px;
 }
 
-.card {
-    display: flex;
-    justify-content: flex-start;
-}
-
 .sign-in,
 .sign-up,
 .new-post {
@@ -151,6 +146,16 @@ body {
 
 .dashboard_content {
     background: var(--background-clr);
+}
+
+.content {
+    margin: 0;
+    border: solid .1rem #7979e7;
+    background-color: #e4e4f4;
+}
+
+.card-content {
+    padding: 0;
 }
 
 /* Media queries for ipad*/
