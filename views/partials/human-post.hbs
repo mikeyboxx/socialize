@@ -4,9 +4,8 @@
       <img src="../public/Logo-filler.png" class="image is-32x32">
   </span>
   <span style="font-weight:bold">{{user.first_name}} {{user.last_name}}</span> 
-  <span> {{user.username}} - On {{createdAt}}</span>
+  <span> @{{user.username}} -- {{formatDate createdAt}}</span>
   <p>{{contents}}</p>
-  {{!-- <p class="post-id{{id}}" style="display: none;"></p> --}}
   <br>
 </div>
 {{/with}}
