@@ -20,8 +20,16 @@
       </div>
       <footer class="card-footer">
           <a href="#" class="card-footer-item js-modal-trigger" data-target="post-modal">Comment</a>
-          <a class="card-footer-item" id="like-button">{{totalLikes}} <span style="visibility:hidden"> -</span><i class="fa-regular fa-thumbs-up" id="thumb-up"></i></a>
-          <a href="#" class="card-footer-item" id="dislike-button">{{totalDislikes}} <span style="visibility:hidden"> -</span><i class="fa-regular fa-thumbs-down" id="thumb-down"></i></a>
+          {{#if totalAlreadyLiked}}
+          <a class="card-footer-item adulted thumbupbtn" id="like-button">{{totalLikes}} <span style="visibility:hidden"> -</span><i class="fa-solid fa-thumbs-up" id="thumb-up"></i></a>
+          {{else}}
+          <a class="card-footer-item adult thumbupbtn2" id="like-button">{{totalLikes}} <span style="visibility:hidden"> -</span><i class="fa-regular fa-thumbs-up" id="thumb-up"></i></a>
+          {{/if}}
+          {{#if totalAlreadyDisliked}}
+          <a href="#" class="card-footer-item thumbdownbtn babied" id="dislike-button">{{totalDislikes}} <span style="visibility:hidden"> -</span><i class="fa-solid fa-thumbs-down" id="thumb-down"></i></a>
+          {{else}}
+          <a href="#" class="card-footer-item thumbdownbtn2 baby" id="dislike-button">{{totalDislikes}} <span style="visibility:hidden"> -</span><i class="fa-regular fa-thumbs-down" id="thumb-down"></i></a>
+          {{/if}}
       </footer>
       {{!-- {{> comment}} --}}
 
