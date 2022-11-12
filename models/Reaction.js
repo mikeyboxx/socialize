@@ -15,7 +15,7 @@ Reaction.init(
       autoIncrement: true,
     },
     type: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING,   //'like', 'dislike'
       allowNull: false,
     },
     post_id: {
