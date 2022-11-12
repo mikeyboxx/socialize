@@ -1,36 +1,70 @@
-const likeHandler = async (event) => {
+const likeHandler = async (idx, event) => {
     event.stopPropagation();
     const type = "like";
-    const id = document.querySelector('#post-id').innerText;
+    // const id = document.querySelector('#post-id').innerText;
 
-    console.log(id);
-    console.log(type)
-    if($('.thumbupbtn').hasClass('adulted')) {
-      $("#thumb-up").removeClass('fa-solid fa-thumbs-up').addClass('fa-regular fa-thumbs-up');
-      $("#like-button").removeClass('adulted').addClass('adult');
-    } else if($('.thumbupbtn').hasClass('adult')) {
-      $("#thumb-up").removeClass('fa-regular fa-thumbs-up').addClass('fa-solid fa-thumbs-up');
-      $(".thumbupbtn").removeClass('adult').addClass('adulted')
+    // console.log(id);
+    console.log(type, idx);
+
+    if($(`.thumbs-up${idx}`).hasClass('fa-solid')) {
+      $(`.thumbs-up${idx}`).removeClass('fa-solid').addClass('fa-regular');
+      // undo
+    } else if($(`.thumbs-up${idx}`).hasClass('fa-regular')) {
+      $(`.thumbs-up${idx}`).removeClass('fa-regular').addClass('fa-solid');
+      // like
+      if($(`.thumbs-down${idx}`).hasClass('fa-solid')) {
+        $(`.thumbs-down${idx}`).removeClass('fa-solid').addClass('fa-regular');
+      }  
     }
+    // if($(`.thumbupbtn${idx}`).hasClass('adulted')) {
+    //   console.log('.adulted');
+    //   $(`.thumbs-up${idx}`).removeClass('fa-solid').addClass('fa-regular');
+    //   $(`.thumbupbtn${idx}`).removeClass('adulted').addClass('adult');
+    // } else if($(`.thumbupbtn${idx}`).hasClass('adult')) {
+    //   console.log('.adult');
+    //   $(`.thumbs-up${idx}`).removeClass('fa-regular').addClass('fa-solid');
+    //   $(`.thumbupbtn${idx}`).removeClass('adult').addClass('adulted');
+    // }
+    // if($('.thumbupbtn').hasClass('adulted')) {
+    //   $("#thumb-up").removeClass('fa-solid fa-thumbs-up').addClass('fa-regular fa-thumbs-up');
+    //   $("#like-button").removeClass('adulted').addClass('adult');
+    // } else if($('.thumbupbtn').hasClass('adult')) {
+    //   $("#thumb-up").removeClass('fa-regular fa-thumbs-up').addClass('fa-solid fa-thumbs-up');
+    //   $(".thumbupbtn").removeClass('adult').addClass('adulted')
+    // }
   };
 
-  const dislikeHandler = async (event) => {
+  const dislikeHandler = async (idx, event) => {
     event.stopPropagation();
     const type = "dislike";
-    const id = document.querySelector('#post-id').innerText;
+    // const id = document.querySelector('#post-id').innerText;
 
-    console.log(id);
-    console.log(type)
-    if($('.thumbdownbtn').hasClass('babied')) {
-      console.log('.babied')
-      $("#thumb-down").removeClass('fa-solid fa-thumbs-down').addClass('fa-regular fa-thumbs-down');
-      $(".thumbdownbtn").removeClass('babied').addClass('baby')
-    } else if($('.thumbdownbtn').hasClass('baby')){
-      console.log('.baby')
-      $("#thumb-down").removeClass('fa-regular fa-thumbs-down').addClass('fa-solid fa-thumbs-down');
-      $(".thumbdownbtn").removeClass('baby').addClass('babied')
+    // console.log(id);
+    // console.log(type)
+
+    console.log(type, idx);
+
+    if($(`.thumbs-down${idx}`).hasClass('fa-solid')) {
+      $(`.thumbs-down${idx}`).removeClass('fa-solid').addClass('fa-regular');
+      // undo
+    } else if($(`.thumbs-down${idx}`).hasClass('fa-regular')) {
+      $(`.thumbs-down${idx}`).removeClass('fa-regular').addClass('fa-solid');
+      // dislike
+      if($(`.thumbs-up${idx}`).hasClass('fa-solid')) {
+        $(`.thumbs-up${idx}`).removeClass('fa-solid').addClass('fa-regular');
+      }  
     }
   }
+
+    // if($('.thumbdownbtn').hasClass('babied')) {
+    //   console.log('.babied')
+    //   $("#thumb-down").removeClass('fa-solid fa-thumbs-down').addClass('fa-regular fa-thumbs-down');
+    //   $(".thumbdownbtn").removeClass('babied').addClass('baby')
+    // } else if($('.thumbdownbtn').hasClass('baby')){
+    //   console.log('.baby')
+    //   $("#thumb-down").removeClass('fa-regular fa-thumbs-down').addClass('fa-solid fa-thumbs-down');
+    //   $(".thumbdownbtn").removeClass('baby').addClass('babied')
+    // }
     // changeThumbUp();
     // const type = "like";
     // const id = document.querySelector('#post-id').innerText;
@@ -153,14 +187,24 @@ const likeHandler = async (event) => {
 //     }
 //   };
 
+const thumbupButtons = document.querySelectorAll('.mike');
+thumbupButtons.forEach(function(btn, idx) {
+  btn.addEventListener('click', likeHandler.bind(this, idx));
+});
 
-  document.querySelector('.thumbupbtn').addEventListener('click', likeHandler);
-  document.querySelector('.thumbupbtn2').addEventListener('click', likeHandler);
+const thumbdownButtons = document.querySelectorAll('.chris');
+thumbdownButtons.forEach(function(btn, idx) {
+  btn.addEventListener('click', dislikeHandler.bind(this, idx));
+});
 
-  // document.querySelector('.adulted').addEventListener('click', unlikeHandler);
 
-  document.querySelector('.thumbdownbtn').addEventListener('click', dislikeHandler);
-  document.querySelector('.thumbdownbtn2').addEventListener('click', dislikeHandler)
+  // document.querySelector('.thumbupbtn').addEventListener('click', likeHandler);
+  // document.querySelector('.thumbupbtn2').addEventListener('click', likeHandler);
+
+  // // document.querySelector('.adulted').addEventListener('click', unlikeHandler);
+
+  // document.querySelector('.thumbdownbtn').addEventListener('click', dislikeHandler);
+  // document.querySelector('.thumbdownbtn2').addEventListener('click', dislikeHandler)
 
 
 //   function changeThumbUp() {
