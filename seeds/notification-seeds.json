@@ -20,7 +20,7 @@
   {
     "type": "comment",
     "comment_id": 4,
-    "user_id": 3,
+    "user_id": 2,
     "post_id": 1
   },
   {
@@ -87,7 +87,7 @@
     "type": "reaction",
     "reaction_id": 8,
     "user_id": 2,
-    "post_id": 1
+    "post_id": 2
   },
   {
     "type": "reaction",
