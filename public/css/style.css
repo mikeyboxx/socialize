@@ -133,7 +133,8 @@ body {
 
 .sign-in,
 .sign-up,
-.new-post {
+.new-post,
+.comment_box {
     background: var(--background-clr);
     width: 80%;
     margin: 0 auto;
