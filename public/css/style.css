@@ -134,7 +134,8 @@ body {
 .sign-in,
 .sign-up,
 .new-post,
-.comment_box {
+.comment_box,
+.new-comment {
     background: var(--background-clr);
     width: 80%;
     margin: 0 auto;
@@ -191,11 +192,6 @@ body {
     border-top-right-radius: 5%;
 }
 
-.horoscope_other {
-    display: flex;
-    flex-direction: column;
-}
-
 .name_glass,
 .horoscope_date {
     margin-left: 1rem;
@@ -228,17 +224,31 @@ body {
 
 .card-footer {
     background-color: #e4e4f4;
-    border-bottom-left-radius: 15% !important;
-    border-bottom-right-radius: 15% !important;
+    border-bottom-left-radius: 25% !important;
+    border-bottom-right-radius: 25% !important;
 }
 
-.title{
+.title {
     color: #e4e4f4;
+    text-align: center;
+}
+
+.horoscope_other {
+    display: flex;
+    flex-direction: column;
+    margin-left: 2rem;
+
+}
+
+.horoscope_body {
+    flex-direction: column;
+
 }
 
 
 /* Media queries for ipad*/
 @media (min-width: 376px) {
+
     #trapezoid {
         margin-right: 2rem;
         width: 25.625rem;
