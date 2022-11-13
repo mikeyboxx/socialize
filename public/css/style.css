@@ -157,16 +157,9 @@ body {
     display: flex;
     flex-direction: column;
     margin: 0;
-
     border-top-left-radius: 5%;
     border-top-right-radius: 5%;
     background-color: #e4e4f4;
-    /* align-items: center;
-    display: flex;
-    flex-basis: 0;
-    flex-grow: 1;
-    flex-shrink: 0;
-    justify-content: center; */
     padding: .75rem;
 }
 
@@ -187,7 +180,9 @@ body {
     color: #333399;
 }
 
-.horoscope_content {
+.horoscope_content,
+.human_content,
+.user_info {
     background-color: #e4e4f4;
     padding: .75rem;
     border-top-left-radius: 5%;
@@ -196,14 +191,16 @@ body {
 
 .horoscope_other {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
-.name_glass {
+.name_glass,
+.horoscope_date {
     margin-left: 1rem;
     padding-left: 1rem;
 }
-.cocktail_img {
+.cocktail_img,
+.description {
     flex-direction: row;
     display: flex;
     margin: 1rem;
@@ -217,7 +214,8 @@ body {
     padding: 1rem;
 }
 
-.cocktail_body {
+.cocktail_body,
+.horoscope_body {
     display: flex;
 }
 
