@@ -29,6 +29,7 @@ const notificationHandler = async (notificationId, post_id, event) => {
 
 
 const allNotifications = document.querySelectorAll('.nidhi');
+
 allNotifications.forEach(function(el, idx) {
   el.addEventListener('click', notificationHandler.bind(this,  $(el).attr('notificationId'), (el).attr('postId'),idx));
 });
