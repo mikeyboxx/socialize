@@ -1,4 +1,4 @@
-const notificationHandler = async (notificationId, idx, event) => {
+const notificationHandler = async (notificationId, post_id, event) => {
   event.stopPropagation();
 
   // console.log(notificationId, typeof notificationId);
@@ -14,7 +14,14 @@ const notificationHandler = async (notificationId, idx, event) => {
         read_flag: true 
       }),
     })
+
+    // generating html
+    // modeal visible true
+    // $(postDetails).empty();
+    // $('#postDetails').empty();
+
     document.location.replace('/notifications');
+
   } catch (err) {
     console.log(err);
   }
@@ -23,7 +30,7 @@ const notificationHandler = async (notificationId, idx, event) => {
 
 const allNotifications = document.querySelectorAll('.nidhi');
 allNotifications.forEach(function(el, idx) {
-  el.addEventListener('click', notificationHandler.bind(this,  $(el).attr('notificationId'), idx));
+  el.addEventListener('click', notificationHandler.bind(this,  $(el).attr('notificationId'), (el).attr('postId'),idx));
 });
 
 
