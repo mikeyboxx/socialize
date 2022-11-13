@@ -1,15 +1,13 @@
 
 
 
-const newCommentFormHandler = async (idx, event) => {
+const newCommentFormHandler = async (loggedIn, idx, event) => {
     event.stopPropagation(event);
-    console.log("easy Girl!!!")
 
-    // if (!loggedIn) return;
+    if (!loggedIn) return;
 
     const contents = document.querySelector(`#newcomment-text${idx}`).value.trim();
     const postId = document.querySelector(`.comment-id${idx}`).innerText
-    console.log(contents, postId)
 
     if (contents && postId) {
       try{
@@ -32,7 +30,7 @@ const newCommentFormHandler = async (idx, event) => {
     }
   };
 
-    const submitBtn = document.querySelectorAll('.submit');
-    submitBtn.forEach(function(btn, idx) {
-    btn.addEventListener('click', newCommentFormHandler.bind(this, idx));
+const submitBtn = document.querySelectorAll('.submit');
+    submitBtn.forEach(function(el, idx) {
+    el.addEventListener('click', newCommentFormHandler.bind(this, $(el).attr('loggedIn'), idx));
 });

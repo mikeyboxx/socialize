@@ -13,6 +13,10 @@
           {{#if post.api_horoscope }}
              {{> horoscope-post item=post.api_object}}
           {{/if}}
+           
+          {{#if post.api_dog }}
+             {{> dog-post item=post.api_object}}
+          {{/if}}
 
           {{#each comments }}
             <hr>
@@ -27,7 +31,7 @@
       </div>
 
       <footer class="card-footer">
-          <a class="card-footer-item js-modal-trigger" data-target="new-comment{{@index}}" loggedIn="{{loggedIn}}">{{totalComments}}
+          <a class="card-footer-item js-modal-trigger" data-target="new-comment{{@index}}">{{totalComments}}
             <span style="visibility:hidden"> -</span>
             <i class="fa-regular fa-comment comment{{@index}}" postid="{{post.id}}" ></i>
           </a>
@@ -61,6 +65,8 @@
           {{/if}}
       </footer>
   </div>
+
+ {{#if ../loggedIn }} 
   <div id="new-comment{{@index}}" class="modal">
     <div class="modal-background"></div>
     <div class="modal-card">
@@ -73,10 +79,11 @@
         <p class="comment-id{{@index}}" style="display:none;">{{id}}</p>
       </section>
       <footer class="modal-card-foot">
-        <button class="button is-success submit" id="newcomment-submit">submit</button>
+        <button class="button is-success submit" loggedIn="{{../loggedIn}}" id="newcomment-submit">submit</button>
       </footer>
     </div>
   </div>
+{{/if}}
 
   {{/each}}
 </div>

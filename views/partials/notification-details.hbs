@@ -1,0 +1,34 @@
+<div class="content post-id{{id}}">
+  <span class="icon">
+      <img src="../public/Logo-filler.png" class="image is-32x32">
+  </span>
+  <span style="font-weight:bold">{{user.first_name}} {{user.last_name}}</span> 
+  <span> @{{user.username}} -- {{formatDate createdAt}}</span>
+  <p>{{contents}}</p>
+  <br>
+</div>
+
+{{#each notifications }}
+  <hr>
+  <div>
+    {{contents}}
+  </div>
+  <div>
+    -- @{{user.username}}, {{formatDate createdAt}}
+  </div>
+  <hr>
+{{/each}}
+
+{{#if notification.comment}}
+            <a class="card-footer-item  nidhi" loggedIn="{{../loggedIn}}">
+              <span class="read{{@index}}"> {{notification.comment.user.username}} commented: "{{notification.comment.contents}}</span>
+              <span style="visibility:hidden"> -</span>
+              <i class="fa-solid fa-read-flag notification-content{{@index}}" postid="{{post.id}}" notificationid="{{notification.id}}"  ></i>
+            </a>
+          {{else}}
+            <a class="card-footer-item  nidhi" loggedIn="{{../loggedIn}}">
+              <span class="unread{{@index}}">{{notification.reaction.user.username}}  {{notification.reaction.type}} your post</span>
+              <span style="visibility:hidden"> -</span>
+              <i class="fa-regular fa-read-flag notification-content{{@index}}"  postid="{{post.id}}" notificationid="{{notification.id}}" ></i>
+            </a>
+          {{/if}}
