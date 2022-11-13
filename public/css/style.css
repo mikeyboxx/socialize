@@ -182,7 +182,8 @@ body {
 
 .horoscope_content,
 .human_content,
-.user_info {
+.user_info,
+.comment_box {
     background-color: #e4e4f4;
     padding: .75rem;
     border-top-left-radius: 5%;
