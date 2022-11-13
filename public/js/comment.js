@@ -5,6 +5,8 @@ const newCommentFormHandler = async (idx, event) => {
     event.stopPropagation(event);
     console.log("easy Girl!!!")
 
+    // if (!loggedIn) return;
+
     const contents = document.querySelector(`#newcomment-text${idx}`).value.trim();
     const postId = document.querySelector(`.comment-id${idx}`).innerText
     console.log(contents, postId)

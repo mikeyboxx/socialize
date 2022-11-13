@@ -1,25 +1,67 @@
 {{> navbar}}
- {{#if loggedIn}}
- {{#with user}}
 
- <div class="notifications">
-  <button class="delete"></button>
-    {{#each notification}}
-   {{user.post.reaction.type}}
+<div class=" nidhi">
+  <header class="card-header">
+    <p class="card-header-title ">
+     {{#each notifications as |notification|}}
+    </p>
+  </header>
 
-{{read_flag}}
+  <div class="card-content" style="color:aliceblue" >
+    {{!-- <div class=" notification-content {{@index}}"> --}}
+ 
+      {{!-- {{#if notification.comment }}
+       <p>"</p>
+    {{/if}}
+
+        {{#if notification.reaction }}
+      <p>{{notification.reaction.user.username}}  {{notification.reaction.type}} your post</p>
+        {{/if}} --}}
+      
+
+          {{#if notification.comment}}
+            <a class="card-footer-item  nidhi" loggedIn="{{../loggedIn}}">
+              <span class="read{{@index}}"> {{notification.comment.user.username}} commented: "{{notification.comment.contents}}</span>
+              <span style="visibility:hidden"> -</span>
+              <i class="fa-solid fa-read-flag notification-content{{@index}}" postid="{{post.id}}" notificationid="{{notification.id}}"  ></i>
+            </a>
+          {{else}}
+            <a class="card-footer-item  nidhi" loggedIn="{{../loggedIn}}">
+              <span class="unread{{@index}}">{{notification.reaction.user.username}}  {{notification.reaction.type}} your post</span>
+              <span style="visibility:hidden"> -</span>
+              <i class="fa-regular fa-read-flag notification-content{{@index}}"  postid="{{post.id}}" notificationid="{{notification.id}}" ></i>
+            </a>
+          {{/if}}
 
 
-<div>
-     {{#each comments}}
-     {{user.post.comment}}
-    <p class="pl-2 ">{{user.post.comment.content}}</p>
-</div>
 
-<p>{{user.post.user.username}}</p>.  
-  {{/each}}    
-</div>
 
- {{/each}}
-    {{/with}} 
-     {{/if}}
+
+
+    {{!-- </div> --}}
+  </div>
+
+
+  </div>
+  {{/each}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
