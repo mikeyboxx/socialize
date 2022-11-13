@@ -47,6 +47,8 @@ router.get('/', async (req, res) => {
           break;
         case 2: item.api_horoscope = true;
           break;
+        case 3: item.api_dog = true;
+          break;
         default: item.human_post = true;
           break;
       }
