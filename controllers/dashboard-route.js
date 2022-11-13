@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const sequelize = require("sequelize");
+// const sequelize = require("sequelize");
+const sequelize = require("../config/connection");
 const withAuth = require('../middleware/auth');
 const {User, Post, Comment, Notification } = require('../models');
 
@@ -43,14 +44,14 @@ router.get('/', withAuth,  async (req, res) => {
       }
     });
 
-    // const postArr = posts.map(post => post.get(({ plain: true })));
+    const totalNbrOfComments = await sequelize.query(
+      `SELECT COUNT(*) 
+          FROM post, comment 
+         WHERE post.id = comment.post_id
+           AND post.user_id = ${!req.session.userId ? null : req.session.userId}`);
+    
+    console.log('totalNbrOfComments = ',totalNbrOfComments);
 
-    // const notificationCount = await Notification.count({
-    //   where: {
-    //     user_id: !req.session.userId ? null : req.session.userId,
-    //     read_flag: false 
-    //   },
-    // });
 
     const postArr = posts.map(post => {
       const item = post.get(({ plain: true }));
@@ -74,22 +75,22 @@ router.get('/', withAuth,  async (req, res) => {
       },
     });
 
-    // res.json(postArr);
+    res.json({session: req.session, postArr});
 
-    res.render('dashboard', {
-      user: {
-        firstName,
-        lastName,
-        username,
-        totalNbrOfComments,
-        totalNbrOfLikes,
-        totalNbrOfDisLikes
+    // res.render('dashboard', {
+    //   user: {
+    //     firstName,
+    //     lastName,
+    //     username,
+    //     totalNbrOfComments,
+    //     totalNbrOfLikes,
+    //     totalNbrOfDisLikes
 
-      },
-      notificationCount,
-      posts: postArr,
-      loggedIn: req.session.loggedIn
-    });
+    //   },
+    //   notificationCount,
+    //   posts: postArr,
+    //   loggedIn: req.session.loggedIn
+    // });
 
   } catch (err) {
     console.log(err);
