@@ -1,6 +1,9 @@
 
 {{!progress bar to show user is on line and viewing their dashboard}}
-<h1 class="title" style="color:white">Welcome to your Dashboard!</h1>
+<h1 class="title" style="color:white">Welcome to your Dashboard! <br>
+ {{user.firstName}} {{user.lastName}} 
+</h1>
+
 <h2 class="subtitle" style="color:white">You are signed in as {{user.username}} </h2>
 <progress class="progress is-small is-primary" max="100">15%</progress>
 
@@ -14,7 +17,7 @@
   <div class="column" style="color:white">
    You have {{user.totalNbrofDislikes}} new dislikes!
   </div>
-  <div class="column" style="color:white">
+  {{!-- <div class="column" style="color:white">
  {{user.firstName}} {{user.lastName}}  </h3>
-  </div>
+  </div> --}}
 </div>

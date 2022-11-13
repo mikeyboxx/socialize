@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {Notification, User, Comment, Reaction} = require('../models');
+const {Notification, User, Comment, Reaction, Post} = require('../models');
 
 // notification route
 router.get('/', async (req, res) => {
@@ -7,6 +7,8 @@ router.get('/', async (req, res) => {
     console.log(`req.session.userId = ${!req.session.userId ? null : req.session.userId}`);
     const notifications = await Notification.findAll({
       include: [
+        {model: Post,
+          include: {model: User}},
         {model: Comment,
           include: {model: User}},
         {model: Reaction,

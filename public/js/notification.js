@@ -1,4 +1,4 @@
-const notificationHandler = async (notificationId, idx, event) => {
+const notificationHandler = async (notificationId, postId, event) => {
   event.stopPropagation();
 
   // console.log(notificationId, typeof notificationId);
@@ -14,7 +14,14 @@ const notificationHandler = async (notificationId, idx, event) => {
         read_flag: true 
       }),
     })
+
+    // generationg HTML (MODAL VISIBLE TRUE 
+    // $(POST-DETIALS.EMPTY()
+    
+    // (ID))
     document.location.replace('/notifications');
+// conent of the modal 
+
   } catch (err) {
     console.log(err);
   }
@@ -22,7 +29,7 @@ const notificationHandler = async (notificationId, idx, event) => {
 
 const allNotifications = document.querySelectorAll('.nidhi');
 allNotifications.forEach(function(el, idx) {
-  el.addEventListener('click', notificationHandler.bind(this,  $(el).attr('notificationId'), idx));
+  el.addEventListener('click', notificationHandler.bind(this,  $(el).attr('notificationId').attr('postId'), idx));
 });
 
 
@@ -63,12 +70,12 @@ allNotifications.forEach(function(el, idx) {
 
 
   
-// document.addEventListener('DOMContentLoaded', () => {
-//     (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
-//       const $notification = $delete.parentNode;
+document.addEventListener('DOMContentLoaded', () => {
+    (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
+      const $notification = $delete.parentNode;
   
-//       $delete.addEventListener('click', () => {
-//         $notification.parentNode.removeChild($notification);
-//       });
-//     });
-//   });
+      $delete.addEventListener('click', () => {
+        $notification.parentNode.removeChild($notification);
+      });
+    });
+  });

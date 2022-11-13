@@ -1,5 +1,55 @@
 {{> navbar}}
 
+<div>
+{{#each notifications }}
+
+ {{!-- {{#if read_flag}}
+    <div style="color:white">
+  {{else}}
+    <div style="color:black">
+  {{/if}} --}}
+  
+<div class=" card notification">
+  <button class="delete"></button>
+  <div class="card-image">
+    <figure class="image is-4by3">
+      where we will display the post 
+    </figure>
+  </div>
+
+
+
+  <div class="card-content">
+    <div class="content">
+      <div class="nidhi " notificationId="{{id}}" postId="{{post_id}}">
+        {{#if comment }}
+          <p>{{comment.user.first_name}} {{comment.user.last_name}}</p>
+          <span class="title" style="font-size:15px">@{{comment.user.username}} </span>
+          <span> has commented on your post on {{formatDate comment.createdAt}}</span> 
+        {{/if}}
+        {{#if reaction }}
+         <p>{{reaction.user.first_name}} {{reaction.user.last_name}}</p>
+          {{#if (isEqual reaction.type "like") }}
+          <span class="title" style="font-size:15px">@{{reaction.user.username}} </span>
+          <span> has liked your post on {{formatDate reaction.createdAt}}</span>
+        {{else}} 
+          <span class="title" style="font-size:15px" >@{{reaction.user.username}} </span>
+          <span> has disliked your post on {{formatDate reaction.createdAt}}</span>
+        {{/if}}
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</div>
+{{/each}}
+</div>
+</div>
+</div>
+
+
+
+{{!-- 
+
 {{#each notifications }}
   {{#if read_flag}}
     <div style="color:white">
@@ -23,36 +73,8 @@
         {{/if}}
       </div>
   </div>
-{{/each}}
+{{/each}} --}}
 
-{{!-- 
 
-<div class=" nidhi">
-  <header class="card-header">
-    <p class="card-header-title ">
-     {{#each notifications as |notification|}}
-    </p>
-  </header>
 
-  <div class="card-content" style="color:aliceblue" >
-          {{#if notification.comment}}
-          {{#if read_flag}}
-            <a class="card-footer-item  nidhi" loggedIn="{{../loggedIn}}">
-            {{else}}
-             <a  style= " font-weight: bold; font-size: 1.5em;" class="card-footer-item  nidhi" loggedIn="{{../loggedIn}}"></a>
-             {{/if}}
-              <span class="read{{@index}}"> {{notification.comment.user.username}} commented: "{{notification.comment.contents}}</span>
-              <span style="visibility:hidden"> -</span>
-              <i class="fa-solid fa-read-flag notification-content{{@index}}" postid="{{post.id}}" notificationid="{{notification.id}}"  ></i>
-            </a>
-          {{else}}
-            <a class="card-footer-item  nidhi" loggedIn="{{../loggedIn}}">
-              <span class="unread{{@index}}">{{notification.reaction.user.username}}  {{notification.reaction.type}} your post</span>
-              <span style="visibility:hidden"> -</span>
-              <i class="fa-regular fa-read-flag notification-content{{@index}}"  postid="{{post.id}}" notificationid="{{notification.id}}" ></i>
-            </a>
-          {{/if}}
-  </div>
 
-  </div>
-  {{/each}} --}}
