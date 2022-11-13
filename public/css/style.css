@@ -232,6 +232,9 @@ body {
     border-bottom-right-radius: 15% !important;
 }
 
+.title{
+    color: #e4e4f4;
+}
 
 
 /* Media queries for ipad*/
