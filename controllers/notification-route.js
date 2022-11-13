@@ -8,14 +8,23 @@ router.get('/', async (req, res) => {
     const notifications = await Notification.findAll({
       include: [
         {model: Post,
-          include: {model: User}},
+          include: [
+            {model: User},
+            {model: Comment,
+              include: {model: User},
+              order: [['comment.createdAt', 'DESC']]},
+            {model: Reaction,
+              include: {model: User},
+              order: [['reaction.createdAt', 'ASC']]}
+          ]},
         {model: Comment,
           include: {model: User}},
         {model: Reaction,
           include: {model: User}},
       ],
       where: {
-        user_id: !req.session.userId ? null : req.session.userId 
+        user_id: !req.session.userId ? null : req.session.userId,
+        read_flag: false 
       },
       order: [['createdAt', 'DESC']]
     });
@@ -29,7 +38,7 @@ router.get('/', async (req, res) => {
       },
     });
 
-    // res.json(notificationsArr);
+    res.json(notificationsArr);
 
     res.render('notifications', {
       notificationCount,

@@ -15,10 +15,11 @@ const notificationHandler = async (notificationId, postId, event) => {
       }),
     })
 
-    // generationg HTML (MODAL VISIBLE TRUE 
-    // $(POST-DETIALS.EMPTY()
-    
-    // (ID))
+    // generating html
+    // modeal visible true
+    // $(postDetails).empty();
+    // $('#postDetails').empty();
+
     document.location.replace('/notifications');
 // conent of the modal 
 
@@ -29,7 +30,7 @@ const notificationHandler = async (notificationId, postId, event) => {
 
 const allNotifications = document.querySelectorAll('.nidhi');
 allNotifications.forEach(function(el, idx) {
-  el.addEventListener('click', notificationHandler.bind(this,  $(el).attr('notificationId').attr('postId'), idx));
+  el.addEventListener('click', notificationHandler.bind(this,  $(el).attr('notificationId'), (el).attr('postId'),idx));
 });
 
 
