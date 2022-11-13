@@ -151,63 +151,88 @@ body {
 .card {
     background-color: var(--background-clr);
 }
-.content {
+
+
+.cocktail_content {
+    display: flex;
+    flex-direction: column;
     margin: 0;
 
-    border-radius: 2%;
-    background-color: #e4e4f4;
-    align-items: center;
-    display: flex;
-    flex-basis: 0;
-    flex-grow: 1;
-    flex-shrink: 0;
-    justify-content: center;
-    padding: .75rem;
-}
-
-.card-content {
-    padding: 0;
-}
-
-.card-footer-item {
-    border-radius: 5%;
-}
-
-.content h2,
-.horoscope_content h2 {
-    font-size: 1rem;
-    color: #333399;
-}
-
-.instructions-ingredients {
-    padding: 1rem;
-    text-overflow: ellipsis;
-}
-
-.instructions {
-    margin-bottom: 1rem;
-}
-
-.horoscope_content {
+    border-top-left-radius: 5%;
+    border-top-right-radius: 5%;
     background-color: #e4e4f4;
     /* align-items: center;
     display: flex;
     flex-basis: 0;
     flex-grow: 1;
     flex-shrink: 0;
-    justify-content: center;
-    /*  */
+    justify-content: center; */
     padding: .75rem;
+}
+
+.card-content {
+    padding: 0;
+    border: #7979e7;
+
+}
+
+.card-footer-item {
+    border-radius: 5%;
+}
+
+.cocktail_content h2,
+.horoscope_content h2 {
+    font-size: 1rem;
+    font-weight: bolder;
+    color: #333399;
+}
+
+.horoscope_content {
+    background-color: #e4e4f4;
+    padding: .75rem;
+    border-top-left-radius: 5%;
+    border-top-right-radius: 5%;
 }
 
 .horoscope_other {
     display: flex;
     flex-direction: row;
 }
-/* .card-footer-item{
-    border: #e4e4f4;
-    border-radius: 2%;
-} */
+
+.name_glass {
+    margin-left: 1rem;
+    padding-left: 1rem;
+}
+.cocktail_img {
+    flex-direction: row;
+    display: flex;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+.instructions-ingredients {
+    flex-direction: column;
+    display: flex;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+.cocktail_body {
+    display: flex;
+}
+
+.instructions {
+    margin-bottom: .5rem;
+    padding-bottom: .5rem;
+}
+
+.card-footer {
+    background-color: #e4e4f4;
+    border-bottom-left-radius: 15% !important;
+    border-bottom-right-radius: 15% !important;
+}
+
+
 
 /* Media queries for ipad*/
 @media (min-width: 376px) {
