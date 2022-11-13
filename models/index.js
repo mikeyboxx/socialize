@@ -74,8 +74,8 @@ Notification.belongsTo(Post, {
   onDelete: "CASCADE",
 });
 
-// Comment to Notification - one to many
-Comment.hasMany(Notification, {
+// Comment to Notification - one to one
+Comment.hasOne(Notification, {
   foreignKey: "comment_id",
   onDelete: "CASCADE",
 });
@@ -84,8 +84,8 @@ Notification.belongsTo(Comment, {
     onDelete: "CASCADE",
   });
 
-// Reaction to Notification - one to many  
-Reaction.hasMany(Notification, {
+// Reaction to Notification - one to one  
+Reaction.hasOne(Notification, {
     foreignKey: "reaction_id",
     onDelete: "CASCADE",
 });

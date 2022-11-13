@@ -1,9 +1,9 @@
-const notificationHandler = async (notificationId, post_id, event) => {
+const notificationHandler = async (notificationId, postId, event) => {
   event.stopPropagation();
 
   // console.log(notificationId, typeof notificationId);
   // console.log('click');
-  // const id = parseInt(notificationId);
+  const id = parseInt(notificationId);
   try {
     const response = await fetch(`/api/notifications/${notificationId}`, {
       method: 'PUT',
@@ -29,8 +29,9 @@ const notificationHandler = async (notificationId, post_id, event) => {
 
 
 const allNotifications = document.querySelectorAll('.nidhi');
-allNotifications.forEach(function(el, idx) {
-  el.addEventListener('click', notificationHandler.bind(this,  $(el).attr('notificationId'), (el).attr('postId'),idx));
+
+allNotifications.forEach(function(el) {
+  el.addEventListener('click', notificationHandler.bind(this,  $(el).attr('notificationId'), $(el).attr('postId')));
 });
 
 

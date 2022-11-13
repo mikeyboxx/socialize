@@ -10,7 +10,9 @@
 
     /* border: 1px solid red; */
 }
-
+html{
+    min-height: 100%;
+}
 body {
     background: var(--background-clr);
 
@@ -129,6 +131,37 @@ body {
 
 #feed {
     margin-top: 30px;
+}
+
+.card {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.notificationz {
+
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+    padding: 4px;
+}
+
+.nidhi.card {
+    background-image: linear-gradient(to right, #ff00cc, #4d81fa);
+    justify-content: center;
+}
+.nidhi.card:hover {
+    background-image: linear-gradient(to right, #e731ff, #4dcffa);
+    justify-content: center;
+}
+
+#notification-container {
+    height: 100%;
+}
+
+#filler {
+    height: 300px;
+    background-image: (to right, #333399, #ff00cc);
 }
 
 .sign-in,

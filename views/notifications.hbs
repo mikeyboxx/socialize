@@ -1,13 +1,12 @@
 {{> navbar}}
-
 {{#each notifications }}
   {{#if read_flag}}
-    <div style="color:white">
+    <div class="notificationz" style="color:white">
   {{else}}
-    <div style="color:black">
+    <div class="notificationz"  style="color:black">
   {{/if}}
 
-      <div class="nidhi " notificationId="{{id}}" postId="{{post_id}}">
+      <div class="nidhi card is-hoverable" notificationId="{{id}}" postId="{{post_id}}">
         {{#if comment }}
             <span>{{comment.user.first_name}} {{comment.user.last_name}}</span>
             <span> has commented on your post on {{formatDate comment.createdAt}}</span> 
@@ -24,6 +23,9 @@
       </div>
   </div>
 {{/each}}
+</div>
+<div id="filler">
+</div>
 
 <div id="postDetails" class="modal">
   <div class="modal-background"></div>
