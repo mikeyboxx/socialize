@@ -16,7 +16,7 @@ html{
 body {
     background: var(--background-clr);
 
-    margin:.5em;
+    /* margin:.5em; */
   }
 
 #trapezoid {
@@ -136,10 +136,10 @@ body {
 .card {
     display: flex;
     justify-content: flex-start;
+    flex-direction: column;
 }
 
 .notificationz {
-
     margin-left: 10px;
     margin-right: 10px;
     text-align: center;
@@ -276,6 +276,11 @@ body {
 .horoscope_body {
     flex-direction: column;
 
+}
+
+.card-footer-item {
+    margin-left: 5rem;
+    flex-grow: 0;
 }
 
 
