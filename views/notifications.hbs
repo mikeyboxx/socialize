@@ -20,7 +20,11 @@
       
 
           {{#if notification.comment}}
+          {{#if read_flag}}
             <a class="card-footer-item  nidhi" loggedIn="{{../loggedIn}}">
+            {{else}}
+             <a  style= " font-weight: bold; font-size: 1.5em;" class="card-footer-item  nidhi" loggedIn="{{../loggedIn}}"></a>
+             {{/if}}
               <span class="read{{@index}}"> {{notification.comment.user.username}} commented: "{{notification.comment.contents}}</span>
               <span style="visibility:hidden"> -</span>
               <i class="fa-solid fa-read-flag notification-content{{@index}}" postid="{{post.id}}" notificationid="{{notification.id}}"  ></i>

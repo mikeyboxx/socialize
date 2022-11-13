@@ -15,7 +15,7 @@ if($(`.notification-content${idx}`).hasClass('fa-solid')) {
     },
     body: JSON.stringify({
       type: 'undo', 
-      postId: $(`.thumbs-up${idx}`).attr('postid').attr('notificationid')
+      postId: $(`.read${idx}`).attr('postid').attr('notificationid')
     }),
   });
 
