@@ -3,6 +3,7 @@ const {Notification} = require("../../models");
 
 router.put('/:id', async (req, res) => {
   try {
+    console.log(req.params.id);
     const notificationData = await Notification.update(req.body, {
       where: {
         id: req.params.id,
