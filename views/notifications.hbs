@@ -1,25 +1,75 @@
 {{> navbar}}
- {{#if loggedIn}}
- {{#with user}}
 
- <div class="notifications">
-  <button class="delete"></button>
-    {{#each notification}}
-   {{user.post.reaction.type}}
+{{#each notifications }}
+  {{#if read_flag}}
+    <div style="color:white">
+  {{else}}
+    <div style="color:black">
+  {{/if}}
 
-{{read_flag}}
+      <div class="nidhi " notificationId="{{id}}" postId="{{post_id}}">
+        {{#if comment }}
+            <span>{{comment.user.first_name}} {{comment.user.last_name}}</span>
+            <span> has commented on your post on {{formatDate comment.createdAt}}</span> 
+        {{/if}}
 
+        {{#if reaction }}
+            <span>{{reaction.user.first_name}} {{reaction.user.last_name}}</span>
+            {{#if (isEqual reaction.type "like") }}
+              <span> has liked your post on {{formatDate reaction.createdAt}}</span>
+            {{else}} 
+              <span> has disliked your post on {{formatDate reaction.createdAt}}</span>
+            {{/if}}
+        {{/if}}
+      </div>
+  </div>
+{{/each}}
 
-<div>
-     {{#each comments}}
-     {{user.post.comment}}
-    <p class="pl-2 ">{{user.post.comment.content}}</p>
+<div id="postDetails" class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+
+    <header class="modal-card-head">
+      <p class="modal-card-title"></p>
+      <button class="delete" aria-label="close"></button>
+    </header>
+
+    <section class="modal-card-body">
+      {{!-- to be generated in notificationHandler --}}
+    </section>
+
+    {{!-- New post footer --}}
+    <footer class="modal-card-foot">
+      <button class="button is-success btn" id="newpost-submit">Submit</button>
+    </footer>
+
+  </div>
 </div>
 
-<p>{{user.post.user.username}}</p>.  
-  {{/each}}    
-</div>
+{{!-- 
 
- {{/each}}
-    {{/with}} 
-     {{/if}}
+<div class=" nidhi">
+  <header class="card-header">
+    <p class="card-header-title ">
+     {{#each notifications as |notification|}}
+    </p>
+  </header>
+
+  <div class="card-content" style="color:aliceblue" >
+          {{#if notification.comment}}
+            <a class="card-footer-item  nidhi" loggedIn="{{../loggedIn}}">
+              <span class="read{{@index}}"> {{notification.comment.user.username}} commented: "{{notification.comment.contents}}</span>
+              <span style="visibility:hidden"> -</span>
+              <i class="fa-solid fa-read-flag notification-content{{@index}}" postid="{{post.id}}" notificationid="{{notification.id}}"  ></i>
+            </a>
+          {{else}}
+            <a class="card-footer-item  nidhi" loggedIn="{{../loggedIn}}">
+              <span class="unread{{@index}}">{{notification.reaction.user.username}}  {{notification.reaction.type}} your post</span>
+              <span style="visibility:hidden"> -</span>
+              <i class="fa-regular fa-read-flag notification-content{{@index}}"  postid="{{post.id}}" notificationid="{{notification.id}}" ></i>
+            </a>
+          {{/if}}
+  </div>
+
+  </div>
+  {{/each}} --}}

@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const sequelize = require("sequelize");
+const {QueryTypes} = require("sequelize");
+const sequelize = require("../config/connection");
 const withAuth = require('../middleware/auth');
 const {User, Post, Comment, Notification } = require('../models');
 
@@ -43,14 +44,27 @@ router.get('/', withAuth,  async (req, res) => {
       }
     });
 
-    // const postArr = posts.map(post => post.get(({ plain: true })));
+    const [{"COUNT(*)": totalNbrOfComments}] = await sequelize.query(
+      `SELECT COUNT(*) 
+          FROM post, comment 
+         WHERE post.id = comment.post_id
+           AND post.user_id = ${!req.session.userId ? null : req.session.userId}`,{type: sequelize.QueryTypes.SELECT});
 
-    // const notificationCount = await Notification.count({
-    //   where: {
-    //     user_id: !req.session.userId ? null : req.session.userId,
-    //     read_flag: false 
-    //   },
-    // });
+    const [{"COUNT(*)":totalNbrOfLikes}] = await sequelize.query(
+      `SELECT COUNT(*) 
+          FROM post, reaction 
+         WHERE post.id = reaction.post_id
+           AND post.user_id = ${!req.session.userId ? null : req.session.userId}
+
+           AND reaction.type = 'like'`,{type: sequelize.QueryTypes.SELECT});
+           
+    const [{"COUNT(*)":totalNbrOfDisLikes}] = await sequelize.query(
+      `SELECT COUNT(*) 
+          FROM post, reaction 
+         WHERE post.id = reaction.post_id
+           AND post.user_id = ${!req.session.userId ? null : req.session.userId}
+           AND reaction.type = 'dislike'`,{type: sequelize.QueryTypes.SELECT});
+
 
     const postArr = posts.map(post => {
       const item = post.get(({ plain: true }));
@@ -74,9 +88,17 @@ router.get('/', withAuth,  async (req, res) => {
       },
     });
 
-    // res.json(postArr);
+    // res.json({session: req.session, postArr, totalNbrOfComments, totalNbrOfLikes, totalNbrOfDisLikes});
 
     res.render('dashboard', {
+      user: {
+        firstName: req.session.firstName,
+        lastName:  req.session.lastName,
+        username:  req.session.username,
+        totalNbrOfComments,
+        totalNbrOfLikes,
+        totalNbrOfDisLikes
+      },
       notificationCount,
       posts: postArr,
       loggedIn: req.session.loggedIn
@@ -88,18 +110,58 @@ router.get('/', withAuth,  async (req, res) => {
   }
 });
 
-// router.get('/', withAuth, (req, res) => {
-//     Post.findAll({
-//             where: {
-//                 user_id: req.session.user_id
-//             },
-//             attributes: [
-//                 'id',
-//                 'title',
-//                 'content',
-//                 'created_at'
-//             ],
-//             include: [{
+// // router.get('/', withAuth, (req, res) => {
+// //     Post.findAll({
+// //             where: {
+// //                 user_id: req.session.user_id
+// //             },
+// //             attributes: [
+// //                 'id',
+// //                 'title',
+// //                 'content',
+// //                 'created_at'
+// //             ],
+// //             include: [{
+// //                 model: Comment,
+// //                 attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+// //                 include: {
+// //                     model: User,
+// //                     attributes: ['username']
+// //                 }
+// //             },
+// //             {
+// //                 model: User,
+// //                 attributes: ['username']
+// //             }
+// //         ]
+// //     })
+// //     .then(dbPostData => {
+// //         const posts = dbPostData.map(post => post.get({
+// //             plain: true
+// //         }));
+// //         res.render('dashboard', {
+// //             posts,
+// //             loggedIn: true
+// //         });
+// //     })
+// //     .catch(err => {
+// //         console.log(err);
+// //         res.status(500).json(err);
+// //     });
+// // });
+
+// router.get('/edit/:id', withAuth, (req, res) => {
+// Post.findOne({
+//         where: {
+//             id: req.params.id
+//         },
+//         attributes: [
+//             'id',
+//             'title',
+//             'content',
+//             'created_at'
+//         ],
+//         include: [{
 //                 model: Comment,
 //                 attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
 //                 include: {
@@ -114,11 +176,19 @@ router.get('/', withAuth,  async (req, res) => {
 //         ]
 //     })
 //     .then(dbPostData => {
-//         const posts = dbPostData.map(post => post.get({
+//         if (!dbPostData) {
+//             res.status(404).json({
+//                 message: 'No post found with this id'
+//             });
+//             return;
+//         }
+
+//         const post = dbPostData.get({
 //             plain: true
-//         }));
-//         res.render('dashboard', {
-//             posts,
+//         });
+
+//         res.render('edit-post', {
+//             post,
 //             loggedIn: true
 //         });
 //     })
@@ -126,60 +196,12 @@ router.get('/', withAuth,  async (req, res) => {
 //         console.log(err);
 //         res.status(500).json(err);
 //     });
-// });
+// })
 
-router.get('/edit/:id', withAuth, (req, res) => {
-Post.findOne({
-        where: {
-            id: req.params.id
-        },
-        attributes: [
-            'id',
-            'title',
-            'content',
-            'created_at'
-        ],
-        include: [{
-                model: Comment,
-                attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-                include: {
-                    model: User,
-                    attributes: ['username']
-                }
-            },
-            {
-                model: User,
-                attributes: ['username']
-            }
-        ]
-    })
-    .then(dbPostData => {
-        if (!dbPostData) {
-            res.status(404).json({
-                message: 'No post found with this id'
-            });
-            return;
-        }
-
-        const post = dbPostData.get({
-            plain: true
-        });
-
-        res.render('edit-post', {
-            post,
-            loggedIn: true
-        });
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
-})
-
-router.get('/new', (req, res) => {
-res.render('add-post', {
-    loggedIn: true
-})
-})
+// router.get('/new', (req, res) => {
+// res.render('add-post', {
+//     loggedIn: true
+// })
+// })
 
 module.exports = router;
