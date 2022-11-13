@@ -1,5 +1,32 @@
 {{> navbar}}
 
+{{#each notifications }}
+  {{#if read_flag}}
+    <div style="color:white">
+  {{else}}
+    <div style="color:black">
+  {{/if}}
+
+      <div class="nidhi " notificationId="{{id}}" postId="{{post_id}}">
+        {{#if comment }}
+            <span>{{comment.user.first_name}} {{comment.user.last_name}}</span>
+            <span> has commented on your post on {{formatDate comment.createdAt}}</span> 
+        {{/if}}
+
+        {{#if reaction }}
+            <span>{{reaction.user.first_name}} {{reaction.user.last_name}}</span>
+            {{#if (isEqual reaction.type "like") }}
+              <span> has liked your post on {{formatDate reaction.createdAt}}</span>
+            {{else}} 
+              <span> has disliked your post on {{formatDate reaction.createdAt}}</span>
+            {{/if}}
+        {{/if}}
+      </div>
+  </div>
+{{/each}}
+
+{{!-- 
+
 <div class=" nidhi">
   <header class="card-header">
     <p class="card-header-title ">
@@ -8,17 +35,6 @@
   </header>
 
   <div class="card-content" style="color:aliceblue" >
-    {{!-- <div class=" notification-content {{@index}}"> --}}
- 
-      {{!-- {{#if notification.comment }}
-       <p>"</p>
-    {{/if}}
-
-        {{#if notification.reaction }}
-      <p>{{notification.reaction.user.username}}  {{notification.reaction.type}} your post</p>
-        {{/if}} --}}
-      
-
           {{#if notification.comment}}
             <a class="card-footer-item  nidhi" loggedIn="{{../loggedIn}}">
               <span class="read{{@index}}"> {{notification.comment.user.username}} commented: "{{notification.comment.contents}}</span>
@@ -32,36 +48,7 @@
               <i class="fa-regular fa-read-flag notification-content{{@index}}"  postid="{{post.id}}" notificationid="{{notification.id}}" ></i>
             </a>
           {{/if}}
-
-
-
-
-
-
-    {{!-- </div> --}}
   </div>
 
-
   </div>
-  {{/each}}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  {{/each}} --}}
