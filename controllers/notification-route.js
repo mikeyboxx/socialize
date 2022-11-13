@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
               order: [['comment.createdAt', 'DESC']]},
             {model: Reaction,
               include: {model: User},
-              order: [['reaction.createdAt', 'ASC']]}
+              order: [['reaction.createdAt', 'DESC']]}
           ]},
         {model: Comment,
           include: {model: User}},
@@ -38,7 +38,7 @@ router.get('/', async (req, res) => {
       },
     });
 
-    res.json(notificationsArr);
+    // res.json(notificationsArr);
 
     res.render('notifications', {
       notificationCount,

@@ -21,16 +21,17 @@ const notificationHandler = async (notificationId, postId, event) => {
     // $('#postDetails').empty();
 
     document.location.replace('/notifications');
-// conent of the modal 
 
   } catch (err) {
     console.log(err);
   }
 };
 
+
 const allNotifications = document.querySelectorAll('.nidhi');
-allNotifications.forEach(function(el, idx) {
-  el.addEventListener('click', notificationHandler.bind(this,  $(el).attr('notificationId'), (el).attr('postId'),idx));
+
+allNotifications.forEach(function(el) {
+  el.addEventListener('click', notificationHandler.bind(this,  $(el).attr('notificationId'), $(el).attr('postId')));
 });
 
 

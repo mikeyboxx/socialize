@@ -3,45 +3,34 @@
 <div>
 {{#each notifications }}
 
- {{!-- {{#if read_flag}}
-    <div style="color:white">
-  {{else}}
-    <div style="color:black">
-  {{/if}} --}}
-  
-<div class=" card notification">
+
+  <div class="card notification">
   <button class="delete"></button>
-  <div class="card-image">
-    <figure class="image is-4by3">
+  <div class="card-image ">
+    
+      {{!-- where we will display the post  --}}
+{{!-- modal 
 
 
 
-
-     {{!-- <div id="postDetails" class="modal">
+<div class="notification-modal">
   <div class="modal-background"></div>
-  <div class="modal-card">
+  <div class="modal-content">
+ <div class="box" style="color:black;">
 
-    <header class="modal-card-head">
-      <p class="modal-card-title"></p>
-      <button class="delete" aria-label="close"></button>
-    </header>
-
-    <section class="modal-card-body">
-      {{post}}
-    </section>
-
-    {{!-- New post footer --}}
-    <footer class="modal-card-foot">
-      <button class="button is-success btn" id="newpost-submit">Submit</button>
-    </footer>
-
+  {{post.contents}}
+</div>
   </div>
-</div> --}}
+  <button class="modal-close is-large" aria-label="close"></button>
+</div>
 
 
-    </figure>
-  </div>
 
+{{!-- {{post.contents}} --}}
+
+
+
+  </div> 
 
 
   <div class="card-content">
@@ -50,7 +39,8 @@
         {{#if comment }}
           <p>{{comment.user.first_name}} {{comment.user.last_name}}</p>
           <span class="title" style="font-size:15px">@{{comment.user.username}} </span>
-          <span> has commented on your post on {{formatDate comment.createdAt}}</span> 
+          <span> has commented "{{comment.contents}}" on your post on {{formatDate comment.createdAt}}</span> 
+          
         {{/if}}
         {{#if reaction }}
          <p>{{reaction.user.first_name}} {{reaction.user.last_name}}</p>
@@ -68,10 +58,3 @@
 </div>
 {{/each}}
 </div>
-</div>
-</div>
-
-
-
-
-
