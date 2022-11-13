@@ -1,5 +1,7 @@
 const router = require("express").Router();
 const { Reaction, Notification } = require("../../models");
+const {QueryTypes} = require("sequelize");
+const sequelize = require("../../config/connection");
 
 //route to process a like/dislike/undo request of a post reaction
 router.post("/",  async (req, res) => {
@@ -30,12 +32,18 @@ router.post("/",  async (req, res) => {
 
       dbReactionData = dbReactionData.get(({ plain: true }));
 
+      const [{"user_id": postUserId}] = await sequelize.query(
+        `SELECT user_id 
+            FROM post 
+           WHERE post.id = ${req.body.postId}`,
+           {type: sequelize.QueryTypes.SELECT});
+
       // create a row on the Notification table to alert the creator of the Post
       await Notification.create({
         type: 'reaction',
         reaction_id: dbReactionData.id,
         post_id: req.body.postId,
-        user_id: !req.session.userId ? null : req.session.userId
+        user_id: postUserId
       });
     }
 
