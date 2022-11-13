@@ -13,6 +13,10 @@
           {{#if post.api_horoscope }}
              {{> horoscope-post item=post.api_object}}
           {{/if}}
+           
+          {{#if post.api_dog }}
+             {{> dog-post item=post.api_object}}
+          {{/if}}
 
           {{#each comments }}
             <hr>
