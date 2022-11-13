@@ -5,13 +5,15 @@
 
     /* border: 1px solid red; */
 }
-
+html{
+    min-height: 100%;
+}
 body {
     background: #ff00cc;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #333399, #ff00cc);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #333399, #ff00cc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
     margin:.5em;
+    min-height: 100%;
   }
 
 #trapezoid {
@@ -134,6 +136,27 @@ body {
 .card {
     display: flex;
     justify-content: flex-start;
+}
+
+.notificationz {
+
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+    padding: 4px;
+}
+
+.nidhi.card {
+    background-image: linear-gradient(to right, #ff00cc, #4d81fa);
+    justify-content: center;
+}
+.nidhi.card:hover {
+    background-image: linear-gradient(to right, #e731ff, #4dcffa);
+    justify-content: center;
+}
+
+#notification-container {
+    height: 100%;
 }
 
 .sign-in,
