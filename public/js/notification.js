@@ -3,7 +3,7 @@ const notificationHandler = async (notificationId, postId, event) => {
 
   // console.log(notificationId, typeof notificationId);
   // console.log('click');
-  // const id = parseInt(notificationId);
+  const id = parseInt(notificationId);
   try {
     const response = await fetch(`/api/notifications/${notificationId}`, {
       method: 'PUT',

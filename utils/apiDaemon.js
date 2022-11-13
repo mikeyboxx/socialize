@@ -4,6 +4,7 @@ const moment = require('moment');
 const {Post} = require("../models");
 const getCocktailApiData = require("../utils/getCocktailApiData");
 const getHoroscopeApiData = require("../utils/getHoroscopeApiData");
+const getDogApiData = require("../utils/getHoroscopeApiData")
 
 const op = Sequelize.Op;
 const fgCyan = '\x1b[36m';
@@ -45,7 +46,7 @@ const apiDaemon = () => {
       
       const api_id = api_idArr[Math.floor(Math.random() * api_idArr.length)];
       let response = {};
-
+      console.log("are we done")
       switch (api_id){
         case 1:  response = await getCocktailApiData();
           break;
