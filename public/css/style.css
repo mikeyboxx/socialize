@@ -46,6 +46,8 @@ body {
     padding-left:7%;
     display: flex;
     flex-wrap: wrap;
+    position: fixed;
+    left: 21%;
 }
 
 .logo {
@@ -151,6 +153,7 @@ body {
     background-image: linear-gradient(to right, #ff00cc, #4d81fa);
     justify-content: center;
     text-align: center;
+    color: white;
 }
 .nidhi.card:hover {
     background-image: linear-gradient(to right, #e731ff, #4dcffa);
@@ -181,7 +184,7 @@ body {
 }
 
 #filler {
-    height: 300px;
+    height: 600px;
     background-image: (to right, #333399, #ff00cc);
 }
 
