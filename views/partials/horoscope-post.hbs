@@ -1,15 +1,20 @@
 {{#with item}}
-<div class="content">
-    <p>{{zodiac_sign}}</p>
-    <p>{{zodiac_icon}}</p>
-    <p>{{date_range}}</p>
-    <p>{{current_date}}</p>
-    <p>{{description}}</p>
-    <p>{{compatibility}}</p>
-    <p>{{mood}}</p>
-    <p>{{color}}</p>
-    <p>{{mood}}</p>
-    <p>{{lucky_number}}</p>
-    <p>{{lucky_time}}</p>
+<div class="horoscope_content">
+    <div class="horoscope_date">
+        <h2>{{date_range}}</h2>
+        <h2 class="zodiac_sign">{{zodiac_sign}}</h2>
+        <p>{{zodiac_icon}}</p>
+    </div>
+    <div class="horoscope_body">
+        <p class="description">{{description}}</p>
+        <hr>
+        <div class="horoscope_other">
+            <p><span><h2>Compatibility</h2><span> {{compatibility}} </span></p>
+            <p><span><h2>Mood</h2> {{mood}}</span></p>
+            <p><span><h2>Color</h2> {{color}}</span></p>
+            <p><span><h2>Lucky number</h2> {{lucky_number}}</span></p>
+            <p><span><h2>Lucky time</h2> {{lucky_time}}</span></p>
+        </div>
+    </div>
 </div>
 {{/with}}
