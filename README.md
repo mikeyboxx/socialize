@@ -25,7 +25,7 @@ To use the app please go to the deployed link on Heroku and sign up for an accou
 http://pure-depths-45442herokuapp.com/
 
 ![Log in of the webpage](./public/images/Screenshot_1.png?raw=true "SZ Log in")
-![Homepage](./public/images/Screenshot_2.png?raw=true"SZ Homepage")
+![Homepage](./public/images/Screenshot_2.png?raw=true "SZ Homepage")
 ![Notifications](./public/images/Screenshot_3.png?raw=true "SZ Notifications")
 
 
