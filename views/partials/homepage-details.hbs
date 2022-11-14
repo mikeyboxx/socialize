@@ -23,14 +23,17 @@
           {{/if}}
 
           {{#each comments }}
-            <hr>
-            <div>
-              {{contents}}
+            <div class="comment_content">
+
+                <span class="content-boyz2">
+                  {{contents}}
+                </span>
+                <div>
+                  <p style="font-weight:bolder;" >{{user.first_name}} {{user.last_name}} --{{formatDate createdAt}}</p>
+                  {{!-- <p>--{{formatDate createdAt}}</p> --}}
+                </div>
+
             </div>
-            <div>
-              -- @{{user.username}}, {{formatDate createdAt}}
-            </div>
-            <hr>
           {{/each}}
       </div>
 

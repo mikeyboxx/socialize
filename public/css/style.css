@@ -164,6 +164,23 @@ body {
     color: white;
 }
 
+.content-boyz {
+    /* white-space: pre-wrap; */
+    overflow-wrap: break-word;
+    padding-left: .75rem;
+    padding-top: 5px;
+
+}
+
+.content-boyz2 {
+    /* white-space: pre-wrap; */
+    overflow-wrap: break-word;
+    padding-left: .75rem;
+    padding-top: 5px;
+    margin-bottom: 5px;
+
+}
+
 #notification-container {
     height: 100%;
 }
@@ -189,15 +206,21 @@ body {
 .sign-up,
 .new-post,
 .comment_box,
-.new-comment {
+.new-comment,
+.new-post {
     background: var(--background-clr);
     width: 80%;
     margin: 0 auto;
 }
 
 .btn {
-    background-color: #7979e7 !important;
+    /* background-color: #7979e7 !important; */
     color: white;
+    margin-right: 5px;
+}
+
+.btn:hover {
+    color:#4dcffa;
 }
 
 .dashboard_content {
@@ -206,6 +229,7 @@ body {
 
 .card {
     background-color: var(--background-clr);
+    /* white-space: pre-wrap; */
 }
 
 .cocktail_content {
@@ -246,8 +270,21 @@ body {
 .dog_content {
     background-color: #e4e4f4;
     padding: .75rem;
+    padding-bottom: 0px;
     border-top-left-radius: 5%;
     border-top-right-radius: 5%;
+    /* border-bottom: 1px solid white; */
+}
+
+.comment_content {
+    background-color: #e4e4f4;
+    /* padding-bottom: 0px; */
+    /* border-top-left-radius: 5%;
+    border-top-right-radius: 5%; */
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    padding-left: .75rem;
+    padding-top: 10px;
 }
 
 .name_glass,
@@ -275,6 +312,7 @@ body {
 .human_post {
     display: flex;
     box-shadow: 0 .5em 1em -.125em rgba(10,10,10,.1),0 0 0 1px rgba(10,10,10,.02);
+    padding-left: 0px;
 }
 
 .cocktail_body {
@@ -285,7 +323,7 @@ body {
     background-color: #e4e4f4;
     border-bottom-left-radius: 25% !important;
     border-bottom-right-radius: 25% !important;
-    box-shadow: 0 8px 6px -6px rgb(234, 224, 224);
+    /* box-shadow: 0 8px 6px -6px rgb(234, 224, 224); */
     justify-content: end;
 }
 
@@ -312,7 +350,7 @@ body {
 }
 
 
-.human_post,
+
 .humanpost_icon,
 .dog_image,
 .meme_image,
@@ -320,7 +358,9 @@ body {
     margin-left: 1rem;
 }
 
-
+.human_post {
+    margin-left: 0px;
+}
 
 .firstname_lastname {
     font-size: 1rem;
