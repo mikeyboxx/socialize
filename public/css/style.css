@@ -46,6 +46,8 @@ body {
     padding-left:7%;
     display: flex;
     flex-wrap: wrap;
+    position: fixed;
+    left: 24%;
 }
 
 .logo {
@@ -56,7 +58,9 @@ body {
     border-radius: 50%;
 }
 
-
+.navbar-start{
+    padding-left: 50px;
+}
 #trapezoid a, .subnavbtn {
     -webkit-transform: rotateX(180deg);
     transform: rotateX(180deg);
@@ -138,21 +142,29 @@ body {
     flex-direction: column;
 }
 
-.notificationz {
+ .notificationz {
     margin-left: 10px;
     margin-right: 10px;
     text-align: center;
     padding: 4px;
 }
 
-.nidhi.card {
+ .nidhi.card {
     background-image: linear-gradient(to right, #ff00cc, #4d81fa);
     justify-content: center;
+    text-align: center;
 }
 .nidhi.card:hover {
     background-image: linear-gradient(to right, #e731ff, #4dcffa);
     justify-content: center;
 }
+
+/* .dog.card {
+    background-image: linear-gradient(to right, #ff00cc, #4d81fa);
+    justify-content: center;
+    color: white;
+    text-align: center;
+} */
 
 #notification-container {
     height: 100%;
@@ -294,7 +306,7 @@ body {
 .humanpost_icon,
 .dog_image,
 .meme_image,
-.dog_title {
+.dog_title{
     margin-left: 1rem;
 }
 

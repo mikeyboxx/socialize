@@ -1,6 +1,3 @@
-
-
-
 const newCommentFormHandler = async (loggedIn, idx, event) => {
     event.stopPropagation(event);
 
