@@ -1,20 +1,51 @@
-# Password Generator
+# Socialize App
 
-## Description
+![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg "MIT badge")
 
-This project is built to create random passwords based on criteria selected after asking a prompt series of questions regarding criteria preferred. I found motivation in making the code more refined, and helpful for others as well as using the oportunity to learn more Javascript functions and methods, and their purpose.
+  ## Description
 
-## Website :
+The Scialize App is created to give users a platform where they communicate their thoughts, react on others' posts and get enetratined with random media shared on the homepage.
 
-https://malvinah.github.io/password-generator/
+  ## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Contribute](#contribute)
+- [Tests](#tests)
+
+  ## Installation
+
+To install this application, clone the code into your terminal for the respective repository. Then, install npm using npm init on your terminal. Install express using npm i express as well as npm install express hndlebars. Finally, the program can be run with the npm start command on your terminal.
+
+  ## Usage
+
+To use the app please go to the deployed link on Heroku and sign up for an account.
+
+http://pure-depths-45442herokuapp.com/
+
+![Log in of the webpage](./public/images/Screenshot_1.png?raw=true "SZ Log in")
+![Homepage](./public/images/Screenshot_2.png?raw=true"SZ Homepage")
+![Notifications](./public/images/Screenshot_3.png?raw=true "SZ Notifications")
 
 
-## Screenshot
+  ## License
 
-![Before generation](./asset/images/Screenshot_password-gen.png?raw=true "Password Generator")
-![After generation](./asset/images/Screenshot_password-gen2.png?raw=true "Password generator 2")
+This application uses the MIT
+
+  ## Contribute
+
+If you wish to contributr please fork the repo to add your suggestions.
+
+  ## Contributors
+
+Chris shurr
+Jules Joseph
+Malvina Hasa
+Michael Nabatov
+Nidhi Patel
 
 
-## Licence
+  ## Tests
 
-This is an open source project. MIT licence.
+For testing you can sign up and check out the features available in the app.
