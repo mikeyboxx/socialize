@@ -346,7 +346,12 @@ body {
         width: 20%;
     }
 
+    .sub-home {
+        margin-left: 4rem;
+    }
+
     .navbar-item a {
+        text-align: left;
         font-size: .55em;
         letter-spacing: 0.25rem;
 
