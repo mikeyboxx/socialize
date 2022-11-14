@@ -174,7 +174,7 @@ body {
     top: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    
+
 }
 .notification-span{
     justify-content: space-around;
@@ -361,7 +361,7 @@ body {
     }
 
     .sub-home {
-        margin-left: 4rem;
+        margin-left: 8.5rem;
     }
 
     .navbar-item a {
