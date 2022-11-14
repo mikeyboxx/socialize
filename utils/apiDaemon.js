@@ -4,7 +4,7 @@ const {Post} = require("../models");
 const getCocktailApiData = require("../utils/getCocktailApiData");
 const getHoroscopeApiData = require("../utils/getHoroscopeApiData");
 const getDogApiData = require("../utils/getDogApiData");
-// const getMemeApiData = require("../utils/getMemeApiData")
+const getMemeApiData = require("../utils/getMemeApiData")
 
 const op = Sequelize.Op;
 const fgCyan = '\x1b[36m';
@@ -53,11 +53,11 @@ const apiDaemon = () => {
           break;
         case 3:  response = await getDogApiData();
           break;
-        // case 4: response = await getMemeApiData();
-        //   break;
+        case 4: response = await getMemeApiData();
+          break;
       }
       
-      // console.log(response);
+      console.log(response);
       const datajson = JSON.stringify(response);
 
       const dbPostData = await Post.create({
