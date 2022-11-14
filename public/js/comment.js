@@ -27,7 +27,7 @@ const newCommentFormHandler = async (loggedIn, idx, event) => {   //function for
     }
   };
 
-const submitBtn = document.querySelectorAll('.submit'); //adds event listener to submit button of all post modals.
+const submitBtn = document.querySelectorAll('.submit'); //adds event listener to submit button of all post modals. Bind method
     submitBtn.forEach(function(el, idx) {
     el.addEventListener('click', newCommentFormHandler.bind(this, $(el).attr('loggedIn'), idx)); 
 });
