@@ -146,21 +146,22 @@ body {
     flex-direction: column;
 }
 
-.notificationz {
+ .notificationz {
     margin-left: 10px;
     margin-right: 10px;
     text-align: center;
     padding: 4px;
-}
+} 
 
-.nidhi.card {
+ .nidhi.card {
     background-image: linear-gradient(to right, #ff00cc, #4d81fa);
     justify-content: center;
+    text-align: center;
 }
 .nidhi.card:hover {
     background-image: linear-gradient(to right, #e731ff, #4dcffa);
     justify-content: center;
-}
+} 
 
 .dog.card {
     background-image: linear-gradient(to right, #ff00cc, #4d81fa);
@@ -295,7 +296,6 @@ body {
     margin-left: 5rem;
     flex-grow: 0;
 }
-
 
 .human_post {
     margin-left: 1rem;

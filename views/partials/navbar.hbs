@@ -8,12 +8,13 @@
       <div id="trapezoid">
           <a class="sub-home" href="/">Home</a>
           <a class="expandHome" href="/dashboard">Dashboard</a>
-          <a class="subnavbtn" href="/notifications">Notifications
+         
+          {{#if loggedIn}}
+           <a class="subnavbtn" href="/notifications">Notifications
           {{#if notificationCount}}
             ({{notificationCount}})
           {{/if}}
           </a>
-          {{#if loggedIn}}
           <a class="js-modal-trigger subnavbtn" data-target="new-post" id="create-post">New Post</a>
           <a class="js-modal-trigger expandHome subnavbtn" data-target="sign-in" href="/logout">Logout</a>
           {{else}}
