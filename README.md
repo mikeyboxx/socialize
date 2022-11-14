@@ -22,7 +22,7 @@ To install this application, clone the code into your terminal for the respectiv
 
 To use the app please go to the deployed link on Heroku and sign up for an account.
 
-http://pure-depths-45442herokuapp.com/
+https://pure-depths-45442.herokuapp.com/
 
 ![Log in of the webpage](./public/images/Screenshot_1.png?raw=true "SZ Log in")
 ![Homepage](./public/images/Screenshot_2.png?raw=true "SZ Homepage")

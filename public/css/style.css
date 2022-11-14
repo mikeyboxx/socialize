@@ -58,9 +58,6 @@ body {
     border-radius: 50%;
 }
 
-.navbar-start{
-    padding-left: 50px;
-}
 #trapezoid a, .subnavbtn {
     -webkit-transform: rotateX(180deg);
     transform: rotateX(180deg);
@@ -177,7 +174,7 @@ body {
     top: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    
+
 }
 .notification-span{
     justify-content: space-around;
@@ -323,18 +320,16 @@ body {
     margin-left: 1rem;
 }
 
-.username_date {
-    text-align: center;
-}
 
-.firstname_lastname,
-.username_date {
+
+.firstname_lastname {
     font-size: 1rem;
     color: #6a1658;
 }
 
 .username_date {
-    text-align: end;
+    font-size: .9rem;
+    color: #6a1658;
     opacity: 0.5;
 }
 
@@ -356,11 +351,21 @@ body {
         width: 25.625rem;
     }
 
+
+    .navbar-start{
+        padding-left: 50px;
+    }
+
     .logo {
         width: 20%;
     }
 
+    .sub-home {
+        margin-left: 8.5rem;
+    }
+
     .navbar-item a {
+        text-align: left;
         font-size: .55em;
         letter-spacing: 0.25rem;
 
