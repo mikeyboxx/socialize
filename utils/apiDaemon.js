@@ -5,6 +5,7 @@ const {Post} = require("../models");
 const getCocktailApiData = require("../utils/getCocktailApiData");
 const getHoroscopeApiData = require("../utils/getHoroscopeApiData");
 const getDogApiData = require("../utils/getDogApiData");
+const getMemeApiData = require("../utils/getMemeApiData")
 
 const op = Sequelize.Op;
 const fgCyan = '\x1b[36m';
@@ -42,7 +43,7 @@ const apiCleanupDaemon = () => {
 const apiDaemon = () => {
   const timer = setInterval(async ()=>{
     try {
-      const api_idArr = [1, 2, 3];
+      const api_idArr = [1, 2, 3, 4];
       
       const api_id = api_idArr[Math.floor(Math.random() * api_idArr.length)];
       let response = {};
@@ -52,6 +53,8 @@ const apiDaemon = () => {
         case 2:  response = await getHoroscopeApiData();
           break;
         case 3:  response = await getDogApiData();
+          break;
+        case 4: response = await getMemeApiData();
           break;
       }
       
