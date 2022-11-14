@@ -291,7 +291,7 @@ body {
 
 
 .human_post,
-.icon,
+.humanpost_icon,
 .dog_image,
 .meme_image,
 .dog_title {
@@ -355,7 +355,6 @@ body {
 
     #trapezoid {
         margin-top:-6.25rem;
-        margin-right: 0;
         width: 46.875rem;
     }
 
