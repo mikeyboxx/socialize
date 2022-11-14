@@ -8,8 +8,6 @@
 *{
     box-sizing: border-box;
     font-size: .65rem;
-
-    /* border: 1px solid red; */
 }
 
 html{
@@ -18,8 +16,6 @@ html{
 
 body {
     background: var(--background-clr);
-
-    /* margin:.5em; */
   }
 
 #trapezoid {
@@ -168,7 +164,6 @@ body {
 }
 
 .content-boyz {
-    /* white-space: pre-wrap; */
     overflow-wrap: break-word;
     padding-left: .75rem;
     padding-top: 5px;
@@ -176,12 +171,10 @@ body {
 }
 
 .content-boyz2 {
-    /* white-space: pre-wrap; */
     overflow-wrap: break-word;
     padding-left: .75rem;
     padding-top: 5px;
     margin-bottom: 5px;
-
 }
 
 #notification-container {
@@ -222,7 +215,6 @@ body {
 }
 
 .btn {
-    /* background-color: #7979e7 !important; */
     color: white;
     margin-right: 5px;
 }
@@ -277,14 +269,10 @@ body {
     padding-bottom: 0px;
     border-top-left-radius: 5%;
     border-top-right-radius: 5%;
-    /* border-bottom: 1px solid white; */
 }
 
 .comment_content {
     background-color: #e4e4f4;
-    /* padding-bottom: 0px; */
-    /* border-top-left-radius: 5%;
-    border-top-right-radius: 5%; */
     border-top: 1px solid white;
     border-bottom: 1px solid white;
     padding-left: .75rem;
@@ -316,7 +304,6 @@ body {
 .horoscope_body,
 .human_post {
     display: flex;
-    /* box-shadow: 0 .5em 1em -.125em rgba(10,10,10,.1),0 0 0 1px rgba(10,10,10,.02); */
     padding-left: 0px;
 }
 
@@ -326,10 +313,8 @@ body {
 
 .card-footer {
     background-color: #e4e4f4;
-    /* border-radius: 10px; */
     border-bottom-left-radius: 0.75rem;
     border-bottom-right-radius: 0.75rem;
-    /* box-shadow: 0 8px 6px -6px rgb(234, 224, 224); */
     justify-content: end;
 }
 
