@@ -47,6 +47,7 @@ body {
     flex-wrap: wrap;
     position: fixed;
     left: 24%;
+    
 
 }
 
@@ -267,8 +268,6 @@ body {
     display: flex;
 }
 
-
-
 .card-footer {
     background-color: #e4e4f4;
     border-bottom-left-radius: 25% !important;
@@ -363,4 +362,8 @@ body {
         margin-right: 1em;;
     }
 
-}
+};
+
+
+
+

@@ -6,10 +6,9 @@
 
     <div class="navbar-item is-hoverable mt-1" id="navbar">
       <div id="trapezoid">
-          <a class="sub-home" href="/">Home</a>
-          <a class="expandHome" href="/dashboard">Dashboard</a>
-         
+          <a class="sub-home" href="/">Home</a>  
           {{#if loggedIn}}
+           <a class="expandHome" href="/dashboard">Dashboard</a>
            <a class="subnavbtn" href="/notifications">Notifications
           {{#if notificationCount}}
             ({{notificationCount}})
