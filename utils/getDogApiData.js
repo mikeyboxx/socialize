@@ -10,7 +10,7 @@ const getDogApiData = () => {
         reject({status: status, message: statusText});
         return;
       };
-
+      console.log(data)
       return resolve(data);
     } catch(err) {
       return reject(err)
