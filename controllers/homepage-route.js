@@ -49,6 +49,8 @@ router.get('/', async (req, res) => {
           break;
         case 3: item.api_dog = true;
           break;
+        case 4: item.api_meme = true;
+          break;
         default: item.human_post = true;
           break;
       }
