@@ -19,8 +19,8 @@ Post.init(
       allowNull: false,
       defaultValue: ""
     },
-    api_json: {
-      type: DataTypes.TEXT,
+    api_json: { 
+      type: DataTypes.TEXT,  
     },
     api_id: {
       type: DataTypes.INTEGER,
