@@ -14,7 +14,7 @@ The Scialize App is created to give users a platform where they communicate thei
 - [Contribute](#contribute)
 - [Tests](#tests)
 
-  ## Installation
+## Installation
 
 To install this application, clone the code into your terminal for the respective repository. Then, install npm using npm init on your terminal. Install express using npm i express as well as npm install express hndlebars. Finally, the program can be run with the npm start command on your terminal.
 
