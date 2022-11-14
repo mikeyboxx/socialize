@@ -4,7 +4,7 @@
 
   ## Description
 
-The Socialize App is created to give users a platform where they communicate their thoughts, react on others' posts and get entertained with random media shared on the homepage.
+The Socialize App is created to give users a platform where they communicate their thoughts, react on others' posts and get enetratined with random media shared on the homepage.
 
   ## Table of Contents
 

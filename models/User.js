@@ -52,6 +52,12 @@ User.init(
     hooks: {
       async beforeCreate(newUserData) {
         newUserData.password = await bcrypt.hash(newUserData.password, 10);
+        newUserData.email = newUserData.email.toLowerCase();
+        
+        newUserData.first_name = newUserData.first_name[0].toUpperCase() + newUserData.first_name.slice(1).toLowerCase();
+
+        newUserData.last_name = newUserData.last_name[0].toUpperCase() + newUserData.last_name.slice(1).toLowerCase();
+
         return newUserData;
       },
       async beforeUpdate(updateUser) {

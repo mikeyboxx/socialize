@@ -17,17 +17,20 @@
           {{#if post.api_dog }}
              {{> dog-post item=post.api_object}}
           {{/if}}
+          
           {{#if post.api_meme}}
               {{> meme-post item=post.api_object}}
           {{/if}}
 
           {{#each comments }}
-            <div class="comments">
+            <hr>
+            <div>
               {{contents}}
             </div>
-            <div class="comments">
+            <div>
               -- @{{user.username}}, {{formatDate createdAt}}
             </div>
+            <hr>
           {{/each}}
       </div>
 
@@ -67,22 +70,20 @@
       </footer>
   </div>
 
- {{#if ../loggedIn }}
+ {{#if ../loggedIn }} 
   <div id="new-comment{{@index}}" class="modal">
     <div class="modal-background"></div>
     <div class="modal-card">
-
-      <header class="modal-card-head new-comment">
-        <p class="modal-card-title title">New Comment</p>
+      <header class="modal-card-head">
+        <p class="modal-card-title"></p>
         <button class="delete" aria-label="close"></button>
       </header>
-
-      <section class="modal-card-body new-comment">
+      <section class="modal-card-body">
         <textarea class="textarea" placeholder="10 lines of textarea" rows="10" id="newcomment-text{{@index}}"></textarea>
         <p class="comment-id{{@index}}" style="display:none;">{{id}}</p>
       </section>
-      <footer class="modal-card-foot new-comment">
-        <button class="button is-success submit" loggedIn="{{../loggedIn}}" id="newcomment-submit">Add my comment</button>
+      <footer class="modal-card-foot">
+        <button class="button is-success submit" loggedIn="{{../loggedIn}}" id="newcomment-submit">submit</button>
       </footer>
     </div>
   </div>
