@@ -346,6 +346,7 @@ body {
     padding: 1rem;
     width: 20%;
     height: auto;
+    max-height: 85px;
 }
 
 .meme_title,
@@ -428,6 +429,11 @@ body {
     .cocktail_img {
         width: 10%;
         height: 10%;
+    }
+
+    .meme_img {
+        max-height: 50%;
+        max-width: 50%;
     }
 
     .new_cocktail {
