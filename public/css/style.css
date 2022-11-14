@@ -339,6 +339,8 @@ body {
         margin-top:-6.25rem;
         margin-right: 0;
         width: 46.875rem;
+        position: fixed;
+        left: 24%;
     }
 
     .logo {
