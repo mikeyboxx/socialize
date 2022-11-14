@@ -29,7 +29,7 @@
   <div class="modal-card">
 
     <header class="modal-card-head sign-in">
-      <p class="modal-card-title"></p>
+      <p class="modal-card-title title">Log In</p>
       <button class="delete" aria-label="close"></button>
     </header>
 
@@ -55,8 +55,8 @@
 
     {{!-- Log-in footer --}}
     <footer class="modal-card-foot sign-in">
-      <button class="button is-success btn" id="login-submit">Submit</button>
-      <button class="button js-modal-trigger btn" data-target="sign-up" id="signupLink">Sign-up</button>
+      <button class="button is-success btn" id="login-submit">Log In</button>
+      <button class="button js-modal-trigger btn" data-target="sign-up" id="signupLink">Sign Up Instead</button>
     </footer>
   </div>
 </div>
@@ -67,7 +67,7 @@
   <div class="modal-card">
 
     <header class="modal-card-head sign-up">
-      <p class="modal-card-title"></p>
+      <p class="modal-card-title title">Sign Up</p>
       <button class="delete" aria-label="close"></button>
     </header>
 
@@ -119,9 +119,9 @@
 
     </section>
 
-    {{!-- Submit button --}}
+    {{!-- Sign up button --}}
     <footer class="modal-card-foot submit_btn sign-up">
-      <a class="button is-success btn" id="signup-submit">Submit</a>
+      <a class="button is-success btn" id="signup-submit">Sign up</a>
     </footer>
 
   </div>
@@ -132,18 +132,18 @@
   <div class="modal-background"></div>
   <div class="modal-card">
 
-    <header class="modal-card-head">
-      <p class="modal-card-title"></p>
+    <header class="modal-card-head new-post">
+      <p class="modal-card-title title">Share your thoughts</p>
       <button class="delete" aria-label="close"></button>
     </header>
 
-    <section class="modal-card-body">
-      <textarea class="textarea" placeholder="10 lines of textarea" rows="10" id="newpost-text"></textarea>
+    <section class="modal-card-body new-post">
+      <textarea class="textarea" placeholder="What's on your mind?" rows="10" id="newpost-text"></textarea>
     </section>
 
     {{!-- New post footer --}}
-    <footer class="modal-card-foot">
-      <button class="button is-success btn" id="newpost-submit">Submit</button>
+    <footer class="modal-card-foot new-post">
+      <button class="button is-success btn" id="newpost-submit">Create New Post</button>
     </footer>
 
   </div>
