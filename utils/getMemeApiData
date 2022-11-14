@@ -6,15 +6,11 @@ const getMemeApiData = () => {
       const response = await axios.get(`https://api.imgflip.com/get_memes`);
       let {status, statusText, data} = response;
                     
-      if (statusText !== 'OK') {
+      if (statusText !== 'success') {
         reject({status: status, message: statusText});
         return;
       };
 
-      const {
-        name: name,
-        url: image,
-    } = data;
 
 
     console.log(data)
