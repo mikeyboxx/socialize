@@ -43,26 +43,23 @@ document.addEventListener('DOMContentLoaded', () => {
 function loadPost (post, element) {
 const {contents, totalLikes, totalDislikes, totalComments, id } = post
   $(element).html( `
-  <div class="notification-modal">
-  <div class="modal-background"></div>
+<div class="notification-modal">
+ <div class="modal-background"></div>
   <div class="modal-content">
-  <div class="box">
-  <button class="delete" onClick="window.location.reload();" type="button" ></button>
-  <p>
-   ${contents}
-  </p>
-  <div>
-    <span class="like">${totalLikes}</span>
-    <i class="fa-solid fa-thumbs-up thumbs-up{{@index}}" postid="${id}}"></i> 
-    <span class="dislike">${totalDislikes} </span>
-     <i class="fa-solid fa-thumbs-down thumbs-down{{@index}}" postid="${id}"></i>
-    <span class="comment">${totalComments}</span>
-    <i class="fa-regular fa-comment" postid="${id}"></i>
+   <div class="box">
+      <button class="delete" onClick="window.location.reload();" type="button" ></button>
+      <p>${contents}</p>
+      <div class ="notification-span">
+        <span>${totalComments}</span>
+        <i class="fa-regular fa-comment" postid="${id}"></i>
+        <span>${totalLikes}</span>
+        <i class="fa-solid fa-thumbs-up thumbs-up{{@index}}" postid="${id}}"></i> 
+        <span>${totalDislikes} </span>
+        <i class="fa-solid fa-thumbs-down thumbs-down{{@index}}" postid="${id}"></i>
+      </div>
+   </div>
   </div>
-  
-  </div>
-  </div>
-  </div>
+</div>
 `)};
 
 function refreshPage(){
