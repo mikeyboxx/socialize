@@ -1,4 +1,3 @@
-
 const Sequelize = require('sequelize');
 const moment = require('moment');
 const {Post} = require("../models");

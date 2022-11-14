@@ -26,3 +26,11 @@ const loginFormHandler = async event => {
   };
 
   document.querySelector('#login-submit').addEventListener('click', loginFormHandler);
+
+  const input = document.getElementById("password-login");
+  input.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      document.getElementById("login-submit").click();
+    }
+  });

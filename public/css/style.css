@@ -7,6 +7,7 @@
 
 *{
     box-sizing: border-box;
+    font-size: .65rem;
 
     /* border: 1px solid red; */
 }
@@ -55,7 +56,9 @@ body {
     border-radius: 50%;
 }
 
-
+.navbar-start{
+    padding-left: 50px;
+}
 #trapezoid a, .subnavbtn {
     -webkit-transform: rotateX(180deg);
     transform: rotateX(180deg);
@@ -126,10 +129,6 @@ body {
     justify-content: center;
 }
 
-.cocktail_img {
-    width: 10%;
-    height: auto;
-}
 
 #feed {
     margin-top: 30px;
@@ -141,20 +140,27 @@ body {
     flex-direction: column;
 }
 
-.notificationz {
+ .notificationz {
     margin-left: 10px;
     margin-right: 10px;
     text-align: center;
     padding: 4px;
 }
 
-.nidhi.card {
+ .nidhi.card {
     background-image: linear-gradient(to right, #ff00cc, #4d81fa);
     justify-content: center;
+    text-align: center;
 }
 .nidhi.card:hover {
     background-image: linear-gradient(to right, #e731ff, #4dcffa);
     justify-content: center;
+}
+
+.dog.card {
+    background-image: linear-gradient(to right, #ff00cc, #4d81fa);
+    justify-content: center;
+    text-align: center;
 }
 
 #notification-container {
@@ -210,6 +216,7 @@ body {
     border-radius: 5%;
 }
 
+.dog_content h2,
 .cocktail_content h2,
 .horoscope_content h2,
 .firstname_lastname {
@@ -222,7 +229,9 @@ body {
 .human_content,
 .user_info,
 .comment_box,
-.comments {
+.comments,
+.meme_content,
+.dog_content {
     background-color: #e4e4f4;
     padding: .75rem;
     border-top-left-radius: 5%;
@@ -250,16 +259,22 @@ body {
 }
 
 .cocktail_body,
-.horoscope_body {
+.horoscope_body,
+.human_post {
     display: flex;
+    box-shadow: 0 .5em 1em -.125em rgba(10,10,10,.1),0 0 0 1px rgba(10,10,10,.02);
 }
 
-
+.cocktail_body {
+    flex-direction: column;
+}
 
 .card-footer {
     background-color: #e4e4f4;
     border-bottom-left-radius: 25% !important;
     border-bottom-right-radius: 25% !important;
+    box-shadow: 0 8px 6px -6px rgb(234, 224, 224);
+    justify-content: end;
 }
 
 .title {
@@ -285,7 +300,11 @@ body {
 }
 
 
-.human_post {
+.human_post,
+.humanpost_icon,
+.dog_image,
+.meme_image,
+.dog_title{
     margin-left: 1rem;
 }
 
@@ -293,9 +312,27 @@ body {
     text-align: center;
 }
 
+.firstname_lastname,
+.username_date {
+    font-size: 1rem;
+    color: #6a1658;
+}
+
+.username_date {
+    text-align: end;
+    opacity: 0.5;
+}
+
 .zodiac_sign {
     width: 50%;
 }
+
+.dog_image,
+.meme_image {
+    width: 20%;
+    height: auto;
+}
+
 /* Media queries for ipad*/
 @media (min-width: 376px) {
 
@@ -318,6 +355,9 @@ body {
 /* Media queries for big screen */
 
 @media (min-width: 768px) {
+    * {
+        font-size: 1rem;
+    }
 
     body {
         margin: 0;
@@ -325,7 +365,6 @@ body {
 
     #trapezoid {
         margin-top:-6.25rem;
-        margin-right: 0;
         width: 46.875rem;
     }
 
@@ -351,4 +390,21 @@ body {
         margin-right: 1em;;
     }
 
+    .cocktail_body {
+        flex-direction: row;
+    }
+
+    .cocktail_img {
+        width: 10%;
+        height: 10%;
+    }
+
+    .new_cocktail {
+        text-align: center;
+    }
+
+    .card-footer {
+        display: flex;
+        justify-content: left;
+    }
 }
