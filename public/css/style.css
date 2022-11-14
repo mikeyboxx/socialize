@@ -137,6 +137,8 @@ body {
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
+    background-color: var(--background-clr);
+
 }
 
  .notificationz {
@@ -155,6 +157,7 @@ body {
 .nidhi.card:hover {
     background-image: linear-gradient(to right, #e731ff, #4dcffa);
     justify-content: center;
+    cursor: grab;
 }
 
 .dog.card {
@@ -213,6 +216,11 @@ body {
     margin: 0 auto;
 }
 
+.box {
+    background-color: rgb(177, 43, 226);
+    color: white;
+}
+
 .btn {
     /* background-color: #7979e7 !important; */
     color: white;
@@ -227,10 +235,6 @@ body {
     background: var(--background-clr);
 }
 
-.card {
-    background-color: var(--background-clr);
-    /* white-space: pre-wrap; */
-}
 
 .cocktail_content {
     display: flex;
@@ -285,6 +289,7 @@ body {
     border-bottom: 1px solid white;
     padding-left: .75rem;
     padding-top: 10px;
+    margin-top: 8px;
 }
 
 .name_glass,
@@ -296,8 +301,8 @@ body {
 .description {
     flex-direction: row;
     display: flex;
-    margin: 1rem 4rem 0 1rem;
-    padding: 1rem 1rem 0 1rem;
+    margin: 1rem 0rem 0 1rem;
+    padding: 0rem 1rem 0 1rem;
 }
 
 .instructions-ingredients {
@@ -319,13 +324,18 @@ body {
     flex-direction: column;
 }
 
-.card-footer,
-.meme_image {
+.card-footer {
     background-color: #e4e4f4;
-    border-bottom-left-radius: 25% !important;
-    border-bottom-right-radius: 25% !important;
+    /* border-radius: 10px; */
+    border-bottom-left-radius: 0.75rem;
+    border-bottom-right-radius: 0.75rem;
     /* box-shadow: 0 8px 6px -6px rgb(234, 224, 224); */
     justify-content: end;
+}
+
+.card-content:last-child, .card-footer:last-child, .card-header:last-child {
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
 }
 
 .title {
@@ -353,8 +363,6 @@ body {
 
 
 .humanpost_icon,
-.dog_image,
-.meme_image,
 .dog_title,
 .meme_title,
 .created_date {
@@ -384,9 +392,10 @@ body {
 .dog_image,
 .meme_image {
     padding: 1rem;
-    width: 20%;
-    height: auto;
-    max-height: 85px;
+    width: 250px;
+    height: 250px;
+    border-radius: 30px;
+    margin-left: 1rem;
 }
 
 .meme_title,
@@ -467,8 +476,8 @@ body {
     }
 
     .cocktail_img {
-        width: 10%;
-        height: 10%;
+        width: 100px;
+        height: 100px;
     }
 
     .meme_img {
