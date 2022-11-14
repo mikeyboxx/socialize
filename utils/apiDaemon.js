@@ -14,7 +14,7 @@ const apiCleanupDaemon = () => {
     try {
       
       const START_DATE = moment('00010101', 'YYYYMMDD').utc();
-      const END_DATE = moment().subtract(15, 'seconds').utc();
+      const END_DATE = moment().subtract(1, 'hours').utc();
       
       const posts = await Post.destroy({
         where: {
@@ -35,7 +35,7 @@ const apiCleanupDaemon = () => {
       clearInterval(timer);
       return;
     };
-  },5000);
+  },15000);
 
 }
 
@@ -57,7 +57,7 @@ const apiDaemon = () => {
           break;
       }
       
-      console.log(response);
+      // console.log(response);
       const datajson = JSON.stringify(response);
 
       const dbPostData = await Post.create({
@@ -74,7 +74,7 @@ const apiDaemon = () => {
       clearInterval(timer);
       return;
     };
-  },3000);
+  },60000);
 }
 
 module.exports = {apiDaemon, apiCleanupDaemon};

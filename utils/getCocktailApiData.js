@@ -38,8 +38,6 @@ const getCocktailApiData = () => {
           ingredients
       };   
 
-      console.log(newCocktail);
-
       return resolve(newCocktail);
     } catch(err) {
       return reject(err)
