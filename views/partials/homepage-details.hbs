@@ -19,14 +19,12 @@
           {{/if}}
 
           {{#each comments }}
-            <hr>
-            <div>
+            <div class="comments">
               {{contents}}
             </div>
-            <div>
+            <div class="comments">
               -- @{{user.username}}, {{formatDate createdAt}}
             </div>
-            <hr>
           {{/each}}
       </div>
 

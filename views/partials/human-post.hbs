@@ -1,12 +1,13 @@
 {{#with item}}
 <div class="human_content post-id{{id}}">
   <span class="icon">
-      <img src="../public/Logo-filler.png" class="image is-32x32">
+      <img src="images/sz.jpeg" class="image is-32x32">
   </span>
   <div class="user_info">
-    <span style="font-weight:bold">{{user.first_name}} {{user.last_name}}</span>
-    <span> @{{user.username}} -- {{formatDate createdAt}}</span>
-    <p>{{contents}}</p>
+    <span class="firstname_lastname" style="font-weight:bold">{{user.first_name}} {{user.last_name}}</span>
+    <span class="username_date"> @{{user.username}} -- {{formatDate createdAt}}</span>
+    <hr>
+    <p class="human_post">{{contents}}</p>
     <br>
   </div>
 </div>
