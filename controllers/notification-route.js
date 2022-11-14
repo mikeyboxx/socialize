@@ -47,8 +47,6 @@ router.get('/', async (req, res) => {
       }
     });
 
-
-
     const [{"COUNT(*)": totalNbrOfComments}] = await sequelize.query(
       `SELECT COUNT(*) 
           FROM post, comment 

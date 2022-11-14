@@ -1,9 +1,6 @@
 const notificationHandler = async (notificationId, postId, event) => {
   // event.preventDefault();
   event.stopPropagation();
-
-  // console.log(notificationId, typeof notificationId);
-  // console.log('click');
   // const id = parseInt(notificationId);
   try {
     const response = await fetch(`/api/notifications/${notificationId}`, {
@@ -15,33 +12,33 @@ const notificationHandler = async (notificationId, postId, event) => {
         read_flag: true 
       }),
     })
+
 const data = await fetch(`/api/posts/${postId}`)
 const post = await data.json()
 const element= $("<div>")
 $(`#notification${notificationId}`).parent().append(element)
-
 loadPost(post, element);
-
   } catch (err) {
     console.log(err);
   }
 };
 
 const allNotifications = document.querySelectorAll('.nidhi');
+
 allNotifications.forEach(function(el) {
   el.addEventListener('click', notificationHandler.bind(this,  $(el).attr('notificationId'), $(el).attr('postId')));
 });
   
 document.addEventListener('DOMContentLoaded', () => {
-    (document.querySelectorAll('.delete .notification-modal-close .notification-modal') || []).forEach(($delete) => {
+    (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
       const $notification = $delete.parentNode;
-  
       $delete.addEventListener('click', () => {
         $notification.parentNode.removeChild($notification);
         document.location.replace('/notifications');
       });
     });
-  });
+  }
+  );
 
 function loadPost (post, element) {
 const {contents, totalLikes, totalDislikes, totalComments, id } = post
@@ -50,7 +47,7 @@ const {contents, totalLikes, totalDislikes, totalComments, id } = post
   <div class="modal-background"></div>
   <div class="modal-content">
   <div class="box">
-  <button class="delete"></button>
+  <button class="delete" onClick="window.location.reload();" type="button" ></button>
   <p>
    ${contents}
   </p>
@@ -65,8 +62,9 @@ const {contents, totalLikes, totalDislikes, totalComments, id } = post
   
   </div>
   </div>
-  <button class="notification-modal-close is-large" aria-label="close"></button>
   </div>
+`)};
 
-
-`)}
+function refreshPage(){
+  window.location.reload();
+} 
