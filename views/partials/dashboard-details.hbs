@@ -1,92 +1,27 @@
+<h1 class="title" style="color:white; text-align:center;">
+  <i class="fa-sharp fa-solid fa-user" ></i> {{user.firstName}} {{user.lastName}}'s Dashboard
+</h1>   
 
-{{!progress bar to show user is on line and viewing their dashboard}}
-<h1 class="title" style="color:white; text-align:center;"><i class="fa-sharp fa-solid fa-user" ></i> {{user.firstName}} {{user.lastName}}'s Dashboard</h1>                           
 <div class="columns is-justify-content-center">  
   <div class="column is-one-fifth" style="color:rgb(255, 255, 255)">
- {{!-- <div class="dropdown is-hoverable">
-  <div class="dropdown-trigger">
-    <button class="button" aria-haspopup="true" aria-controls="dropdown-menu5">
-      <span>About Me <i class="fa-solid fa-person-shelter"></i></span>
-      <span class="icon is-small">
-        <i class="fas fa-angle-down" aria-hidden="true"></i>
-      </span>
-    </button>
-  </div>
-    
-  <div class="dropdown-menu" id="dropdown-menu5" role="menu">
-    <div class="dropdown-content">
-      <div class="dropdown-item">
-        <p>Name:<strong>{{user.firstName}} <strong></strong>{{user.lastName}}</strong></p>
-        <p>Username:<strong>{{user.username}}</strong></p>
-      </div>
-    </div>
-  </div>
-</div>  --}}
     <div class="dog card">
       <p>Username: {{user.username}}</p>
     </div>
   </div>
+
   <div class="column is-one-fifth" style="color:white">
-  {{!-- <div class="dropdown is-hoverable">
-  <div class="dropdown-trigger">
-    <button class="button" aria-haspopup="true" aria-controls="dropdown-menu5">
-      <span>View Total Comments <i class="fa-solid fa-comments"></i></span>
-      <span class="icon is-small">
-        <i class="fas fa-angle-down" aria-hidden="true"></i>
-      </span>
-    </button>
-  </div>
-  <div class="dropdown-menu" id="dropdown-menu5" role="menu">
-    <div class="dropdown-content">
-      <div class="dropdown-item">
-        <p><strong>You have a total of {{user.totalNbrOfComments}} comments!</strong></p>
-      </div>
-    </div>
-  </div> --}}
     <div class="dog card">
       <p>You have a total of {{user.totalNbrOfComments}} comments!</p>
     </div>
   </div>
+
   <div class="column is-one-fifth" style="color:white">
-    {{!-- <div class="dropdown is-hoverable">
-      <div class="dropdown-trigger">
-        <button class="button" aria-haspopup="true" aria-controls="dropdown-menu5">
-          <span>View Total Likes <i class="fa-solid fa-thumbs-up"></i></span>
-          <span class="icon is-small">
-            <i class="fas fa-angle-down" aria-hidden="true"></i>
-          </span>
-        </button>
-      </div>
-      <div class="dropdown-menu" id="dropdown-menu5" role="menu">
-        <div class="dropdown-content">
-          <div class="dropdown-item">
-            <p><strong>You have a total of {{user.totalNbrOfLikes}} likes! </strong></p>
-          </div>
-        </div>
-      </div>
-    </div> --}}
     <div class="dog card">
       <p>You have a total of {{user.totalNbrOfLikes}} likes!</p>
     </div>
   </div>
+  
   <div class="column is-one-fifth" style="color:white">
-    {{!-- <div class="dropdown is-hoverable">
-      <div class="dropdown-trigger">
-        <button class="button" aria-haspopup="true" aria-controls="dropdown-menu5">
-          <span>View Total Dislikes <i class="fa-solid fa-thumbs-down"></i></span>
-          <span class="icon is-small">
-            <i class="fas fa-angle-down" aria-hidden="true"></i>
-          </span>
-        </button>
-      </div>
-      <div class="dropdown-menu" id="dropdown-menu5" role="menu">
-        <div class="dropdown-content">
-          <div class="dropdown-item">
-            <p><strong> {{user.totalNbrofDisLikes}}</strong> </p>
-          </div>
-        </div>
-      </div>
-    </div> --}}
     <div class="dog card">
       <p>You have a total of {{user.totalNbrOfDisLikes}} dislikes!</p>
     </div>

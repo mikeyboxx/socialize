@@ -12,15 +12,15 @@ if (process.env.JAWSDB_URL) {
     {
       host: 'localhost',
       dialect: 'mysql',
-      port: 3306,
-      dialectOptions: {
-        typeCast: function (field, next) { // for reading from database
-          if (field.type === 'DATETIME') {
-            return field.string()
-          }
-            return next()
-          },
-      },
+      port: 3306
+      // dialectOptions: {
+      //   typeCast: function (field, next) { // for reading from database
+      //     if (field.type === 'DATETIME') {
+      //       return field.string()
+      //     }
+      //       return next()
+      //     },
+      // },
     }
   );
 }
