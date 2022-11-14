@@ -1,41 +1,18 @@
 {{> navbar}}
+{{!-- {{#if notification}}
+{{>notification-details}} --}}
 
 <div>
 {{#each notifications }}
 
 
-  <div class="card notification">
-  <button class="delete"></button>
-  <div class="card-image ">
-    
-      {{!-- where we will display the post  --}}
-{{!-- modal 
+ <div  id= "notification{{id}}" class="nidhi card notification " notificationId="{{id}}" postId="{{post_id}}" notificationActive="false">
+  <button class="delete "></button>
+  {{!-- <div class="card-image ">
+  </div>   --}}
 
-
-
-<div class="notification-modal">
-  <div class="modal-background"></div>
-  <div class="modal-content">
- <div class="box" style="color:black;">
-
-  {{post.contents}}
-</div>
-  </div>
-  <button class="modal-close is-large" aria-label="close"></button>
-</div>
-
-
-
-{{!-- {{post.contents}} --}}
-
-
-
-  </div> 
-
-
-  <div class="card-content">
+<div class="card-content">
     <div class="content">
-      <div class="nidhi " notificationId="{{id}}" postId="{{post_id}}">
         {{#if comment }}
           <p>{{comment.user.first_name}} {{comment.user.last_name}}</p>
           <span class="title" style="font-size:15px">@{{comment.user.username}} </span>
@@ -52,9 +29,13 @@
           <span> has disliked your post on {{formatDate reaction.createdAt}}</span>
         {{/if}}
         {{/if}}
-      </div>
+    
     </div>
   </div>
 </div>
 {{/each}}
 </div>
+
+
+ <script src="/js/notification.js"></script>
+
