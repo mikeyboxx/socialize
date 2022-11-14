@@ -9,12 +9,12 @@
           <a class="sub-home" href="/">Home</a>
           <div class="expandHome">
             <a href="/dashboard">Dashboard</a>
+            {{#if loggedIn}}
             <a class="subnavbtn" href="/notifications">Notifications
             {{#if notificationCount}}
               ({{notificationCount}})
             {{/if}}
             </a>
-            {{#if loggedIn}}
             <a class="js-modal-trigger subnavbtn" data-target="new-post" id="create-post">New Post</a>
             <a class="js-modal-trigger subnavbtn" data-target="sign-in" href="/logout">Logout</a>
             {{else}}
