@@ -56,9 +56,6 @@ body {
     border-radius: 50%;
 }
 
-.navbar-start{
-    padding-left: 50px;
-}
 #trapezoid a, .subnavbtn {
     -webkit-transform: rotateX(180deg);
     transform: rotateX(180deg);
@@ -338,6 +335,11 @@ body {
     #trapezoid {
         margin-right: 2rem;
         width: 25.625rem;
+    }
+
+
+    .navbar-start{
+        padding-left: 50px;
     }
 
     .logo {
