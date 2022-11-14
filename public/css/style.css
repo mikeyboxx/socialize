@@ -169,6 +169,18 @@ body {
 #notification-container {
     height: 100%;
 }
+.notification-modal{
+    position: absolute;
+    float: left;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    
+}
+.notification-span{
+    justify-content: space-around;
+}
 
 #filler {
     height: 600px;
@@ -197,7 +209,6 @@ body {
 .card {
     background-color: var(--background-clr);
 }
-
 
 .cocktail_content {
     display: flex;
