@@ -207,6 +207,7 @@ body {
     border-radius: 5%;
 }
 
+.dog_content h2,
 .cocktail_content h2,
 .horoscope_content h2,
 .firstname_lastname {
@@ -263,7 +264,7 @@ body {
     border-bottom-left-radius: 25% !important;
     border-bottom-right-radius: 25% !important;
     box-shadow: 0 8px 6px -6px rgb(234, 224, 224);
-
+    justify-content: end;
 }
 
 .title {
@@ -290,7 +291,10 @@ body {
 
 
 .human_post,
-.icon {
+.icon,
+.dog_image,
+.meme_image,
+.dog_title {
     margin-left: 1rem;
 }
 
@@ -386,4 +390,12 @@ body {
         height: 10%;
     }
 
+    .new_cocktail {
+        text-align: center;
+    }
+
+    .card-footer {
+        display: flex;
+        justify-content: left;
+    }
 }
