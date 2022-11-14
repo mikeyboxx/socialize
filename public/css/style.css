@@ -154,6 +154,12 @@ body {
     justify-content: center;
 }
 
+.dog.card {
+    background-image: linear-gradient(to right, #ff00cc, #4d81fa);
+    justify-content: center;
+    color: white;
+}
+
 #notification-container {
     height: 100%;
 }
