@@ -281,7 +281,8 @@ body {
     flex-direction: column;
 }
 
-.card-footer {
+.card-footer,
+.meme_image {
     background-color: #e4e4f4;
     border-bottom-left-radius: 25% !important;
     border-bottom-right-radius: 25% !important;
@@ -316,7 +317,9 @@ body {
 .humanpost_icon,
 .dog_image,
 .meme_image,
-.dog_title{
+.dog_title,
+.meme_title,
+.created_date {
     margin-left: 1rem;
 }
 
@@ -327,7 +330,8 @@ body {
     color: #6a1658;
 }
 
-.username_date {
+.username_date,
+.created_date {
     font-size: .9rem;
     color: #6a1658;
     opacity: 0.5;
@@ -339,9 +343,16 @@ body {
 
 .dog_image,
 .meme_image {
+    padding: 1rem;
     width: 20%;
     height: auto;
     max-height: 85px;
+}
+
+.meme_title,
+.dog_title {
+    padding: 1rem;
+    color: #333399;
 }
 
 /* Media queries for ipad*/
