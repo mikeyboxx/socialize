@@ -161,6 +161,7 @@ body {
     background-image: linear-gradient(to right, #ff00cc, #4d81fa);
     justify-content: center;
     text-align: center;
+    color: white;
 }
 
 #notification-container {
