@@ -47,14 +47,14 @@ const {contents, totalLikes, totalDislikes, totalComments, id } = post
  <div class="modal-background"></div>
   <div class="modal-content">
    <div class="box">
-      <button class="delete" onClick="window.location.reload();" type="button" ></button>
-      <p>${contents}</p>
+      <button class="delete" style="float: right;" onClick="window.location.reload();" type="button" ></button>
+      <p>${contents}</p> <br>
       <div class ="notification-span">
-        <span>${totalComments}</span>
+        <span> Total Comments: ${totalComments}</span>
         <i class="fa-regular fa-comment" postid="${id}"></i>
-        <span>${totalLikes}</span>
+        <span>Total Likes: ${totalLikes}</span>
         <i class="fa-solid fa-thumbs-up thumbs-up{{@index}}" postid="${id}}"></i> 
-        <span>${totalDislikes} </span>
+        <span>Total Dislikes: ${totalDislikes} </span>
         <i class="fa-solid fa-thumbs-down thumbs-down{{@index}}" postid="${id}"></i>
       </div>
    </div>

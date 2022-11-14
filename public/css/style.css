@@ -173,12 +173,10 @@ body {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    text-align: center;
+    
 }
-
 .notification-span{
-    left: 0;
-    right: 0;
-    margin: auto;
     justify-content: space-around;
 }
 
