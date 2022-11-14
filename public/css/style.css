@@ -46,6 +46,8 @@ body {
     padding-left:7%;
     display: flex;
     flex-wrap: wrap;
+    position: fixed;
+    left: 21%;
 }
 
 .logo {
@@ -56,9 +58,6 @@ body {
     border-radius: 50%;
 }
 
-.navbar-start{
-    padding-left: 50px;
-}
 #trapezoid a, .subnavbtn {
     -webkit-transform: rotateX(180deg);
     transform: rotateX(180deg);
@@ -151,6 +150,7 @@ body {
     background-image: linear-gradient(to right, #ff00cc, #4d81fa);
     justify-content: center;
     text-align: center;
+    color: white;
 }
 .nidhi.card:hover {
     background-image: linear-gradient(to right, #e731ff, #4dcffa);
@@ -167,9 +167,21 @@ body {
 #notification-container {
     height: 100%;
 }
+.notification-modal{
+    position: absolute;
+    float: left;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+
+}
+.notification-span{
+    justify-content: space-around;
+}
 
 #filler {
-    height: 300px;
+    height: 600px;
     background-image: (to right, #333399, #ff00cc);
 }
 
@@ -195,7 +207,6 @@ body {
 .card {
     background-color: var(--background-clr);
 }
-
 
 .cocktail_content {
     display: flex;
@@ -270,7 +281,8 @@ body {
     flex-direction: column;
 }
 
-.card-footer {
+.card-footer,
+.meme_image {
     background-color: #e4e4f4;
     border-bottom-left-radius: 25% !important;
     border-bottom-right-radius: 25% !important;
@@ -305,22 +317,23 @@ body {
 .humanpost_icon,
 .dog_image,
 .meme_image,
-.dog_title{
+.dog_title,
+.meme_title,
+.created_date {
     margin-left: 1rem;
 }
 
-.username_date {
-    text-align: center;
-}
 
-.firstname_lastname,
-.username_date {
+
+.firstname_lastname {
     font-size: 1rem;
     color: #6a1658;
 }
 
-.username_date {
-    text-align: end;
+.username_date,
+.created_date {
+    font-size: .9rem;
+    color: #6a1658;
     opacity: 0.5;
 }
 
@@ -330,8 +343,16 @@ body {
 
 .dog_image,
 .meme_image {
+    padding: 1rem;
     width: 20%;
     height: auto;
+    max-height: 85px;
+}
+
+.meme_title,
+.dog_title {
+    padding: 1rem;
+    color: #333399;
 }
 
 /* Media queries for ipad*/
@@ -342,11 +363,21 @@ body {
         width: 25.625rem;
     }
 
+
+    .navbar-start{
+        padding-left: 50px;
+    }
+
     .logo {
         width: 20%;
     }
 
+    .sub-home {
+        margin-left: 8.5rem;
+    }
+
     .navbar-item a {
+        text-align: left;
         font-size: .55em;
         letter-spacing: 0.25rem;
 
@@ -398,6 +429,11 @@ body {
     .cocktail_img {
         width: 10%;
         height: 10%;
+    }
+
+    .meme_img {
+        max-height: 50%;
+        max-width: 50%;
     }
 
     .new_cocktail {

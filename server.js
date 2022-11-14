@@ -59,3 +59,7 @@ sequelize.sync({ force: false }).then(() => {
     console.log('Time:', Intl.DateTimeFormat('en-US',{dateStyle: 'long', timeStyle: 'long'}).format(new Date()));
   })
 });
+
+
+
+
