@@ -24,7 +24,7 @@ router.get('/', async (req, res) => {
       ],
       where: {
         user_id: !req.session.userId ? null : req.session.userId,
-        read_flag: false 
+        read_flag: false
       },
       order: [['createdAt', 'DESC']]
     });
@@ -34,7 +34,7 @@ router.get('/', async (req, res) => {
     const notificationCount = await Notification.count({
       where: {
         user_id: !req.session.userId ? null : req.session.userId,
-        read_flag: false 
+        read_flag: false
       },
     });
 
