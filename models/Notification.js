@@ -22,7 +22,7 @@ Notification.init(
       },
     },
     type:{ 
-      type: DataTypes.STRING,
+      type: DataTypes.STRING,  // 'comment', 'reaction'
       allowNull: false,
     }, 
     comment_id:{

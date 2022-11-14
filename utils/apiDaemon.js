@@ -14,7 +14,7 @@ const apiCleanupDaemon = () => {
     try {
       
       const START_DATE = moment('00010101', 'YYYYMMDD').utc();
-      const END_DATE = moment().subtract(1, 'hours').utc();
+      const END_DATE = moment().subtract(15, 'minutes').utc();
       
       const posts = await Post.destroy({
         where: {
@@ -39,6 +39,7 @@ const apiCleanupDaemon = () => {
 
 }
 
+// generates a new row on the Post table with Api data.  Api that is called is selected from 
 const apiDaemon = () => {
   const timer = setInterval(async ()=>{
     try {

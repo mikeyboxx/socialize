@@ -1,4 +1,4 @@
-// Custom middleware that logs out the type and path of each request to the server
+// Custom middleware that logs the type and path of each request to the server
 const clog = (req, res, next) => {
   const fgCyan = '\x1b[36m';
   const ts = new Date().toLocaleString();
