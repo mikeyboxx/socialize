@@ -157,6 +157,13 @@ body {
     justify-content: center;
 }
 
+.dog.card {
+    background-image: linear-gradient(to right, #ff00cc, #4d81fa);
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
 #notification-container {
     height: 100%;
 }
@@ -373,8 +380,6 @@ body {
     #trapezoid {
         margin-top:-6.25rem;
         width: 46.875rem;
-        position: fixed;
-        left: 24%;
     }
 
     .logo {
