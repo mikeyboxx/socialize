@@ -45,6 +45,9 @@ body {
     padding-left:7%;
     display: flex;
     flex-wrap: wrap;
+    position: fixed;
+    left: 24%;
+
 }
 
 .logo {
@@ -55,7 +58,9 @@ body {
     border-radius: 50%;
 }
 
-
+.navbar-start{
+    padding-left: 50px;
+}
 #trapezoid a, .subnavbtn {
     -webkit-transform: rotateX(180deg);
     transform: rotateX(180deg);
@@ -161,6 +166,7 @@ body {
     background-image: linear-gradient(to right, #ff00cc, #4d81fa);
     justify-content: center;
     color: white;
+    text-align: center;
 }
 
 #notification-container {
