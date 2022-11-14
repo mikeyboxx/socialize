@@ -107,3 +107,7 @@ const thumbdownButtons = document.querySelectorAll('.chris');
 thumbdownButtons.forEach(function(btn, idx) {
   btn.addEventListener('click', dislikeHandler.bind(this,  $(btn).attr('loggedIn'), idx));
 });
+
+
+
+

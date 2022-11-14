@@ -1,16 +1,9 @@
 {{> navbar}}
-{{!-- {{#if notification}}
-{{>notification-details}} --}}
-
 <div>
 {{#each notifications }}
 
-
  <div  id= "notification{{id}}" class="nidhi card notification " notificationId="{{id}}" postId="{{post_id}}" notificationActive="false">
   <button class="delete "></button>
-  {{!-- <div class="card-image ">
-  </div>   --}}
-
 <div class="card-content">
     <div class="content">
         {{#if comment }}
@@ -36,6 +29,9 @@
 {{/each}}
 </div>
 
+<script src="/js/notification.js"></script>
 
- <script src="/js/notification.js"></script>
+
+
+
 
