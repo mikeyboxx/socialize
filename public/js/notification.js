@@ -45,7 +45,7 @@ const {contents, totalLikes, totalDislikes, totalComments, id } = post
   $(element).html( `
 <div class="notification-modal">
  <div class="modal-background"></div>
-  <div class="modal-content">
+  <div class="modal-content bboyz">
    <div class="box">
       <button class="delete" style="float: right;" onClick="window.location.reload();" type="button" ></button>
       <p>${contents}</p> <br>
