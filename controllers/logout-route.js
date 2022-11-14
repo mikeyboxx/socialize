@@ -1,11 +1,11 @@
 const router = require('express').Router();
 
-// Logout
+// GET /logout
 router.get('/', (req, res) => {
-  // When the user logs out, the session is destroyed
+  // if user is logged in, delete the session and redirect to homepage
   if (req.session.loggedIn) {
     req.session.destroy(() => {
-      res.redirect('/');
+      res.redirect('/');   
       return;
     });
   } else {

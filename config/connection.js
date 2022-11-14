@@ -2,7 +2,8 @@ const Sequelize = require("sequelize");
 require("dotenv").config();
 
 let sequelize;
-if (process.env.JAWSDB_URL) {
+// JAWSDB_URL is used for Heroku deployment
+if (process.env.JAWSDB_URL) { 
   sequelize = new Sequelize(process.env.JAWSDB_URL);
 } else {
   sequelize = new Sequelize(
@@ -13,14 +14,6 @@ if (process.env.JAWSDB_URL) {
       host: 'localhost',
       dialect: 'mysql',
       port: 3306
-      // dialectOptions: {
-      //   typeCast: function (field, next) { // for reading from database
-      //     if (field.type === 'DATETIME') {
-      //       return field.string()
-      //     }
-      //       return next()
-      //     },
-      // },
     }
   );
 }

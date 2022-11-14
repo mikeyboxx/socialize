@@ -5,6 +5,7 @@ const withAuth = (req, res, next) => {
   //   req.session.userId = 2;
   // }
 
+  // user is not logged in, redirect to homepage
   if (!req.session.loggedIn) {
     res.redirect('/');
   } else {

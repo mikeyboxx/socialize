@@ -10,7 +10,8 @@ const getMemeApiData = () => {
         reject({status: status, message: statusText});
         return;
       };
-      // console.log(data.memes);
+
+      // pick a random meme from the array of 100 memes that are returned by the api
       const meme = data.data.memes[Math.floor(Math.random() * data.data.memes.length)];
       return resolve(meme);
 
