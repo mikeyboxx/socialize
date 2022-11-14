@@ -13,7 +13,7 @@
           {{#if post.api_horoscope }}
              {{> horoscope-post item=post.api_object}}
           {{/if}}
-
+           
           {{#if post.api_dog }}
              {{> dog-post item=post.api_object}}
           {{/if}}
@@ -38,13 +38,13 @@
           </a>
 
           {{#if totalAlreadyLiked}}
-            <a class="card-footer-item" loggedIn="{{../loggedIn}}">
+            <a class="card-footer-item mike" loggedIn="{{../loggedIn}}">
               <span class="like{{@index}}">{{totalLikes}}</span>
               <span style="visibility:hidden"> -</span>
               <i class="fa-solid fa-thumbs-up thumbs-up{{@index}}" postid="{{post.id}}"></i>
             </a>
           {{else}}
-            <a class="card-footer-item" loggedIn="{{../loggedIn}}">
+            <a class="card-footer-item mike" loggedIn="{{../loggedIn}}">
               <span class="like{{@index}}">{{totalLikes}}</span>
               <span style="visibility:hidden"> -</span>
               <i class="fa-regular fa-thumbs-up thumbs-up{{@index}}"  postid="{{post.id}}"></i>
@@ -52,13 +52,13 @@
           {{/if}}
 
           {{#if totalAlreadyDisliked}}
-            <a class="card-footer-item" loggedIn="{{../loggedIn}}">
+            <a class="card-footer-item chris" loggedIn="{{../loggedIn}}">
               <span class="dislike{{@index}}">{{totalDislikes}}</span>
               <span style="visibility:hidden"> -</span>
               <i class="fa-solid fa-thumbs-down thumbs-down{{@index}}" postid="{{post.id}}"></i>
             </a>
           {{else}}
-            <a class="card-footer-item" loggedIn="{{../loggedIn}}">
+            <a class="card-footer-item chris" loggedIn="{{../loggedIn}}">
               <span class="dislike{{@index}}">{{totalDislikes}}</span>
               <span style="visibility:hidden"> -</span>
               <i class="fa-regular fa-thumbs-down thumbs-down{{@index}}" postid="{{post.id}}"></i>

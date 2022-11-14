@@ -156,6 +156,7 @@ body {
 .nidhi.card {
     background-image: linear-gradient(to right, #ff00cc, #4d81fa);
     justify-content: center;
+    text-align: center;
 }
 .nidhi.card:hover {
     background-image: linear-gradient(to right, #e731ff, #4dcffa);
