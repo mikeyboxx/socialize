@@ -39,11 +39,11 @@ If you wish to contributr please fork the repo to add your suggestions.
 
   ## Contributors
 
-Chris shurr
-Jules Joseph
-Malvina Hasa
-Michael Nabatov
-Nidhi Patel
+* Chris shurr
+* Jules Joseph
+* Malvina Hasa
+* Michael Nabatov
+* Nidhi Patel
 
 
   ## Tests
