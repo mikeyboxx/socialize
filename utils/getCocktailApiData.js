@@ -1,4 +1,6 @@
 const axios = require('axios');
+
+// get data from cocktailDb api
 const getCocktailApiData = () => {
   return new Promise(async (resolve, reject)=> {
     try {
