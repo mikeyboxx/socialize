@@ -274,7 +274,6 @@ body {
 .comment_content {
     background-color: #e4e4f4;
     border-top: 1px solid white;
-    border-bottom: 1px solid white;
     padding-left: .75rem;
     padding-top: 10px;
     margin-top: 8px;
@@ -461,8 +460,9 @@ body {
     }
 
     .cocktail_img {
-        width: 100px;
-        height: 100px;
+        width: 175px;
+        height: 175px;
+        border-radius: 30px;
     }
 
     .meme_img {
