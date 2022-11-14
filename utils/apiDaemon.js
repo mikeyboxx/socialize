@@ -43,7 +43,7 @@ const apiCleanupDaemon = () => {
 const apiDaemon = () => {
   const timer = setInterval(async ()=>{
     try {
-      const api_idArr = [1, 2, 3, 4];
+      const api_idArr = [1, 2, 3];
       
       const api_id = api_idArr[Math.floor(Math.random() * api_idArr.length)];
       let response = {};
