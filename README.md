@@ -30,11 +30,14 @@ https://pure-depths-45442.herokuapp.com/
 ![Signup](./public/images/Screen%20Shot%202022-11-14%20at%2010.23.34%20PM.png "SZ Sign up")
  ## Homepage
 ![Homepage](./public/images/Screenshot_2.png?raw=true "SZ Homepage")
+ ## Dashboard
+![Dashboard](./public/images/Screen%20Shot%202022-11-14%20at%2010.31.03%20PM.png "SZ Notifications")
+ ## New Post
+![NewPost](./public/images/Screen%20Shot%202022-11-14%20at%2010.33.13%20PM.png "SZ Notifications")
  ## Notification
 ![Notifications](./public/images/Screenshot_3.png?raw=true "SZ Notifications")
  ## Notification
 ![NotificationModal](./public/images/Screen%20Shot%202022-11-14%20at%2010.20.54%20PM.png "SZ Notifications")
-
 
 
   ## License
