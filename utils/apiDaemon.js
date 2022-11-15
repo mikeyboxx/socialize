@@ -43,10 +43,12 @@ const apiCleanupDaemon = () => {
 
 // Every 30 seconds, fetch api data, and save a json string of the response on the Post table.  Api to be called is randomly selected from api_idArr, which contains api_Ids, that identify which Api to call. 
 const apiDaemon = () => {
+  let api_id = 1;
   const timer = setInterval(async ()=>{
     try {
-      const api_idArr = [1, 2, 3, 4];
-      const api_id = api_idArr[Math.floor(Math.random() * api_idArr.length)];
+      // select a random api to call
+      // const api_idArr = [1, 2, 3, 4];
+      // const api_id = api_idArr[Math.floor(Math.random() * api_idArr.length)];
 
       let response = {};
       // invoke api function based on api id
@@ -69,6 +71,9 @@ const apiDaemon = () => {
         user_id: 1
       });
 
+      // do a round-a-robin to to call a different api each tick
+      (api_id === 4) ? api_id = 1 : api_id++;
+
       console.log(`${fgCyan}created Post id = `,dbPostData.get(({ plain: true })).id);
       console.log(`${fgCyan}api id = `,api_id);
 
@@ -77,7 +82,7 @@ const apiDaemon = () => {
       clearInterval(timer);
       return;
     };
-  },30000);
+  },60000);
 }
 
 module.exports = {apiDaemon, apiCleanupDaemon};
