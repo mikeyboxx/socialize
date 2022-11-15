@@ -7,7 +7,7 @@
 
 *{
     box-sizing: border-box;
-    font-size: .65rem;
+    /* font-size: .65rem; */
 }
 
 html{
@@ -314,7 +314,8 @@ body {
     background-color: #e4e4f4;
     border-bottom-left-radius: 0.75rem;
     border-bottom-right-radius: 0.75rem;
-    justify-content: end;
+    justify-content: space-around;
+    
 }
 
 .card-content:last-child, .card-footer:last-child, .card-header:last-child {
@@ -340,7 +341,7 @@ body {
 }
 
 .card-footer-item {
-    margin-left: 5rem;
+    /* margin-left: 5rem; */
     flex-grow: 0;
 }
 
@@ -380,12 +381,21 @@ body {
     height: 250px;
     border-radius: 30px;
     margin-left: 1rem;
+    object-fit: cover;
+    
 }
 
 .meme_title,
 .dog_title {
     padding: 1rem;
     color: #333399;
+}
+
+.cocktail_img {
+  width: 250px;
+  height: 250px;
+  border-radius: 30px;
+  object-fit: contain;
 }
 
 /* Media queries for ipad*/
@@ -460,9 +470,10 @@ body {
     }
 
     .cocktail_img {
-        width: 175px;
-        height: 175px;
+        width: 250px;
+        height: 250px;
         border-radius: 30px;
+        object-fit: contain;
     }
 
     .meme_img {
@@ -478,4 +489,9 @@ body {
         display: flex;
         justify-content: left;
     }
+
+    .card-footer-item {
+      margin-left: 5rem;
+      flex-grow: 0;
+  }
 }
