@@ -185,6 +185,15 @@ body {
     top: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+
+}
+.notification-span {
+    justify-content: space-around;
+    text-align: left;
+}
+
+.notified {
+    padding-right: 40px;
 }
 
 #filler {
@@ -202,10 +211,15 @@ body {
     margin: 0 auto;
 }
 
-.box {
-    background-color: rgb(177, 43, 226);
-    color: white;
+.commentz {
+    background-image: linear-gradient(to right, #ff00cc, #4d81fa);
 }
+
+.box {
+    /* background-image: linear-gradient(to right, #4d81fa, #ff00cc); */
+    color: black;
+}
+
 
 .btn {
     color: white;
@@ -269,7 +283,7 @@ body {
     border-top: 1px solid white;
     padding-left: .75rem;
     padding-top: 10px;
-    margin-top: 8px;
+    margin-top: 0px;
 }
 
 .name_glass,
