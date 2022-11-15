@@ -1,7 +1,5 @@
 const notificationHandler = async (notificationId, postId, event) => {
-  // event.preventDefault();
   event.stopPropagation();
-  // const id = parseInt(notificationId);
   try {
     const response = await fetch(`/api/notifications/${notificationId}`, {
       method: 'PUT',
