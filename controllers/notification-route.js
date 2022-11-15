@@ -3,10 +3,10 @@ const sequelize = require("../config/connection");
 const withAuth = require('../middleware/auth');
 const {Notification, User, Comment, Reaction, Post} = require('../models');
 
-// notification route
+// GET /notifications
 router.get('/', async (req, res) => {
   try {
-    console.log(`req.session.userId = ${!req.session.userId ? null : req.session.userId}`);
+    // retrieve all Notifications and associated Posts with their associated Comments and Reactions, with user information of the creator, and total counts of Likes, Dislikes, and Comments of the post
     const notifications = await Notification.findAll({
       include: [
         {model: Post,
@@ -31,15 +31,15 @@ router.get('/', async (req, res) => {
       order: [['createdAt', 'DESC']], 
       attributes: {
         include: [
-          [ 
+          [ //total comments for the post
             sequelize.literal('(SELECT COUNT(*) FROM comment WHERE comment.post_id = post.id)'), 
             'totalComments'
           ],
-          [
+          [ // total reactions of type = 'like'
             sequelize.literal(`(SELECT COUNT(*) FROM reaction WHERE reaction.post_id = post.id AND reaction.type = 'like')`), 
             'totalLikes'
           ],
-          [
+          [ // total reactions of type = 'dislike'
             sequelize.literal(`(SELECT COUNT(*) FROM reaction WHERE reaction.post_id = post.id AND reaction.type = 'dislike')`), 
             'totalDislikes'
           ],
@@ -47,29 +47,10 @@ router.get('/', async (req, res) => {
       }
     });
 
-    const [{"COUNT(*)": totalNbrOfComments}] = await sequelize.query(
-      `SELECT COUNT(*) 
-          FROM post, comment 
-         WHERE post.id = comment.post_id
-           AND post.user_id = ${!req.session.userId ? null : req.session.userId}`,{type: sequelize.QueryTypes.SELECT});
-
-    const [{"COUNT(*)":totalNbrOfLikes}] = await sequelize.query(
-      `SELECT COUNT(*) 
-          FROM post, reaction 
-         WHERE post.id = reaction.post_id
-           AND post.user_id = ${!req.session.userId ? null : req.session.userId}
-
-           AND reaction.type = 'like'`,{type: sequelize.QueryTypes.SELECT});
-           
-    const [{"COUNT(*)":totalNbrOfDisLikes}] = await sequelize.query(
-      `SELECT COUNT(*) 
-          FROM post, reaction 
-         WHERE post.id = reaction.post_id
-           AND post.user_id = ${!req.session.userId ? null : req.session.userId}
-           AND reaction.type = 'dislike'`,{type: sequelize.QueryTypes.SELECT});
-
+    // convert to objects without sequelize metadata
     const notificationsArr = notifications.map(notification => notification.get(({ plain: true })));
 
+    // retrieve a count of all notifications for the loggedin user, that haven't been read yet
     const notificationCount = await Notification.count({
       where: {
         user_id: !req.session.userId ? null : req.session.userId,
@@ -77,15 +58,16 @@ router.get('/', async (req, res) => {
       },
     });
 
-    // res.json(notificationsArr);
 
+    // This code is used for debugging. If used, then must comment out res.render code below
+    // res.json({
+    //   notificationCount,
+    //   notifications: notificationsArr,
+    //   loggedIn: req.session.loggedIn
+    // });
+
+    // pass the object with posts, nbr of notifications, and whether user is loggedin, to notifications.hbs view
     res.render('notifications', {
-     user:{
-      totalNbrOfComments,
-      totalNbrOfLikes,
-      totalNbrOfDisLikes
-     },
-     
       notificationCount,
       notifications: notificationsArr,
       loggedIn: req.session.loggedIn

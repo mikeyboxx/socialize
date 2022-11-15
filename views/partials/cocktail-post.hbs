@@ -1,9 +1,9 @@
 {{#with item}}
 <div class= "cocktail_content">
+    <span class="created_date">{{formatDate createdAt}}</span>
     <div class="name_glass">
         <h2 class="new_cocktail">New cocktail</h2>
         <h2 class="drink_name">{{drink}}</h2>
-        <h2 class="drink_glass">{{glass}}</h2>
     </div>
 
     <div class="cocktail_body">
@@ -11,6 +11,7 @@
         <div class="instructions-ingredients">
             <p class="instructions">{{instructions}}</p>
             <hr>
+            <p>{{glass}}</p>
             {{#each ingredients}}
             <p class="ingredients"><span>{{ingredient}} {{measure}}</span></p>
             {{/each}}

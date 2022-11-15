@@ -1,16 +1,15 @@
 const router = require("express").Router();
-const { Reaction, Notification } = require("../../models");
 const {QueryTypes} = require("sequelize");
 const sequelize = require("../../config/connection");
+const { Reaction, Notification } = require("../../models");
 
+// POST /api/reactions
 //route to process a like/dislike/undo request of a post reaction
 router.post("/",  async (req, res) => {
   try {
-    // validate the type
+    // validate the type, if not valid retutn error
     if (!(req.body.type === 'like' ||  req.body.type === 'dislike' || req.body.type === 'undo')) {
-      res
-        .status(399)
-        .json({ message: 'Incorrect type. Must be like, dislike, or undo' });
+      res.status(399).json({ message: 'Incorrect type. Must be like, dislike, or undo' });
       return;
     };
 
@@ -30,8 +29,10 @@ router.post("/",  async (req, res) => {
         user_id: !req.session.userId ? null : req.session.userId
       });
 
+      // convert to object without sequelize metadata
       dbReactionData = dbReactionData.get(({ plain: true }));
 
+      // retrieve the user_id of the post creator
       const [{"user_id": postUserId}] = await sequelize.query(
         `SELECT user_id 
             FROM post 

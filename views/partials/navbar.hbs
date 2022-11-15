@@ -6,19 +6,21 @@
 
     <div class="navbar-item is-hoverable mt-1" id="navbar">
       <div id="trapezoid">
-          <a class="sub-home" href="/">Home</a>  
-          {{#if loggedIn}}
-           <a class="expandHome" href="/dashboard">Dashboard</a>
-           <a class="subnavbtn" href="/notifications">Notifications
-          {{#if notificationCount}}
-            ({{notificationCount}})
-          {{/if}}
-          </a>
-          <a class="js-modal-trigger subnavbtn" data-target="new-post" id="create-post">New Post</a>
-          <a class="js-modal-trigger expandHome subnavbtn" data-target="sign-in" href="/logout">Logout</a>
-          {{else}}
-          <a class="js-modal-trigger expandHome subnavbtn" data-target="sign-in" id="loginLink">Login</a>
-          {{/if}}
+          <a class="sub-home" href="/">Home</a>
+          <div class="expandHome">
+            {{#if loggedIn}}
+            <a class="expandHome" href="/dashboard">Dashboard</a>
+            <a class="subnavbtn" href="/notifications">Notifications
+            {{#if notificationCount}}
+              ({{notificationCount}})
+            {{/if}}
+            </a>
+            <a class="js-modal-trigger subnavbtn" data-target="new-post" id="create-post">New Post</a>
+            <a class="js-modal-trigger expandHome subnavbtn" data-target="sign-in" href="/logout">Logout</a>
+            {{else}}
+            <a class="js-modal-trigger expandHome subnavbtn" data-target="sign-in" id="loginLink">Login</a>
+            {{/if}}
+          </div>
       </div>
     </div>
 </nav>
@@ -55,8 +57,8 @@
 
     {{!-- Log-in footer --}}
     <footer class="modal-card-foot sign-in">
-      <button class="button is-success btn" id="login-submit">Log In</button>
-      <button class="button js-modal-trigger btn" data-target="sign-up" id="signupLink">Sign Up Instead</button>
+      <a class=" login-button  btn p-2" id="login-submit">Log In</a>
+      <a class="js-modal-trigger btn login-button p-2" data-target="sign-up" id="signupLink">Sign Up</a>
     </footer>
   </div>
 </div>
@@ -121,7 +123,7 @@
 
     {{!-- Sign up button --}}
     <footer class="modal-card-foot submit_btn sign-up">
-      <a class="button is-success btn" id="signup-submit">Sign up</a>
+      <a class="login-button btn p-1" id="signup-submit">Sign up</a>
     </footer>
 
   </div>
@@ -143,7 +145,7 @@
 
     {{!-- New post footer --}}
     <footer class="modal-card-foot new-post">
-      <button class="button is-success btn" id="newpost-submit">Create New Post</button>
+      <a class="is-success btn" id="newpost-submit">Create New Post</a>
     </footer>
 
   </div>

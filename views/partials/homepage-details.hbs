@@ -1,6 +1,6 @@
 <div id="feed" class="mx-6 feed">
   {{#each posts as |post|}}
-  <div class="card">
+  <div class="card mt-1">
       <div class="card-content post">
           {{#if post.human_post }}
              {{> human-post item=post}}
@@ -23,14 +23,16 @@
           {{/if}}
 
           {{#each comments }}
-            <hr>
-            <div>
-              {{contents}}
+            <div class="comment_content">
+
+                <span class="content-boyz2">
+                  {{contents}}
+                </span>
+                <div>
+                  <p style="font-weight:bolder;" >{{user.first_name}} {{user.last_name}} --{{formatDate createdAt}}</p>
+                </div>
+
             </div>
-            <div>
-              -- @{{user.username}}, {{formatDate createdAt}}
-            </div>
-            <hr>
           {{/each}}
       </div>
 

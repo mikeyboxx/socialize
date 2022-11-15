@@ -1,4 +1,6 @@
 const axios = require('axios');
+
+// get a random horoscope ny calling the aztro api
 const getHoroscopeApiData = () => {
   return new Promise(async (resolve, reject)=> {
     const horoscopeArr = ['aries', 'taurus', 'gemini', 'cancer', 'leo', 'virgo', 'libra', 'scorpio', 'sagittarius', 'capricorn', 'aquarius', 'pisces'];

@@ -8,8 +8,6 @@
 *{
     box-sizing: border-box;
     font-size: .65rem;
-
-    /* border: 1px solid red; */
 }
 
 html{
@@ -18,8 +16,6 @@ html{
 
 body {
     background: var(--background-clr);
-
-    /* margin:.5em; */
   }
 
 #trapezoid {
@@ -58,9 +54,6 @@ body {
     border-radius: 50%;
 }
 
-.navbar-start{
-    padding-left: 50px;
-}
 #trapezoid a, .subnavbtn {
     -webkit-transform: rotateX(180deg);
     transform: rotateX(180deg);
@@ -140,6 +133,8 @@ body {
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
+    background-color: var(--background-clr);
+
 }
 
  .notificationz {
@@ -158,6 +153,7 @@ body {
 .nidhi.card:hover {
     background-image: linear-gradient(to right, #e731ff, #4dcffa);
     justify-content: center;
+    cursor: grab;
 }
 
 .dog.card {
@@ -165,6 +161,20 @@ body {
     justify-content: center;
     text-align: center;
     color: white;
+}
+
+.content-boyz {
+    overflow-wrap: break-word;
+    padding-left: .75rem;
+    padding-top: 5px;
+
+}
+
+.content-boyz2 {
+    overflow-wrap: break-word;
+    padding-left: .75rem;
+    padding-top: 5px;
+    margin-bottom: 5px;
 }
 
 #notification-container {
@@ -177,7 +187,7 @@ body {
     top: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    
+
 }
 .notification-span{
     justify-content: space-around;
@@ -192,24 +202,31 @@ body {
 .sign-up,
 .new-post,
 .comment_box,
-.new-comment {
+.new-comment,
+.new-post {
     background: var(--background-clr);
     width: 80%;
     margin: 0 auto;
 }
 
-.btn {
-    background-color: #7979e7 !important;
+.box {
+    background-color: rgb(177, 43, 226);
     color: white;
+}
+
+.btn {
+    color: white;
+    margin-right: 5px;
+}
+
+.btn:hover {
+    color:#4dcffa;
 }
 
 .dashboard_content {
     background: var(--background-clr);
 }
 
-.card {
-    background-color: var(--background-clr);
-}
 
 .cocktail_content {
     display: flex;
@@ -249,8 +266,17 @@ body {
 .dog_content {
     background-color: #e4e4f4;
     padding: .75rem;
+    padding-bottom: 0px;
     border-top-left-radius: 5%;
     border-top-right-radius: 5%;
+}
+
+.comment_content {
+    background-color: #e4e4f4;
+    border-top: 1px solid white;
+    padding-left: .75rem;
+    padding-top: 10px;
+    margin-top: 8px;
 }
 
 .name_glass,
@@ -262,8 +288,8 @@ body {
 .description {
     flex-direction: row;
     display: flex;
-    margin: 1rem 4rem 0 1rem;
-    padding: 1rem 1rem 0 1rem;
+    margin: 1rem 0rem 0 1rem;
+    padding: 0rem 1rem 0 1rem;
 }
 
 .instructions-ingredients {
@@ -277,7 +303,7 @@ body {
 .horoscope_body,
 .human_post {
     display: flex;
-    box-shadow: 0 .5em 1em -.125em rgba(10,10,10,.1),0 0 0 1px rgba(10,10,10,.02);
+    padding-left: 0px;
 }
 
 .cocktail_body {
@@ -286,10 +312,14 @@ body {
 
 .card-footer {
     background-color: #e4e4f4;
-    border-bottom-left-radius: 25% !important;
-    border-bottom-right-radius: 25% !important;
-    box-shadow: 0 8px 6px -6px rgb(234, 224, 224);
+    border-bottom-left-radius: 0.75rem;
+    border-bottom-right-radius: 0.75rem;
     justify-content: end;
+}
+
+.card-content:last-child, .card-footer:last-child, .card-header:last-child {
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
 }
 
 .title {
@@ -315,26 +345,27 @@ body {
 }
 
 
-.human_post,
+
 .humanpost_icon,
-.dog_image,
-.meme_image,
-.dog_title{
+.dog_title,
+.meme_title,
+.created_date {
     margin-left: 1rem;
 }
 
-.username_date {
-    text-align: center;
+.human_post {
+    margin-left: 0px;
 }
 
-.firstname_lastname,
-.username_date {
+.firstname_lastname {
     font-size: 1rem;
     color: #6a1658;
 }
 
-.username_date {
-    text-align: end;
+.username_date,
+.created_date {
+    font-size: .9rem;
+    color: #6a1658;
     opacity: 0.5;
 }
 
@@ -344,8 +375,17 @@ body {
 
 .dog_image,
 .meme_image {
-    width: 20%;
-    height: auto;
+    padding: 1rem;
+    width: 250px;
+    height: 250px;
+    border-radius: 30px;
+    margin-left: 1rem;
+}
+
+.meme_title,
+.dog_title {
+    padding: 1rem;
+    color: #333399;
 }
 
 /* Media queries for ipad*/
@@ -356,11 +396,21 @@ body {
         width: 25.625rem;
     }
 
+
+    .navbar-start{
+        padding-left: 50px;
+    }
+
     .logo {
         width: 20%;
     }
 
+    .sub-home {
+        margin-left: 8.5rem;
+    }
+
     .navbar-item a {
+        text-align: left;
         font-size: .55em;
         letter-spacing: 0.25rem;
 
@@ -410,8 +460,14 @@ body {
     }
 
     .cocktail_img {
-        width: 10%;
-        height: 10%;
+        width: 175px;
+        height: 175px;
+        border-radius: 30px;
+    }
+
+    .meme_img {
+        max-height: 50%;
+        max-width: 50%;
     }
 
     .new_cocktail {

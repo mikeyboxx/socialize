@@ -4,10 +4,9 @@
       <img src="images/sz.jpeg" class="image is-32x32">
   </span>
   <div class="user_info">
-    <span class="firstname_lastname" style="font-weight:bold">{{user.first_name}} {{user.last_name}}</span>
-    <p><span class="username_date">@{{user.username}} -- {{formatDate createdAt}}</span></p>
-    <hr>
-    <p class="human_post">{{contents}}</p>
+    <span class="firstname_lastname" style="font-weight:bold">{{user.first_name}} {{user.last_name}}</span>&nbsp;
+    <span class="username_date">   @{{user.username}} -- {{formatDate createdAt}}</span>
+    <span class="human_post content-boyz">{{contents}}</span>
     <br>
   </div>
 {{/with}}

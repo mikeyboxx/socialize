@@ -1,15 +1,14 @@
 {{#with item}}
 <div class="horoscope_content">
+    <span class="created_date">{{formatDate createdAt}}</span>
     <div class="horoscope_date">
         <h2>Horoscope today</h2>
-        <br>
         <h2>{{date_range}}</h2>
         <h2 class="zodiac_sign">{{zodiac_sign}}</h2>
         <p>{{zodiac_icon}}</p>
     </div>
     <div class="horoscope_body">
         <p class="description">{{description}}</p>
-        <hr>
         <div class="horoscope_other">
             <p><span><h2>Compatibility</h2><span> {{compatibility}} </span></p>
             <p><span><h2>Mood</h2> {{mood}}</span></p>
