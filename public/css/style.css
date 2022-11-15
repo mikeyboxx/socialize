@@ -200,7 +200,6 @@ body {
     height: 600px;
     background-image: (to right, #333399, #ff00cc);
 }
-
 .sign-in,
 .sign-up,
 .new-post,
@@ -498,4 +497,6 @@ body {
       margin-left: 5rem;
       flex-grow: 0;
   }
+
+ 
 }

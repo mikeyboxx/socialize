@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function loadPost (post, element) {
 const {contents, totalLikes, totalDislikes, totalComments, id } = post
   $(element).html( `
-<div class="notification-modal">
+<div class="notification-modal" id="notification-style">
  <div class="modal-background"></div>
   <div class="modal-content bboyz">
    <div class="box">
