@@ -49,13 +49,13 @@ const {contents, totalLikes, totalDislikes, totalComments, id } = post
    <div class="box">
       <button class="delete" style="float: right;" onClick="window.location.reload();" type="button" ></button>
       <p>${contents}</p> <br>
-      <div class ="notification-span">
+      <div class="notification-span">
         <span>${totalComments}</span>
-        <i class="fa-regular fa-comment" postid="${id}"></i>
+        <i class="fa-solid fa-comment notified" postid="${id}"></i>
         <span>${totalLikes}</span>
-        <i class="fa-solid fa-thumbs-up thumbs-up{{@index}}" postid="${id}}"></i> 
+        <i class="fa-solid fa-thumbs-up thumbs-up{{@index}} notified" postid="${id}}"></i> 
         <span>${totalDislikes} </span>
-        <i class="fa-solid fa-thumbs-down thumbs-down{{@index}}" postid="${id}"></i>
+        <i class="fa-solid fa-thumbs-down thumbs-down{{@index}} notified" postid="${id}"></i>
       </div>
    </div>
   </div>
