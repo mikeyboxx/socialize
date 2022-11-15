@@ -124,7 +124,6 @@ body {
     justify-content: center;
 }
 
-
 #feed {
     margin-top: 30px;
 }
@@ -134,7 +133,6 @@ body {
     justify-content: flex-start;
     flex-direction: column;
     background-color: var(--background-clr);
-
 }
 
  .notificationz {
@@ -331,20 +329,16 @@ body {
     display: flex;
     flex-direction: column;
     margin-left: 2rem;
-
 }
 
 .horoscope_body {
     flex-direction: column;
-
 }
 
 .card-footer-item {
     margin-left: 5rem;
     flex-grow: 0;
 }
-
-
 
 .humanpost_icon,
 .dog_title,
