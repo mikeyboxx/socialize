@@ -62,7 +62,7 @@ const apiDaemon = () => {
         case 4:  response = await getMemeApiData();
           break;
       }
-      // console.log(response);
+      console.log(response);
 
       // create a row on the Post table with the user_id of 1, which is setup on the User table as a bot user 
       const dbPostData = await Post.create({
