@@ -37,7 +37,7 @@ const apiCleanupDaemon = () => {
       clearInterval(timer);
       return;
     };
-  },15000);
+  },360000);
 
 }
 
